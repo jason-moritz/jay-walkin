@@ -1,1 +1,1 @@
-# JayWalking
+# jay-walking
