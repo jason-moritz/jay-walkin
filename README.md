@@ -1,5 +1,12 @@
 # Jay-Walkin
 
+###Overview
+-Jay-Walkin(v1) is an app that has a collection of mid-to-high range sneakers.
+-Users can create a new account or login to an existing account.
+-Once logged in, users(admin) can add, edit, view, and delete sneakers in the database.
+-Users(admin) can view individual sneaker details and price.
+-This app is built for desktop, and also responsive for mobile viewing.
+
 ###Schema
 ```
 const User = new Schema(
