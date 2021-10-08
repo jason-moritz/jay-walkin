@@ -13,7 +13,7 @@ export const getProducts = async (req, res) => {
 export const getProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await Product.findById(id).populate("userId");
+    const product = await Product.findById(id);
     if (product) {
       return res.json(product);
     }
