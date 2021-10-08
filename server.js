@@ -14,6 +14,7 @@ app.use(logger("dev"));
 
 app.use("/api", routes);
 
+
 db.on("connected", () => {
   console.log("You are quite good at turning me on ;) Connected to MongoDB!");
   app.listen(PORT, () =>
