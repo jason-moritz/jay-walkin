@@ -1,4 +1,4 @@
-# Jay-Walkin
+#Jay-Walkin
 
 ###Overview
 -Jay-Walkin(v1) is an app that has a collection of mid-to-high range sneakers.
