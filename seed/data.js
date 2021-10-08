@@ -9,7 +9,7 @@ const insertData = async () => {
 
   const user1 = new User({
     username: "nathan",
-    email: "nathan",
+    email: "nathan@test.com",
     password_digest: await bcrypt.hash("test", 11),
   });
   await user1.save();
@@ -23,14 +23,14 @@ const insertData = async () => {
 
   const user3 = new User({
     username: "diego",
-    email: "diego",
+    email: "diego@test.com",
     password_digest: await bcrypt.hash("test", 11),
   });
   await user3.save();
 
   const user4 = new User({
     username: "chace",
-    email: "chace",
+    email: "chace@test.com",
     password_digest: await bcrypt.hash("test", 11),
   });
   await user4.save();
