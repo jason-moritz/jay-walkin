@@ -5,12 +5,13 @@ import Layout from "../../components/Layout/Layout";
 
 
 export default function Home(props) {
-    const [latestShoes, setLatestShoes] = useState([])
+    const [latestProducts, setLatestProducts] = useState([])
 
     useEffect(() => {
         const fetchShoes = async() => {
-            const allShoes = await getProducts()
-            setLatestShoes(allShoes.slice(0, 3))
+            const allProducts = await getProducts()
+            const latest = allProducts.slice((allProducts.length - 3), allProducts.length)
+            setLatestProducts(latest)
         };
         fetchShoes();
     },[])
@@ -27,14 +28,14 @@ export default function Home(props) {
                 <div className="latest-container">
                     <div className="latest-label">Latest</div>
                     <div className="latest-container">
-                        {latestShoes.map((latestShoe) => (
-                            <div className="shoe-card">
-                                <div className="shoe-container">
-                                    <Link to={`/products/${latestShoe._id}`}>
-                                        <img src={latestShoe.imgURL} alt={latestShoe._id} />
-                                        <div className="shoe-info">
-                                            <div>{latestShoe.name}</div>
-                                            <div>{latestShoe.price}</div>
+                        {latestProducts.map((latestProduct) => (
+                            <div className="phoe-card">
+                                <div className="phoe-container">
+                                    <Link to={`/products/${latestProduct._id}`}>
+                                        <img src={latestProduct.imgURL} alt={latestProduct._id} />
+                                        <div className="product-info">
+                                            <div>{latestProduct.name}</div>
+                                            <div>{latestProduct.price}</div>
                                         </div>
                                     </Link>
                                 </div>
