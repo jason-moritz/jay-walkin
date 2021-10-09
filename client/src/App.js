@@ -1,8 +1,10 @@
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { verifyUser } from "./services/Users";
+import Home from "./screens/Home/Home"
 
-export default const App = () => {
+export default function App() {
     const [user, setUser] = useState(null)
 
     useEffect(() => {
@@ -16,7 +18,9 @@ export default const App = () => {
   return (
     <div className="App">
       <Switch>
-        
+        <Route exact path="/">
+          <Home user={user} setUser={setUser} />
+        </Route>
       </Switch>
 
     </div>

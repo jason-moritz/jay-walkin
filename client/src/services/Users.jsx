@@ -32,10 +32,12 @@ export const signOut = async () => {
     }
 }
 
-export const changePassword = async (passwords, user) => {
+export const changePassword = async (passwords, email) => {
     try {
-        const res = await api.post('/')
-        return res.data
+        const res = await api.post('/change-password', passwords, email);
+        localStorage.setItem('token', res.data.token);
+        const user = jwtDecode(res.data.token);
+        return user
     } catch (error){
         throw error
     }
