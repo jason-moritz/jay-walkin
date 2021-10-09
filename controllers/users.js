@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { Db } from "mongodb";
 
 import User from "../models/user.js";
 
@@ -76,4 +77,29 @@ export const verify = async (req, res) => {
   }
 };
 
-export const changePassword = async (req, res) => {};
+export const changePassword = async (req, res) => {
+  try {
+    const { email, password, newPassword } = req.body;
+    const user = await User.findOne({ email: email }).select(
+      "username _id email password_digest"
+    );
+
+    if (await bcrypt.compare(password, user.password_digest)) {
+      const password_digest = await bcrypt.hash(newPassword, Number(SALT_ROUNDS));
+      await User.updateOne({ id: user._id }, { password_digest: password_digest });
+    
+      const payload = {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        exp: parseInt(exp.getTime() / 1000),
+      };
+
+      const token = jwt.sign(payload, TOKEN_KEY);
+      res.status(201).json({ token });
+    }
+  } catch (error) {
+  console.log(error.message)
+  res.status(500).json({ error: error.message });
+  };
+};
