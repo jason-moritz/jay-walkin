@@ -28,11 +28,6 @@ export default function SignUp(props) {
     const onSignUp = async (e) => {
         e.preventDefault()
 
-        if (form.password !== form.passwordConfirmation) {
-            return {
-                
-            }
-        }
         try {
             const user = await signUp(form);
             setUser(user);

@@ -29,10 +29,10 @@ export default function Home(props) {
                     <div className="latest-label">Latest</div>
                     <div className="latest-container">
                         {latestProducts.map((latestProduct) => (
-                            <div className="phoe-card">
-                                <div className="phoe-container">
-                                    <Link to={`/products/${latestProduct._id}`}>
-                                        <img src={latestProduct.imgURL} alt={latestProduct._id} />
+                            <div className="product-card" key={latestProduct._id}>
+                                <div className="product-container">
+                                    <Link to={`/products/${latestProduct._id}`} key={latestProduct._id}>
+                                        <img src={latestProduct.imgURL} alt={latestProduct._id} key={latestProduct._id} />
                                         <div className="product-info">
                                             <div>{latestProduct.name}</div>
                                             <div>{latestProduct.price}</div>

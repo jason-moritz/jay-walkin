@@ -9,6 +9,8 @@ import ChangePassword from "./screens/ChangePassword/ChangePassword";
 import Home from "./screens/Home/Home";
 import Products from "./screens/Products/Products";
 import ProductDetail from "./screens/ProductDetail/ProductDetail";
+import { ToastContainer } from "react-toastify";
+
 
 export default function App() {
     const [user, setUser] = useState(null)
@@ -45,6 +47,7 @@ export default function App() {
         <Route exact path="/products/:id">
           <ProductDetail user={user} />
         </Route>
+        <ToastContainer />
       </Switch>
 
     </div>
