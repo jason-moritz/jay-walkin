@@ -30,7 +30,7 @@ export default function Home(props) {
                         {latestShoes.map((latestShoe) => (
                             <div className="shoe-card">
                                 <div className="shoe-container">
-                                    <Link to={`/product/${latestShoe._id}`}>
+                                    <Link to={`/products/${latestShoe._id}`}>
                                         <img src={latestShoe.imgURL} alt={latestShoe._id} />
                                         <div className="shoe-info">
                                             <div>{latestShoe.name}</div>
