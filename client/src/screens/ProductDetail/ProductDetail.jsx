@@ -2,6 +2,13 @@ import { useState, useEffect } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { getProduct, deleteProduct } from "../../services/products";
 import Layout from "../../components/Layout/Layout";
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import "./ProductDetail.css";
 
 
 export default function ProductDetail(props) {
@@ -34,29 +41,43 @@ export default function ProductDetail(props) {
     
     return (
         <Layout user={props.user}>
-            <div className="product-detail">
-                <img
-                    className="product-detail-image"
-                    src={product.imgURL}
-                    alt={product.name}
-                />
-                <div className="detail">
-                    <div className="name">{product.name}</div>
-                    <div className="price">{product.price}</div>
-                    <div className="description">{product.description}</div>
-                    <div className="button-container">
-                        <Link className="edit-button" to={`/products/${id}/edit`}>
-                            edit
-                        </Link>
-                        <button
-                            className="delete-button"
-                            onClick={props.user ? handleDelete : redirect}
-                        >
-                            delete
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <Box className="box-product">
+                <Card variant="outlined" className="card-container">
+                    <CardContent className="card-content-container">
+                        <div className="product-detail">
+                            <div className="image-container">
+                                <img
+                                    className="product-detail-image"
+                                    src={product.imgURL}
+                                    alt={product.name}
+                                />
+                            </div>
+                            <div className="detail">
+                                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                    <div className="name">{product.name}</div>
+                                    <div className="price">{`$${product.price}`}</div>
+                                    <div className="description">{product.description}</div>
+                                </Typography>
+                                    <div className="button-container">
+                                    <CardActions>
+                                    <Button>
+                                        <Link className="edit-button" to={`/products/${id}/edit`}>
+                                            edit
+                                        </Link>
+                                    </Button>
+                                    <Button
+                                        className="delete-button"
+                                        onClick={props.user ? handleDelete : redirect}
+                                    >
+                                        delete
+                                    </Button>
+                                    </CardActions>
+                                </div>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </Box>
         </Layout>
     )
 }
