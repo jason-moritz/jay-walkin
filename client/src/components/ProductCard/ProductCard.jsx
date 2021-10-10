@@ -10,7 +10,7 @@ export default function ProductCard(props) {
 
     return (
         <div className="product-card">
-            <Link className="card" to={`/product/${_id}`}>
+            <Link className="card" to={`/products/${_id}`}>
                 <img className="product-card-img" src={imgURL} alt={name} />
                 <div className="product-card-info">
                     <div>{name}</div>
