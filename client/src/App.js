@@ -47,8 +47,9 @@ export default function App() {
         <Route exact path="/products/:id">
           <ProductDetail user={user} />
         </Route>
-        <ToastContainer />
       </Switch>
+      <ToastContainer />
+
 
     </div>
   );

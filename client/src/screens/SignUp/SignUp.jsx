@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { signUp } from "../../services/users";
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export default function SignUp(props) {
     const [form, setForm] = useState({
@@ -31,6 +34,7 @@ export default function SignUp(props) {
         try {
             const user = await signUp(form);
             setUser(user);
+            toast(`Welcome ${form.username}!`)
             history.push("/");
         } catch (error) {
             console.error(error);
