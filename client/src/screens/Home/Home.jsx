@@ -1,21 +1,8 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { getProducts } from "../../services/products";
 import Layout from "../../components/Layout/Layout";
+import ProductCards from "../../components/ProductCards/ProductCards";
 
 
 export default function Home(props) {
-    const [latestProducts, setLatestProducts] = useState([])
-
-    useEffect(() => {
-        const fetchShoes = async() => {
-            const allProducts = await getProducts()
-            const latest = allProducts.slice((allProducts.length - 3), allProducts.length)
-            setLatestProducts(latest)
-        };
-        fetchShoes();
-    },[])
-
     return (
         <Layout user={props.user}>
             <div className="home-container">
@@ -26,23 +13,7 @@ export default function Home(props) {
                     />
                 </div>
                 <div className="latest-container">
-                    <div className="latest-label">Latest</div>
-                    <div className="latest-container">
-                        {latestProducts.map((latestProduct) => (
-                            <div className="product-card" key={latestProduct._id}>
-                                <div className="product-container">
-                                    <Link to={`/products/${latestProduct._id}`} key={latestProduct._id}>
-                                        <img src={latestProduct.imgURL} alt={latestProduct._id} key={latestProduct._id} />
-                                        <div className="product-info">
-                                            <div>{latestProduct.name}</div>
-                                            <div>{latestProduct.price}</div>
-                                        </div>
-                                    </Link>
-                                </div>
-                                
-                            </div>
-                        ))}
-                    </div>
+                    <ProductCards />
                 </div>
             </div>
         </Layout>
