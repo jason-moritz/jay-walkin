@@ -18,7 +18,7 @@ export const getProduct = async id => {
     }
 }
 
-export const createProducts = async product => {
+export const createProduct = async product => {
     try {
         const res = await api.post('/products', product)
         return res.data
