@@ -10,6 +10,7 @@ import Home from "./screens/Home/Home";
 import Products from "./screens/Products/Products";
 import ProductDetail from "./screens/ProductDetail/ProductDetail";
 import ProductCreate from "./screens/ProductCreate/ProductCreate";
+import ProductEdit from "./screens/ProductEdit/ProductEdit";
 import { ToastContainer } from "react-toastify";
 
 
@@ -50,6 +51,9 @@ export default function App() {
         </Route>
         <Route exact path="/add-product">
           <ProductCreate user={user} />
+        </Route>
+        <Route exact path="/products/:id/edit">
+          <ProductEdit user={user} />
         </Route>
       </Switch>
       <ToastContainer />
