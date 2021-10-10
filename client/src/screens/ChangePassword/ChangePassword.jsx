@@ -78,7 +78,7 @@ export default function ChangePassword(props) {
     }; 
 
     return (
-        <Layout user={user}>
+        <Layout user={props.user}>
             <div className='form-container'>
                 <h3>Update Password</h3>
                 <form onSubmit={newPassword === newPasswordConfirmation ? onPasswordChange : handleToggle}>
