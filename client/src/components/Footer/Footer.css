@@ -1,0 +1,20 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.link-github {
+    color: darkslategray;
+}
+
+.link-github:hover {
+    cursor: pointer;
+}
+
+.link-github:visited {
+    text-decoration: none;
+    color: darkslategray;
+}
+

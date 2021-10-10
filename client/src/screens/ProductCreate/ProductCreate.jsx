@@ -4,6 +4,12 @@ import { createProduct } from "../../services/products";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 
 export default function ProductCreate(props) {
     const [newProduct, setNewProduct] = useState({
@@ -73,14 +79,6 @@ export default function ProductCreate(props) {
                   required
                   onChange={handleChange}
                 />
-                <label className="label-category">Category</label>
-                <select className="select-category" name="category" required onChange={handleChange}>
-                    <option>Choose Category</option>
-                    <option name="category" value="street">Street</option>
-                    <option name="category" value="athletic">Athletic</option>
-                    <option name="category" value="collectable">Collectable</option>
-                    <option name="category" value="casual">Casual</option>
-                </select>
                 <input
                   className='input-brand'
                   placeholder='Brand'
@@ -89,6 +87,19 @@ export default function ProductCreate(props) {
                   required
                   onChange={handleChange}
                 />
+                <label className="label-category">Category</label>
+                <Box sx={{ minWidth: 120 }}>
+                  <FormControl fullWidth>
+                    <InputLabel id="test">Category</InputLabel>
+                    <Select className="select-category" name="category" required onChange={handleChange}>
+                        <MenuItem>Choose Category</MenuItem>
+                        <MenuItem name="category" value="street">Street</MenuItem>
+                        <MenuItem name="category" value="athletic">Athletic</MenuItem>
+                        <MenuItem name="category" value="collectable">Collectable</MenuItem>
+                        <MenuItem name="category" value="casual">Casual</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
                 <label className="label-gender">Gender</label>
                 <select className="select-gender" name="gender" required onChange={handleChange}>
                     <option>Choose Gender</option>

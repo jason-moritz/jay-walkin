@@ -1,0 +1,21 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.layout-children {
+    flex: 2;
+    padding: 100px;
+}
+
+.layout-nav {
+    height: 10vh;
+    width: 100vw;
+}
+
+.layout-footer {
+    height: 10vh;
+    width: 100vw;
+}
