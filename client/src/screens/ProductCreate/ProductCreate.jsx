@@ -30,7 +30,7 @@ export default function ProductCreate(props) {
         e.preventDefault();
 
         console.log(newProduct)
-        const created = await createProduct(newProduct);
+        await createProduct(newProduct);
         toast("By the beard of Zeus a new product has been born!");
         history.push("/products");
     };
