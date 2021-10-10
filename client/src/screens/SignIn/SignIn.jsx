@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { signIn } from "../../services/users";
+import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -56,29 +57,31 @@ export default function SignIn(props) {
         }
     }
     return (
-        <div className='form-container'>
-            <h3>Sign In</h3>
-            <form onSubmit={onSignIn}>
-                <label>Email</label>
-                <input
-                  required
-                  type='text'
-                  name='email'
-                  value={email}
-                  placeholder='Enter Email'
-                  onChange={handleChange}
-                />
-                <label>Password</label>
-                <input
-                  required
-                  name='password'
-                  value={password}
-                  type='password'
-                  placeholder='Password'
-                  onChange={handleChange}
-                />
-                {renderError()}
-            </form>
-        </div>
+        <Layout user={user}>
+            <div className='form-container'>
+                <h3>Sign In</h3>
+                <form onSubmit={onSignIn}>
+                    <label>Email</label>
+                    <input
+                      required
+                      type='text'
+                      name='email'
+                      value={email}
+                      placeholder='Enter Email'
+                      onChange={handleChange}
+                    />
+                    <label>Password</label>
+                    <input
+                      required
+                      name='password'
+                      value={password}
+                      type='password'
+                      placeholder='Password'
+                      onChange={handleChange}
+                    />
+                    {renderError()}
+                </form>
+            </div>
+        </Layout>
     )
 }
