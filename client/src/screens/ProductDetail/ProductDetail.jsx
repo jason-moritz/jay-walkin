@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, useHistory, Link, Redirect } from "react-router-dom";
 import { getProduct, deleteProduct } from "../../services/products";
 import Layout from "../../components/Layout/Layout";
 
@@ -28,6 +28,10 @@ export default function ProductDetail(props) {
 
     if(loading) return <h1>Loading</h1>
 
+    const redirect = () => {
+        history.push("/sign-up");
+    }
+    
     return (
         <Layout user={props.user}>
             <div className="product-detail">
@@ -46,7 +50,7 @@ export default function ProductDetail(props) {
                         </Link>
                         <button
                             className="delete-button"
-                            onClick={handleDelete}
+                            onClick={props.user ? handleDelete : redirect}
                         >
                             delete
                         </button>

@@ -1,5 +1,5 @@
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { verifyUser } from "./services/users";
 import SignUp from "./screens/SignUp/SignUp";
@@ -50,10 +50,10 @@ export default function App() {
           <ProductDetail user={user} />
         </Route>
         <Route exact path="/add-product">
-          <ProductCreate user={user} />
+          {user ? <ProductCreate user={user} /> : <Redirect to="/sign-up" />}
         </Route>
         <Route exact path="/products/:id/edit">
-          <ProductEdit user={user} />
+          {user ? <ProductEdit user={user} /> : <Redirect to="/sign-up" />}
         </Route>
       </Switch>
       <ToastContainer />
