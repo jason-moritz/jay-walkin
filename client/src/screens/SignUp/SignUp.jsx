@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { signUp } from "../../services/users";
+import Layout from "../../components/Layout/Layout";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -77,48 +78,50 @@ export default function SignUp(props) {
     };
 
     return (
-        <div className='form-container'>
-            <h3>Sign Up</h3>
-            <form onSubmit={form.password === form.passwordConfirmation ? onSignUp : handleToggle}>
-                <label>Username</label>
-                <input
-                  required
-                  type='text'
-                  name='username'
-                  value={username}
-                  placeholder='Enter Username'
-                  onChange={handleChange}
-                />
-                <label>Email address</label>
-                <input
-                  required
-                  type='email'
-                  name='email'
-                  value={email}
-                  placeholder='Enter Email'
-                  onChange={handleChange}
-                />
-                <label>Password</label>
-                <input
-                  required
-                  name='password'
-                  value={password}
-                  type='password'
-                  placeholder='Password'
-                  onChange={handleChange}
-                />
-                <label>Password Confirmation</label>
-                <input
-                  required
-                  name='passwordConfirmation'
-                  value={passwordConfirmation}
-                  type='password'
-                  placeholder='Confirm Password'
-                  onChange={handleChange}
-                />
-                {toggle === true ? <h3>Error: Passwords Must Match</h3> : null}
-                {renderError()}
-            </form>
-        </div>
+        <Layout user={props.user}>
+            <div className='form-container'>
+                <h3>Sign Up</h3>
+                <form onSubmit={form.password === form.passwordConfirmation ? onSignUp : handleToggle}>
+                    <label>Username</label>
+                    <input
+                      required
+                      type='text'
+                      name='username'
+                      value={username}
+                      placeholder='Enter Username'
+                      onChange={handleChange}
+                    />
+                    <label>Email address</label>
+                    <input
+                      required
+                      type='email'
+                      name='email'
+                      value={email}
+                      placeholder='Enter Email'
+                      onChange={handleChange}
+                    />
+                    <label>Password</label>
+                    <input
+                      required
+                      name='password'
+                      value={password}
+                      type='password'
+                      placeholder='Password'
+                      onChange={handleChange}
+                    />
+                    <label>Password Confirmation</label>
+                    <input
+                      required
+                      name='passwordConfirmation'
+                      value={passwordConfirmation}
+                      type='password'
+                      placeholder='Confirm Password'
+                      onChange={handleChange}
+                    />
+                    {toggle === true ? <h3>Error: Passwords Must Match</h3> : null}
+                    {renderError()}
+                </form>
+            </div>
+        </Layout>
     )
 }
