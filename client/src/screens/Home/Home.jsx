@@ -8,7 +8,7 @@ export default function Home(props) {
             <div className="home-container">
                 <div className="banner">
                     <img
-                        src=""
+                        src="https://wallpapercave.com/wp/wp2927406.jpg"
                         alt="shoe-banner"
                     />
                 </div>
