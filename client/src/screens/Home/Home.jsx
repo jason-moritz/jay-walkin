@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout/Layout";
 import ProductCards from "../../components/ProductCards/ProductCards";
-
+import "./Home.css";
 
 export default function Home(props) {
     return (
@@ -8,6 +8,7 @@ export default function Home(props) {
             <div className="home-container">
                 <div className="banner">
                     <img
+                        className="img-banner"
                         src="https://wallpapercave.com/wp/wp2927406.jpg"
                         alt="shoe-banner"
                     />
