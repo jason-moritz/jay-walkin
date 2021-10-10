@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
-import { createProduct } from "../../services/products";
-import { useHistory } from "react-router-dom";
+import { getProduct, updateProduct } from "../../services/products";
+import { useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function ProductCreate(props) {
-    const [newProduct, setNewProduct] = useState({
+
+export default function ProductEdit(props) {
+    const [product, setProduct] = useState({
         name: "",
         price: "",
         description: "",
@@ -14,14 +15,24 @@ export default function ProductCreate(props) {
         category: "",
         brand: "",
         gender: "",
-    });
+    })
+
     const history = useHistory();
+    const { id } = useParams();
+
+    useEffect(() => {
+      const fetchProduct = async () => {
+        const product = await getProduct(id)
+        setProduct(product)
+      };
+      fetchProduct();
+    }, [id])
 
     const handleChange = (e) => {
         e.preventDefault();
 
-        setNewProduct({
-            ...newProduct,
+        setProduct({
+            ...product,
             [e.target.name]: e.target.value
         })
     };
@@ -29,20 +40,19 @@ export default function ProductCreate(props) {
     const handleSubmit = async(e) => {
         e.preventDefault();
 
-        console.log(newProduct)
-        await createProduct(newProduct);
-        toast("By the beard of Zeus a new product has been born!");
-        history.push("/products");
+        console.log(product)
+        await updateProduct(id, product);
+        toast(`Most impressive! You have updated ${product.name}`);
+        history.push(`/products/${id}`);
     };
-
 
     return (
         <Layout user={props.user}>
-            <form className='create-form' onSubmit={handleSubmit}>
+            <form className='edit-form' onSubmit={handleSubmit}>
                 <input
                   className='input-name'
                   placeholder='Name'
-                  value={newProduct.name}
+                  value={product.name}
                   name='name'
                   required
                   autoFocus
@@ -51,7 +61,7 @@ export default function ProductCreate(props) {
                 <input
                   className='input-price'
                   placeholder='Price'
-                  value={newProduct.price}
+                  value={product.price}
                   name='price'
                   required
                   onChange={handleChange}
@@ -60,7 +70,7 @@ export default function ProductCreate(props) {
                   className='textarea-description'
                   rows={10}
                   placeholder='Description'
-                  value={newProduct.description}
+                  value={product.description}
                   name='description'
                   required
                   onChange={handleChange}
@@ -68,13 +78,13 @@ export default function ProductCreate(props) {
                 <input
                   className='input-image-link'
                   placeholder='Image Link'
-                  value={newProduct.imgURL}
+                  value={product.imgURL}
                   name='imgURL'
                   required
                   onChange={handleChange}
                 />
                 <label className="label-category">Category</label>
-                <select className="select-category" name="category" required onChange={handleChange}>
+                <select className="select-category" value={product.category} name="category" required onChange={handleChange}>
                     <option>Choose Category</option>
                     <option name="category" value="street">Street</option>
                     <option name="category" value="athletic">Athletic</option>
@@ -84,13 +94,13 @@ export default function ProductCreate(props) {
                 <input
                   className='input-brand'
                   placeholder='Brand'
-                  value={newProduct.brand}
+                  value={product.brand}
                   name='brand'
                   required
                   onChange={handleChange}
                 />
                 <label className="label-gender">Gender</label>
-                <select className="select-gender" name="gender" required onChange={handleChange}>
+                <select className="select-gender" value={product.gender} name="gender" required onChange={handleChange}>
                     <option>Choose Gender</option>
                     <option name="gender" value="unisex">Unisex</option>
                     <option name="gender" value="male">Male</option>

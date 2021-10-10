@@ -6,7 +6,7 @@ const getToken = () => {
     })
 }
 
-export const api = axios.create({
+const api = axios.create({
 	baseURL:
 		process.env.NODE_ENV === 'production'
 			? 'https://jay-walkin.herokuapp.com/api'
@@ -20,3 +20,5 @@ api.interceptors.request.use(async function (config) {
     console.log('Request error: ', error)
     return Promise.reject(error)
 });
+
+export default api

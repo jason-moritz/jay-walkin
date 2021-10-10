@@ -1,64 +1,64 @@
 import { useState } from "react";
-import { signUp } from "../../services/users";
+import { changePassword } from "../../services/users";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
-export default function SignUp(props) {
+export default function ChangePassword(props) {
     const [form, setForm] = useState({
-        username: "",
         email: "",
         password: "",
-        passwordConfirmation: "",
-        isError: false,
+        newPassword: "",
+        newPasswordConfirmation: "",
+        isError: "",
         errorMsg: ""
     })
 
-    const [toggle, setToggle] = useState(false);
-
-    const { username, email, password, passwordConfirmation, isError, errorMsg } = form;
-    const history = useHistory();
+    const [toggle, setToggle] = useState(false)
+    const { email, password, newPassword, newPasswordConfirmation } = form;
     const { setUser } = props;
+    const history = useHistory();
 
     const handleChange = (e) => {
+        e.preventDefault();
+
         setForm({
             ...form,
             [e.target.name]: e.target.value
         })
     }
 
-    const onSignUp = async (e) => {
-        e.preventDefault()
+    const onPasswordChange = async (e) => {
+        e.preventDefault();
 
         try {
-            const user = await signUp(form);
+            const user = await changePassword(form);
             setUser(user);
-            toast(`Welcome ${form.username}!`)
+            toast("You have successfully changed your password!")
             history.push("/");
         } catch (error) {
-            console.error(error);
+            console.error(error)
             setForm({
-                username: "",
+                isError: true,
+                errorMsg: "Invalid Credentials",
                 email: "",
                 password: "",
-                passwordConfirmation: "",
-                isError: true,
-                errorMsg: "Sign Up Details Invalid"
+                newPassword: "",
+                newPasswordConfirmation: ""
             })
         }
     }
 
     const renderError = () => {
-        const toggleForm = isError ? "danger" : ""
-        if (isError) {
+        const toggleForm = form.isError ? "danger" : ""
+        if (form.isError) {
             return (
                 <button type="submit" className={toggleForm}>
-                    {errorMsg}
+                    {form.errorMsg}
                 </button>
             )
         } else {
-            return <button type="submit">Sign Up</button>
+            return <button type="submit">Update Password</button>
         }
     }
 
@@ -70,35 +70,26 @@ export default function SignUp(props) {
             username: "",
             email: "",
             password: "",
-            passwordConfirmation: "",
+            newPasswordConfirmation: "",
             isError: true,
             errorMsg: "Sign Up Details Invalid"
         })
-    };
+    }; 
 
     return (
         <div className='form-container'>
-            <h3>Sign Up</h3>
-            <form onSubmit={form.password === form.passwordConfirmation ? onSignUp : handleToggle}>
-                <label>Username</label>
+            <h3>Update Password</h3>
+            <form onSubmit={newPassword === newPasswordConfirmation ? onPasswordChange : handleToggle}>
+                <label>Email</label>
                 <input
                   required
                   type='text'
-                  name='username'
-                  value={username}
-                  placeholder='Enter Username'
-                  onChange={handleChange}
-                />
-                <label>Email address</label>
-                <input
-                  required
-                  type='email'
                   name='email'
                   value={email}
                   placeholder='Enter Email'
                   onChange={handleChange}
                 />
-                <label>Password</label>
+                <label>Old Password</label>
                 <input
                   required
                   name='password'
@@ -107,11 +98,20 @@ export default function SignUp(props) {
                   placeholder='Password'
                   onChange={handleChange}
                 />
-                <label>Password Confirmation</label>
+                <label>New Password</label>
                 <input
                   required
-                  name='passwordConfirmation'
-                  value={passwordConfirmation}
+                  name='newPassword'
+                  value={newPassword}
+                  type='password'
+                  placeholder='New Password'
+                  onChange={handleChange}
+                />
+                <label>Confirm Password</label>
+                <input
+                  required
+                  name='newPasswordConfirmation'
+                  value={newPasswordConfirmation}
                   type='password'
                   placeholder='Confirm Password'
                   onChange={handleChange}

@@ -18,7 +18,7 @@ export const getProduct = async id => {
     }
 }
 
-export const createProducts = async product => {
+export const createProduct = async product => {
     try {
         const res = await api.post('/products', product)
         return res.data
@@ -27,7 +27,7 @@ export const createProducts = async product => {
     }
 }
 
-export const updateProducts = async (id, product) => {
+export const updateProduct = async (id, product) => {
     try {
         const res = await api.put(`/products/${id}`, product)
         return res.data
@@ -36,7 +36,7 @@ export const updateProducts = async (id, product) => {
     }
 }
 
-export const deleteProducts = async id => {
+export const deleteProduct = async id => {
     try {
         const res = await api.delete(`/products/${id}`)
         return res.data
