@@ -75,6 +75,7 @@ export default function SignIn(props) {
                                     label="Email"
                                     value={email}
                                     name="email"
+                                    type="email"
                                     required
                                     autoFocus
                                     onChange={handleChange}
