@@ -23,6 +23,8 @@ export default function SignUp(props) {
     })
 
     const [toggle, setToggle] = useState(false);
+    const [toggle2, setToggle2] = useState(false);
+    const [toggle3, setToggle3] = useState(false);
 
     const { username, email, password, passwordConfirmation } = form;
     const { setUser } = props;
@@ -31,6 +33,8 @@ export default function SignUp(props) {
     const handleChange = (e) => {
 
         setToggle(false);
+        setToggle2(false);
+        setToggle3(false);
         setForm({
             ...form,
             [e.target.name]: e.target.value
@@ -47,6 +51,14 @@ export default function SignUp(props) {
             history.push("/");
         } catch (error) {
             console.error(error);
+            if (error.response.data.error.includes("E11000" && "username")) {
+                setToggle2((prevToggle) => !prevToggle);
+            };
+
+            if (error.response.data.error.includes("E11000" && "email")) {
+                setToggle3((prevToggle) => !prevToggle);
+            };
+
             setForm({
                 username: "",
                 email: "",
@@ -118,6 +130,18 @@ export default function SignUp(props) {
                                 {toggle === true ? 
                                     <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
                                         Error: Passwords Must Match 
+                                    </Typography>
+                                    : null
+                                }
+                                {toggle2 === true ? 
+                                    <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+                                        Error: Username is already taken 
+                                    </Typography>
+                                    : null
+                                }
+                                {toggle3 === true ? 
+                                    <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+                                        Error: Email is already in use 
                                     </Typography>
                                     : null
                                 }
