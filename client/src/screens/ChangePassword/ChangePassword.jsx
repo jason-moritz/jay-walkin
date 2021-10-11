@@ -22,7 +22,9 @@ export default function ChangePassword(props) {
         newPasswordConfirmation: ""
     })
 
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(false);
+    const [toggle2, setToggle2] = useState(false);
+    const [toggle3, setToggle3] = useState(false);
     const { email, password, newPassword, newPasswordConfirmation } = form;
     const { setUser } = props;
     const history = useHistory();
@@ -31,6 +33,9 @@ export default function ChangePassword(props) {
         e.preventDefault();
 
         setToggle(false);
+        setToggle2(false);
+        setToggle3(false);
+
         setForm({
             ...form,
             [e.target.name]: e.target.value
@@ -47,6 +52,11 @@ export default function ChangePassword(props) {
             history.push("/");
         } catch (error) {
             console.error(error);
+
+            if (error.response.data.error.includes("password_digest")) {
+                setToggle3(true);
+            };
+
             setForm({
                 email: "",
                 password: "",
@@ -59,7 +69,14 @@ export default function ChangePassword(props) {
     const handleToggle = (e) => {
         e.preventDefault();
 
-        setToggle((prevToggle) => !prevToggle);
+        if (newPassword !== newPasswordConfirmation) {
+            setToggle((prevToggle) => !prevToggle);
+        };
+
+        if (password === newPassword) {
+            setToggle2((prevToggle) => !prevToggle);
+        };
+
         setForm({
             email: "",
             password: "",
@@ -85,7 +102,7 @@ export default function ChangePassword(props) {
                             className="card-content-change-password">
                             <form 
                                 className="form-change-password"
-                                onSubmit={newPassword === newPasswordConfirmation ?
+                                onSubmit={newPassword === newPasswordConfirmation && password !== newPassword ?
                                     onPasswordChange : handleToggle}
                             >
                                 <TextField
@@ -109,6 +126,7 @@ export default function ChangePassword(props) {
                                     name="newPassword"
                                     value={newPassword}
                                     type="password"
+                                    minlength="8"
                                     required
                                     onChange={handleChange}
                                 />
@@ -117,12 +135,25 @@ export default function ChangePassword(props) {
                                     name="newPasswordConfirmation"
                                     value={newPasswordConfirmation}
                                     type="password"
+                                    minlength="8"
                                     required
                                     onChange={handleChange}
                                 />
                                 {toggle === true ? 
                                     <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
                                         Error: Passwords Must Match 
+                                    </Typography>
+                                    : null
+                                }
+                                {toggle2 === true ? 
+                                    <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+                                        Error: New password must not match current password 
+                                    </Typography>
+                                    : null
+                                }
+                                {toggle3 === true ? 
+                                    <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+                                        Error: Email is not valid 
                                     </Typography>
                                     : null
                                 }
