@@ -60,141 +60,144 @@ export default function ProductEdit(props) {
 
     return (
       <Layout user={props.user}>
-        <Box 
-          className="box-edit-product"
-          sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}
-          noValidate
-          autoComplete="off"
-        >
-          <Card className="card-edit-product">
-            <CardContent 
-            className="card-content-edit-product">
-              <form
-                className="form-edit-product" 
-                onSubmit={handleSubmit}
-              >
-                <TextField
-                  label="Product Name"
-                  value={product.name}
-                  name="name"
-                  required
-                  autoFocus
-                  onChange={handleChange}
-                />
-                <TextField
-                  label="Price"
-                  value={product.price}
-                  name="price"
-                  type="number"
-                  required
-                  onChange={handleChange}
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start">$</InputAdornment>
-                  }}
-                />
-                <TextField
-                  label="Image URL"
-                  value={product.imgURL}
-                  name="imgURL"
-                  required
-                  onChange={handleChange}
-                />
-                <FormControl 
-                  fullWidth 
-                  className="form-control-drop-down"
-                  sx={{ m: 1, width: "45ch" }}
+        <div className='container-change-password'>
+          <h3>{`Update ${product.name}`}</h3>
+          <Box 
+            className="box-edit-product"
+            sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}
+            noValidate
+            autoComplete="off"
+          >
+            <Card className="card-edit-product">
+              <CardContent 
+              className="card-content-edit-product">
+                <form
+                  className="form-edit-product" 
+                  onSubmit={handleSubmit}
                 >
-                  <InputLabel>Category *</InputLabel>
-                  <Select
-                    label="Category"
-                    name="category"
+                  <TextField
+                    label="Product Name"
+                    value={product.name}
+                    name="name"
+                    required
+                    autoFocus
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    label="Price"
+                    value={product.price}
+                    name="price"
+                    type="number"
                     required
                     onChange={handleChange}
-                  >
-                    <MenuItem 
-                      name="category" 
-                      value="street"
-                    >
-                      Street
-                    </MenuItem>
-                    <MenuItem 
-                      name="category" 
-                      value="athletic"
-                    >
-                      Athletic
-                    </MenuItem>
-                    <MenuItem 
-                      name="category" 
-                      value="collectable"
-                    >
-                      Collectable
-                    </MenuItem>
-                    <MenuItem 
-                      name="category" 
-                      value="casual"
-                    >
-                      Casual
-                    </MenuItem>
-                  </Select>
-                </FormControl>
-                <FormControl 
-                  fullWidth
-                  className="form-control-drop-down"
-                  sx={{ m: 1, width: "45ch" }}
-                >
-                  <InputLabel>Gender *</InputLabel>
-                  <Select 
-                    label="Gender"
-                    name="gender" 
-                    required 
+                    InputProps={{
+                      startAdornment: <InputAdornment position="start">$</InputAdornment>
+                    }}
+                  />
+                  <TextField
+                    label="Image URL"
+                    value={product.imgURL}
+                    name="imgURL"
+                    required
                     onChange={handleChange}
+                  />
+                  <FormControl 
+                    fullWidth 
+                    className="form-control-drop-down"
+                    sx={{ m: 1, width: "45ch" }}
                   >
-                    <MenuItem 
-                      name="gender"
-                      value="unisex"
+                    <InputLabel>Category *</InputLabel>
+                    <Select
+                      label="Category"
+                      name="category"
+                      required
+                      onChange={handleChange}
                     >
-                      Unisex
-                    </MenuItem>
-                    <MenuItem 
-                      name="gender"
-                      value="male"
+                      <MenuItem 
+                        name="category" 
+                        value="street"
+                      >
+                        Street
+                      </MenuItem>
+                      <MenuItem 
+                        name="category" 
+                        value="athletic"
+                      >
+                        Athletic
+                      </MenuItem>
+                      <MenuItem 
+                        name="category" 
+                        value="collectable"
+                      >
+                        Collectable
+                      </MenuItem>
+                      <MenuItem 
+                        name="category" 
+                        value="casual"
+                      >
+                        Casual
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
+                  <FormControl 
+                    fullWidth
+                    className="form-control-drop-down"
+                    sx={{ m: 1, width: "45ch" }}
+                  >
+                    <InputLabel>Gender *</InputLabel>
+                    <Select 
+                      label="Gender"
+                      name="gender" 
+                      required 
+                      onChange={handleChange}
                     >
-                      Male
-                    </MenuItem>
-                    <MenuItem 
-                      name="gender"
-                      value="female"
-                    >
-                      Female
-                    </MenuItem>
-                  </Select>
-                </FormControl>
-                <TextField
-                  className="input-brand"
-                  placeholder="Brand"
-                  value={product.brand}
-                  name="brand"
-                  required
-                  onChange={handleChange}
-                />
-                <TextField
-                  label="Description"
-                  rows={5}
-                  value={product.description}
-                  name="description"
-                  multiline
-                  required
-                  onChange={handleChange}
-                />
-                <CardActions>
-                  <Button type="submit" className="submit-button">
-                    Submit
-                  </Button>
-                </CardActions>
-              </form>
-            </CardContent>
-          </Card>
-        </Box>
+                      <MenuItem 
+                        name="gender"
+                        value="unisex"
+                      >
+                        Unisex
+                      </MenuItem>
+                      <MenuItem 
+                        name="gender"
+                        value="male"
+                      >
+                        Male
+                      </MenuItem>
+                      <MenuItem 
+                        name="gender"
+                        value="female"
+                      >
+                        Female
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
+                  <TextField
+                    className="input-brand"
+                    placeholder="Brand"
+                    value={product.brand}
+                    name="brand"
+                    required
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    label="Description"
+                    rows={5}
+                    value={product.description}
+                    name="description"
+                    multiline
+                    required
+                    onChange={handleChange}
+                  />
+                  <CardActions>
+                    <Button type="submit" className="submit-button">
+                      Update!
+                    </Button>
+                  </CardActions>
+                </form>
+              </CardContent>
+            </Card>
+          </Box>
+        </div>
       </Layout>
     )
 }
