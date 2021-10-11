@@ -4,6 +4,18 @@ import { createProduct } from "../../services/products";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import "./ProductCreate.css";
+
 
 export default function ProductCreate(props) {
     const [newProduct, setNewProduct] = useState({
@@ -38,68 +50,85 @@ export default function ProductCreate(props) {
 
     return (
         <Layout user={props.user}>
-            <form className='create-form' onSubmit={handleSubmit}>
-                <input
-                  className='input-name'
-                  placeholder='Name'
-                  value={newProduct.name}
-                  name='name'
-                  required
-                  autoFocus
-                  onChange={handleChange}
-                />
-                <input
-                  className='input-price'
-                  placeholder='Price'
-                  value={newProduct.price}
-                  name='price'
-                  required
-                  onChange={handleChange}
-                />
-                <textarea
-                  className='textarea-description'
-                  rows={10}
-                  placeholder='Description'
-                  value={newProduct.description}
-                  name='description'
-                  required
-                  onChange={handleChange}
-                />
-                <input
-                  className='input-image-link'
-                  placeholder='Image Link'
-                  value={newProduct.imgURL}
-                  name='imgURL'
-                  required
-                  onChange={handleChange}
-                />
-                <label className="label-category">Category</label>
-                <select className="select-category" name="category" required onChange={handleChange}>
-                    <option>Choose Category</option>
-                    <option name="category" value="street">Street</option>
-                    <option name="category" value="athletic">Athletic</option>
-                    <option name="category" value="collectable">Collectable</option>
-                    <option name="category" value="casual">Casual</option>
-                </select>
-                <input
-                  className='input-brand'
-                  placeholder='Brand'
-                  value={newProduct.brand}
-                  name='brand'
-                  required
-                  onChange={handleChange}
-                />
-                <label className="label-gender">Gender</label>
-                <select className="select-gender" name="gender" required onChange={handleChange}>
-                    <option>Choose Gender</option>
-                    <option name="gender" value="unisex">Unisex</option>
-                    <option name="gender" value="male">Male</option>
-                    <option name="gender" value="female">Female</option>
-                </select>
-                <button type='submit' className='submit-button'>
-                  Submit
-                </button>
-            </form>
+          <Box
+            className="box-create-product"
+            component="form"
+            onSubmit={handleSubmit}
+          >
+            <Card className="card-create-product">
+              <CardContent className="card-content-create-product">
+                      <TextField
+                        className="text-field"
+                        label="Product Name"
+                        value={newProduct.name}
+                        name='name'
+                        required
+                        autoFocus
+                        onChange={handleChange}
+                      />
+                      <TextField
+                        className="text-field"
+                        label="Price"
+                        value={newProduct.price}
+                        name="price"
+                        type="number"
+                        required
+                        onChange={handleChange}
+                      />
+                      <TextField
+                        className="text-field"
+                        label="Image URL"
+                        value={newProduct.imgURL}
+                        name='imgURL'
+                        required
+                        onChange={handleChange}
+                      />
+                      <TextField
+                        className="text-field"
+                        label="Brand"
+                        value={newProduct.brand}
+                        name='brand'
+                        required
+                        onChange={handleChange}
+                      />
+                      <FormControl 
+                        fullWidth 
+                        className="form-control-drop-down"
+                      >
+                        <InputLabel id="test">Category</InputLabel>
+                        <Select className="text-field" name="category" required onChange={handleChange}>
+                          <MenuItem name="category" value="street">Street</MenuItem>
+                          <MenuItem name="category" value="athletic">Athletic</MenuItem>
+                          <MenuItem name="category" value="collectable">Collectable</MenuItem>
+                          <MenuItem name="category" value="casual">Casual</MenuItem>
+                        </Select>
+                      </FormControl>
+                      <FormControl fullWidth className="form-control-drop-down">
+                        <InputLabel id="test">Category</InputLabel>
+                        <Select className="text-field" name="gender" required onChange={handleChange}>
+                          <MenuItem name="gender" value="unisex">Unisex</MenuItem>
+                          <MenuItem name="gender" value="male">Male</MenuItem>
+                          <MenuItem name="gender" value="female">Female</MenuItem>
+                        </Select>
+                      </FormControl>
+                      <TextField
+                        className="text-field"
+                        label="Description"
+                        rows={5}
+                        value={newProduct.description}
+                        name='description'
+                        multiline
+                        required
+                        onChange={handleChange}
+                      />
+                      <CardActions>
+                        <Button type='submit' className='submit-button'>
+                          Submit
+                        </Button>
+                        </CardActions>
+                </CardContent>
+              </Card>
+            </Box>
         </Layout>
     )
 }

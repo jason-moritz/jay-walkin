@@ -1,0 +1,25 @@
+.nav {
+    padding: 20px;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.logo, .link {
+    text-decoration: none;
+}
+
+.logo:visited, .link:visited {
+    text-decoration: none;
+    color: darkslategray;
+}
+
+.link {
+    margin: 10px;
+}
+
