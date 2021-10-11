@@ -108,3 +108,47 @@ export const changePassword = async (req, res) => {
   res.status(500).json({ error: error.message });
   };
 };
+
+export const getUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).populate("cart")
+    res.json(user)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ error: error.message })
+  }
+}
+
+
+export const addToCart = async (req, res) => {
+  try {
+    const { userId, cart, productId } = req.body;
+  // const user = await User.findOne({ email: email }).select(
+  //   "cart"
+  // );
+
+    if (await User.updateOne({ _id: userId }, { cart: [...cart, productId] })) {
+      const user = await User.findById(userId).populate("cart")
+      res.json(user)
+    };
+
+  } catch (error) {
+  console.log(error.message)
+  res.status(500).json({ error: error.message });
+  };
+};
+
+export const viewCart = async (req, res) => {
+  try {
+    const { userId } = req.body;
+    const user = await User.findById(userId).populate("cart")
+
+    if (user) {
+      res.json(user)
+    };
+
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ error: error.message })
+  };
+};

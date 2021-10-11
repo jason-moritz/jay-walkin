@@ -10,6 +10,7 @@ const Product = new Schema(
     category: { type: String, required: true },
     brand: { type: String, required: true },
     gender: { type: String, required: true },
+    userId: { type: Schema.Types.ObjectId, ref: "users" }
   },
   { timestamps: true }
 );
