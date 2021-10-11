@@ -10,6 +10,7 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import Typography from '@mui/material/Typography';
 import "./ChangePassword.css";
 
 
@@ -18,9 +19,7 @@ export default function ChangePassword(props) {
         email: "",
         password: "",
         newPassword: "",
-        newPasswordConfirmation: "",
-        isError: "",
-        errorMsg: ""
+        newPasswordConfirmation: ""
     })
 
     const [toggle, setToggle] = useState(false)
@@ -31,6 +30,7 @@ export default function ChangePassword(props) {
     const handleChange = (e) => {
         e.preventDefault();
 
+        setToggle(false);
         setForm({
             ...form,
             [e.target.name]: e.target.value
@@ -43,31 +43,16 @@ export default function ChangePassword(props) {
         try {
             const user = await changePassword(form);
             setUser(user);
-            toast("You have successfully changed your password!")
+            toast("You have successfully changed your password!");
             history.push("/");
         } catch (error) {
-            console.error(error)
+            console.error(error);
             setForm({
-                isError: true,
-                errorMsg: "Invalid Credentials",
                 email: "",
                 password: "",
                 newPassword: "",
                 newPasswordConfirmation: ""
-            })
-        }
-    }
-
-    const renderError = () => {
-        const toggleForm = form.isError ? "danger" : ""
-        if (form.isError) {
-            return (
-                <button type="submit" className={toggleForm}>
-                    {form.errorMsg}
-                </button>
-            )
-        } else {
-            return <button type="submit">Update Password</button>
+            });
         }
     }
 
@@ -76,19 +61,19 @@ export default function ChangePassword(props) {
 
         setToggle((prevToggle) => !prevToggle);
         setForm({
-            username: "",
             email: "",
             password: "",
-            newPasswordConfirmation: "",
-            isError: true,
-            errorMsg: "Sign Up Details Invalid"
-        })
+            newPassword: "",
+            newPasswordConfirmation: ""
+        });
     }; 
 
     return (
         <Layout user={props.user}>
             <div className='container-change-password'>
-                <h3>Update Password</h3>
+                <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+                    Update Password
+                </Typography>
                 <Box 
                     className="box-change-password"
                     sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}
@@ -106,37 +91,41 @@ export default function ChangePassword(props) {
                                 <TextField
                                     label="Email"
                                     value={email}
-                                    name='email'
+                                    name="email"
                                     required
                                     autoFocus
                                     onChange={handleChange}
                                 />
                                 <TextField
                                     label="Old Password"
-                                    name='password'
+                                    name="password"
                                     value={password}
-                                    type='password'
+                                    type="password"
                                     required
                                     onChange={handleChange}
                                 />
                                 <TextField
                                     label="New Password"
-                                    name='newPassword'
+                                    name="newPassword"
                                     value={newPassword}
-                                    type='password'
+                                    type="password"
                                     required
                                     onChange={handleChange}
                                 />
                                 <TextField
                                     label="Confirm Password"
-                                    name='newPasswordConfirmation'
+                                    name="newPasswordConfirmation"
                                     value={newPasswordConfirmation}
-                                    type='password'
+                                    type="password"
                                     required
                                     onChange={handleChange}
                                 />
-                                {toggle === true ? <h3>Error: Passwords Must Match</h3> : null}
-                                {/* {renderError()} */}
+                                {toggle === true ? 
+                                    <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+                                        Error: Passwords Must Match 
+                                    </Typography>
+                                    : null
+                                }
                                 <CardActions>
                                     <Button type="submit" className="submit-button">
                                         Update Password!
