@@ -4,6 +4,13 @@ import Layout from "../../components/Layout/Layout";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import "./SignUp.css";
 
 
 export default function SignUp(props) {
@@ -11,14 +18,12 @@ export default function SignUp(props) {
         username: "",
         email: "",
         password: "",
-        passwordConfirmation: "",
-        isError: false,
-        errorMsg: ""
+        passwordConfirmation: ""
     })
 
     const [toggle, setToggle] = useState(false);
 
-    const { username, email, password, passwordConfirmation, isError, errorMsg } = form;
+    const { username, email, password, passwordConfirmation } = form;
     const history = useHistory();
     const { setUser } = props;
 
@@ -43,23 +48,8 @@ export default function SignUp(props) {
                 username: "",
                 email: "",
                 password: "",
-                passwordConfirmation: "",
-                isError: true,
-                errorMsg: "Sign Up Details Invalid"
+                passwordConfirmation: ""
             })
-        }
-    }
-
-    const renderError = () => {
-        const toggleForm = isError ? "danger" : ""
-        if (isError) {
-            return (
-                <button type="submit" className={toggleForm}>
-                    {errorMsg}
-                </button>
-            )
-        } else {
-            return <button type="submit">Sign Up</button>
         }
     }
 
@@ -79,48 +69,59 @@ export default function SignUp(props) {
 
     return (
         <Layout user={props.user}>
-            <div className='form-container'>
+            <div className='container-sign-up'>
                 <h3>Sign Up</h3>
-                <form onSubmit={form.password === form.passwordConfirmation ? onSignUp : handleToggle}>
-                    <label>Username</label>
-                    <input
-                      required
-                      type='text'
-                      name='username'
-                      value={username}
-                      placeholder='Enter Username'
-                      onChange={handleChange}
-                    />
-                    <label>Email address</label>
-                    <input
-                      required
-                      type='email'
-                      name='email'
-                      value={email}
-                      placeholder='Enter Email'
-                      onChange={handleChange}
-                    />
-                    <label>Password</label>
-                    <input
-                      required
-                      name='password'
-                      value={password}
-                      type='password'
-                      placeholder='Password'
-                      onChange={handleChange}
-                    />
-                    <label>Password Confirmation</label>
-                    <input
-                      required
-                      name='passwordConfirmation'
-                      value={passwordConfirmation}
-                      type='password'
-                      placeholder='Confirm Password'
-                      onChange={handleChange}
-                    />
-                    {toggle === true ? <h3>Error: Passwords Must Match</h3> : null}
-                    {renderError()}
-                </form>
+                <Box 
+                    className="box-sign-up"
+                    sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}
+                    noValidate
+                    autoComplete="off"
+                >
+                    <Card className="card-sign-up">
+                        <CardContent 
+                            className="card-content-sign-up">
+                            <form className="form-sign-up" onSubmit={form.password === form.passwordConfirmation ? onSignUp : handleToggle}>
+                                <TextField
+                                    label="Username"
+                                    value={username}
+                                    name="username"
+                                    required
+                                    autoFocus
+                                    onChange={handleChange}
+                                />
+                                <TextField
+                                    label="Email"
+                                    value={email}
+                                    name="email"
+                                    required
+                                    onChange={handleChange}
+                                />
+                                <TextField
+                                    label="Password"
+                                    value={password}
+                                    name="password"
+                                    type="password"
+                                    required
+                                    onChange={handleChange}
+                                />
+                                <TextField
+                                    label="Confirm Password"
+                                    value={passwordConfirmation}
+                                    name="passwordConfirmation"
+                                    type="password"
+                                    required
+                                    onChange={handleChange}
+                                />
+                                {toggle === true ? <h3>Error: Passwords Must Match</h3> : null}
+                                <CardActions>
+                                    <Button type="submit" className="submit-button">
+                                        Sign Up!
+                                    </Button>
+                                </CardActions>
+                            </form>
+                        </CardContent>
+                    </Card>
+                </Box>
             </div>
         </Layout>
     )

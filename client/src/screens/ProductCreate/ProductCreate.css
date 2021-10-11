@@ -1,6 +1,9 @@
 .box-create-product {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .card-create-product {
@@ -9,15 +12,10 @@
     width: 50%;
 }
 
-.card-content-create-product {
+.form-create-product {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    justify-content: center;
 }
 
-.text-field {
-    width: 60%;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
