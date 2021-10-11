@@ -12,18 +12,10 @@
     width: 50%;
 }
 
-.card-content-create-product {
-    width: 60%;
-}
-
 .form-create-product {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-.text-field {
-    margin: 10px 0;
-    width: 100%;
 }
 
