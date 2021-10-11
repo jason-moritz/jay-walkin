@@ -10,16 +10,16 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import "./SignIn.css";
 
 
 export default function SignIn(props) {
     const [form, setForm] = useState({
         email: "",
-        password: "",
-        isError: "",
-        errorMsg: ""
-    })
+        password: ""
+    });
+    const [toggle, setToggle] = useState(false)
 
     const { email, password } = form;
     const { setUser } = props;
@@ -28,11 +28,12 @@ export default function SignIn(props) {
     const handleChange = (e) => {
         e.preventDefault();
 
+        setToggle(false);
         setForm({
             ...form,
             [e.target.name]: e.target.value
-        })
-    }
+        });
+    };
 
     const onSignIn = async (e) => {
         e.preventDefault();
@@ -42,20 +43,21 @@ export default function SignIn(props) {
             toast(`Welcome ${user.username}`)
             history.push("/");
         } catch (error) {
-            console.error(error)
+            console.error(error);
+            setToggle((prevToggle) => !prevToggle);
             setForm({
-                isError: true,
-                errorMsg: "Invalid Credentials",
                 email: "",
                 password: "",
-            })
-        }
-    }
+            });
+        };
+    };
 
     return (
         <Layout user={props.user}>
-            <div className='container-sign-in'>
-                <h3>Sign In</h3>
+            <div className="container-sign-in">
+                <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+                    Sign In
+                </Typography>
                 <Box 
                     className="box-sign-in"
                     sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}
@@ -72,7 +74,7 @@ export default function SignIn(props) {
                                 <TextField
                                     label="Email"
                                     value={email}
-                                    name='email'
+                                    name="email"
                                     required
                                     autoFocus
                                     onChange={handleChange}
@@ -80,11 +82,18 @@ export default function SignIn(props) {
                                 <TextField
                                     label="Password"
                                     value={password}
-                                    name='password'
-                                    type='password'
+                                    name="password"
+                                    type="password"
                                     required
                                     onChange={handleChange}
                                 />
+                                {toggle ? 
+                                    <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+                                        Error: Invalid credentials
+                                    </Typography>
+                                    : 
+                                    null
+                                }
                                 <CardActions>
                                     <Button type="submit" className="submit-button">
                                         Sign In!

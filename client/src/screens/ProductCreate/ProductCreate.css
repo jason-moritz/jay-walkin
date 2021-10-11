@@ -1,3 +1,7 @@
+.container-create-product {
+    text-align: center;
+}
+
 .box-create-product {
     display: flex;
     flex-direction: column;
