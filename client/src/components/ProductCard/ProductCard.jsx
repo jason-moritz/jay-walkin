@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { CardMedia } from "@mui/material";
+import { Box } from "@mui/system";
 import "./ProductCard.css";
 
 
@@ -17,7 +18,8 @@ export default function ProductCard(props) {
   } = props;
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card className="hotness">
+      <Box sx={{ boxShadow: 10 }}>
       <CardMedia
         component="img"
         alt="sneakers"
@@ -38,6 +40,7 @@ export default function ProductCard(props) {
           {/* <div>View</div> */}
         </Link>
       </CardActions>
+      </Box>
     </Card>
   );
 }
