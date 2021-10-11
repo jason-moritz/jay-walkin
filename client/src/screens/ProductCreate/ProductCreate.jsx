@@ -15,6 +15,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputAdornment from '@mui/material/InputAdornment';
+import Typography from '@mui/material/Typography';
 import "./ProductCreate.css";
 
 
@@ -51,8 +52,10 @@ export default function ProductCreate(props) {
 
     return (
       <Layout user={props.user}>
-        <div className='container-change-password'>
-          <h3>Add New Product</h3>
+        <div className='container-create-product'>
+          <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+            <h3>Add a New Product</h3>
+          </Typography>          
           <Box 
             className="box-create-product"
             sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}

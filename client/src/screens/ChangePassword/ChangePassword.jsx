@@ -10,6 +10,7 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import Typography from '@mui/material/Typography';
 import "./ChangePassword.css";
 
 
@@ -88,7 +89,9 @@ export default function ChangePassword(props) {
     return (
         <Layout user={props.user}>
             <div className='container-change-password'>
-                <h3>Update Password</h3>
+                <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+                    <h3>Update Password</h3>
+                </Typography>
                 <Box 
                     className="box-change-password"
                     sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}

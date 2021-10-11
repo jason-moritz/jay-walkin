@@ -15,6 +15,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputAdornment from '@mui/material/InputAdornment';
+import Typography from '@mui/material/Typography';
 import "./ProductEdit.css";
 
 
@@ -60,8 +61,10 @@ export default function ProductEdit(props) {
 
     return (
       <Layout user={props.user}>
-        <div className='container-change-password'>
-          <h3>{`Update ${product.name}`}</h3>
+        <div className='container-edit-product'>
+          <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+            <h3>{`Update ${product.name}`}</h3>
+          </Typography>
           <Box 
             className="box-edit-product"
             sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}
