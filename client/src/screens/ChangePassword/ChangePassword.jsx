@@ -4,6 +4,14 @@ import { useHistory } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import "./ChangePassword.css";
+
 
 export default function ChangePassword(props) {
     const [form, setForm] = useState({
@@ -79,48 +87,65 @@ export default function ChangePassword(props) {
 
     return (
         <Layout user={props.user}>
-            <div className='form-container'>
+            <div className='container-change-password'>
                 <h3>Update Password</h3>
-                <form onSubmit={newPassword === newPasswordConfirmation ? onPasswordChange : handleToggle}>
-                    <label>Email</label>
-                    <input
-                      required
-                      type='text'
-                      name='email'
-                      value={email}
-                      placeholder='Enter Email'
-                      onChange={handleChange}
-                    />
-                    <label>Old Password</label>
-                    <input
-                      required
-                      name='password'
-                      value={password}
-                      type='password'
-                      placeholder='Password'
-                      onChange={handleChange}
-                    />
-                    <label>New Password</label>
-                    <input
-                      required
-                      name='newPassword'
-                      value={newPassword}
-                      type='password'
-                      placeholder='New Password'
-                      onChange={handleChange}
-                    />
-                    <label>Confirm Password</label>
-                    <input
-                      required
-                      name='newPasswordConfirmation'
-                      value={newPasswordConfirmation}
-                      type='password'
-                      placeholder='Confirm Password'
-                      onChange={handleChange}
-                    />
-                    {toggle === true ? <h3>Error: Passwords Must Match</h3> : null}
-                    {renderError()}
-                </form>
+                <Box 
+                    className="box-change-password"
+                    sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}
+                    noValidate
+                    autoComplete="off"
+                >
+                    <Card className="card-change-password">
+                        <CardContent 
+                            className="card-content-change-password">
+                            <form 
+                                className="form-change-password"
+                                onSubmit={newPassword === newPasswordConfirmation ?
+                                    onPasswordChange : handleToggle}
+                            >
+                                <TextField
+                                    label="Email"
+                                    value={email}
+                                    name='email'
+                                    required
+                                    autoFocus
+                                    onChange={handleChange}
+                                />
+                                <TextField
+                                    label="Old Password"
+                                    name='password'
+                                    value={password}
+                                    type='password'
+                                    required
+                                    onChange={handleChange}
+                                />
+                                <TextField
+                                    label="New Password"
+                                    name='newPassword'
+                                    value={newPassword}
+                                    type='password'
+                                    required
+                                    onChange={handleChange}
+                                />
+                                <TextField
+                                    label="Confirm Password"
+                                    name='newPasswordConfirmation'
+                                    value={newPasswordConfirmation}
+                                    type='password'
+                                    required
+                                    onChange={handleChange}
+                                />
+                                {toggle === true ? <h3>Error: Passwords Must Match</h3> : null}
+                                {/* {renderError()} */}
+                                <CardActions>
+                                    <Button type="submit" className="submit-button">
+                                        Update Password!
+                                    </Button>
+                                </CardActions>
+                            </form>
+                        </CardContent>
+                    </Card>
+                </Box>
             </div>
         </Layout>
     )
