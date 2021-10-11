@@ -1,9 +1,16 @@
 .product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.card {
-    text-align: center;
+.hotness {
+  width:90%;
+  text-align: center;
+  box-shadow: 10 10px 30px rgba(0, 0, 0, 6.12);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.hotness:hover {
+  box-shadow: 0 12px 12px 1px rgb(87, 69, 247), 0 10px 10px rgba(208, 209, 200, 0.993);
 }

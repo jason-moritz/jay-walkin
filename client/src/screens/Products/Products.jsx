@@ -23,7 +23,7 @@ export default function Products(props) {
         <Layout user={props.user}>
             <div className="products">
             <Box>
-                <Card variant="outlined" className="cards-container">
+                <Card variant="outlined" className="cards-container" sx={{ maxWidth: 800 }}>
                     {products.map((product) => (
                         <CardContent className="card-content-container">
                             <Product
