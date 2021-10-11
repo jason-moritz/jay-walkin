@@ -10,6 +10,7 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import "./SignUp.css";
 
 
@@ -24,23 +25,25 @@ export default function SignUp(props) {
     const [toggle, setToggle] = useState(false);
 
     const { username, email, password, passwordConfirmation } = form;
-    const history = useHistory();
     const { setUser } = props;
+    const history = useHistory();
 
     const handleChange = (e) => {
+
+        setToggle(false);
         setForm({
             ...form,
             [e.target.name]: e.target.value
-        })
-    }
+        });
+    };
 
     const onSignUp = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         try {
             const user = await signUp(form);
             setUser(user);
-            toast(`Welcome ${form.username}!`)
+            toast(`Welcome ${form.username}!`);
             history.push("/");
         } catch (error) {
             console.error(error);
@@ -49,9 +52,9 @@ export default function SignUp(props) {
                 email: "",
                 password: "",
                 passwordConfirmation: ""
-            })
-        }
-    }
+            });
+        };
+    };
 
     const handleToggle = (e) => {
         e.preventDefault();
@@ -61,16 +64,16 @@ export default function SignUp(props) {
             username: "",
             email: "",
             password: "",
-            passwordConfirmation: "",
-            isError: true,
-            errorMsg: "Sign Up Details Invalid"
-        })
+            passwordConfirmation: ""
+        });
     };
 
     return (
         <Layout user={props.user}>
             <div className='container-sign-up'>
-                <h3>Sign Up</h3>
+                <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+                    Sign Up
+                </Typography>
                 <Box 
                     className="box-sign-up"
                     sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}
@@ -112,7 +115,12 @@ export default function SignUp(props) {
                                     required
                                     onChange={handleChange}
                                 />
-                                {toggle === true ? <h3>Error: Passwords Must Match</h3> : null}
+                                {toggle === true ? 
+                                    <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
+                                        Error: Passwords Must Match 
+                                    </Typography>
+                                    : null
+                                }
                                 <CardActions>
                                     <Button type="submit" className="submit-button">
                                         Sign Up!

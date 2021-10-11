@@ -1,3 +1,7 @@
+.container-edit-product {
+    text-align: center;
+}
+
 .box-edit-product {
     display: flex;
     flex-direction: column;
