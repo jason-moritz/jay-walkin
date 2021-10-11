@@ -14,6 +14,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import InputAdornment from '@mui/material/InputAdornment';
 import "./ProductEdit.css";
 
 
@@ -87,6 +88,9 @@ export default function ProductEdit(props) {
                   type="number"
                   required
                   onChange={handleChange}
+                  InputProps={{
+                    startAdornment: <InputAdornment position="start">$</InputAdornment>
+                  }}
                 />
                 <TextField
                   label="Image URL"
