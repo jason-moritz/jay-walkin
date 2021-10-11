@@ -108,12 +108,14 @@ export default function SignUp(props) {
                                     label="Email"
                                     value={email}
                                     name="email"
+                                    type="email"
                                     required
                                     onChange={handleChange}
                                 />
                                 <TextField
                                     label="Password"
                                     value={password}
+                                    inputProps={{ minLength: 8 }}
                                     name="password"
                                     type="password"
                                     required
@@ -122,6 +124,7 @@ export default function SignUp(props) {
                                 <TextField
                                     label="Confirm Password"
                                     value={passwordConfirmation}
+                                    inputProps={{ minLength: 8 }}
                                     name="passwordConfirmation"
                                     type="password"
                                     required
