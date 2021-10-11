@@ -54,7 +54,7 @@ export default function ProductCreate(props) {
       <Layout user={props.user}>
         <div className='container-create-product'>
           <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
-            <h3>Add a New Product</h3>
+            <span>Add a New Product</span>
           </Typography>          
           <Box 
             className="box-create-product"

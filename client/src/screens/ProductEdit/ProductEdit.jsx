@@ -63,7 +63,7 @@ export default function ProductEdit(props) {
       <Layout user={props.user}>
         <div className='container-edit-product'>
           <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
-            <h3>{`Update ${product.name}`}</h3>
+            <span>{`Update ${product.name}`}</span>
           </Typography>
           <Box 
             className="box-edit-product"
