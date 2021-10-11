@@ -126,6 +126,7 @@ export default function ChangePassword(props) {
                                     name="newPassword"
                                     value={newPassword}
                                     type="password"
+                                    minlength="8"
                                     required
                                     onChange={handleChange}
                                 />
@@ -134,6 +135,7 @@ export default function ChangePassword(props) {
                                     name="newPasswordConfirmation"
                                     value={newPasswordConfirmation}
                                     type="password"
+                                    minlength="8"
                                     required
                                     onChange={handleChange}
                                 />
