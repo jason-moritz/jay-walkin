@@ -107,8 +107,9 @@ export default function ChangePassword(props) {
                             >
                                 <TextField
                                     label="Email"
-                                    value={email}
                                     name="email"
+                                    value={email}
+                                    type="email"
                                     required
                                     autoFocus
                                     onChange={handleChange}
@@ -125,6 +126,7 @@ export default function ChangePassword(props) {
                                     label="New Password"
                                     name="newPassword"
                                     value={newPassword}
+                                    inputProps={{ minLength: 8 }}
                                     type="password"
                                     minlength="8"
                                     required
@@ -134,6 +136,7 @@ export default function ChangePassword(props) {
                                     label="Confirm Password"
                                     name="newPasswordConfirmation"
                                     value={newPasswordConfirmation}
+                                    inputProps={{ minLength: 8 }}
                                     type="password"
                                     minlength="8"
                                     required
