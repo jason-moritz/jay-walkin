@@ -20,7 +20,8 @@
 }
 
 .imgContainer {
-  width: 1200px;
+  /* width: 1200px; */
+  width: 100vw;
   height: 40vh;
   overflow: hidden;
 }
