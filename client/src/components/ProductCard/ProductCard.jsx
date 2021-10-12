@@ -5,8 +5,9 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { CardMedia } from "@mui/material";
-import { Box } from "@mui/system";
+import { useMediaQuery } from "@mui/material";
 import "./ProductCard.css";
+
 
 
 export default function ProductCard(props) {
@@ -19,15 +20,13 @@ export default function ProductCard(props) {
 
   return (
     <Card className="hotness">
-      <Box sx={{ boxShadow: 10 }}>
-      <CardMedia
+      <CardMedia className="cardimage"
         component="img"
         alt="sneakers"
-        height="160"
-        src={imgURL} alt={name}
+        src={imgURL} alt={name} 
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography  className="name" gutterBottom variant="h5" component="div">
         <div>{name}</div>
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -36,15 +35,14 @@ export default function ProductCard(props) {
       </CardContent>
       <CardActions>
         <Link className="card" to={`/products/${_id}`}>
-          <Button size="small">Learn More</Button>
+          <Button className="learnmore" size="small">Learn More</Button>
           {/* <div>View</div> */}
         </Link>
       </CardActions>
-      </Box>
     </Card>
   );
 }
-//     return (
+{/* //     return (
 //         <div className="product-card">
 //                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
 //                     New Addition!
@@ -57,4 +55,4 @@ export default function ProductCard(props) {
 //                   
 //         </div>
 //     )
-// 
+//  */}
