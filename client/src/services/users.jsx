@@ -51,3 +51,38 @@ export const verifyUser = async () => {
     }
     return false
 }
+
+export const addToCart = async (userId, productId) => {
+    try {
+        const res = await api.post(`/users/${userId}/add-to-cart`, productId)
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}
+
+export const removeFromCart = async (userId, productId) => {
+    try {
+        const res = await api.post(`/users/${userId}/remove-from-cart`, productId)
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}
+// export const viewCart = async (credentials) => {
+//     try {
+//         const res = await api.get("/view-cart", credentials)
+//         return res.data
+//     } catch (error) {
+//         throw error
+//     }
+// }
+
+export const getUser = async (id) => {
+    try {
+        const res = await api.get(`/users/${id}`)
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}

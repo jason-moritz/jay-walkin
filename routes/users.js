@@ -9,8 +9,8 @@ router.post("/sign-up", controllers.signUp);
 router.post("/sign-in", controllers.signIn);
 router.get("/verify", controllers.verify);
 router.post("/change-password", restrict, controllers.changePassword);
-router.post("/add-to-cart", restrict, controllers.addToCart);
-router.get("/view-cart", restrict, controllers.viewCart)
+router.post("/users/:id/add-to-cart", restrict, controllers.addToCart);
+router.post("/users/:id/remove-from-cart", restrict, controllers.removeFromCart);
 router.get('/users/:id', controllers.getUser);
 
 export default router;
