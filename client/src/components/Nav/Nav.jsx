@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Nav.css";
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+
 import { Drawer, List, ListItem, ListItemText, Divider } from '@mui/material';
 
 const authenticatedOptions = (
@@ -32,6 +32,53 @@ const alwaysOptions = (
     </>
 )
 
+const alwaysOptionsMobile = (
+    <>
+    <ListItem button onClick={() => {}}>
+        <NavLink to='/products'>
+            <ListItemText primary={"Products"} />
+        </NavLink>
+    </ListItem>
+    </>
+)
+
+const authenticatedOptionsMobile = (
+    <>
+    <ListItem button onClick={() => {}}>
+        <NavLink to="/add-product">
+            <ListItemText primary={"Add Product"} />
+        </NavLink>
+        </ListItem>
+    <ListItem button onClick={() => {}}>
+        <NavLink to="/change-password">
+            <ListItemText primary={"Change Password"} />
+        </NavLink>
+        </ListItem>
+    <ListItem button onClick={() => {}}>
+        <NavLink to="/sign-out">
+            <ListItemText primary={"Sign Out"} />
+        </NavLink>
+    </ListItem>
+    
+    </>
+)
+
+const unauthenticatedOptionsMobile = (
+    <>
+    <ListItem button onClick={() => {}}>
+
+        <NavLink to="/sign-up">
+            <ListItemText primary={"Sign Up"} />
+        </NavLink>
+        </ListItem>
+
+    <ListItem button onClick={() => {}}>
+        <NavLink to="/sign-in">
+            <ListItemText primary={"Sign In"} />
+        </NavLink>
+        </ListItem>
+    </>
+    )
 
 export default function Nav({ user }) {
     const [open, setOpen] = useState(false);
@@ -67,22 +114,10 @@ export default function Nav({ user }) {
                   <Divider />
                   <List>
                       
-                      <ListItem button onClick={() => {}}>
-                          <NavLink to='/products'>
-                          <ListItemText primary={"Products"} />
-                          </NavLink>
-                      </ListItem>
-                      
-                      <ListItem button onClick={() => {}}>
-                          <NavLink to='/sign-in'>
-                          <ListItemText primary={"Sign In"} />
-                          </NavLink>
-                      </ListItem>
-                      <ListItem button onClick={() => {}}>
-                          <NavLink to='/sign-up'>
-                          <ListItemText primary={"Sign Up"} />
-                          </NavLink>
-                      </ListItem>
+                      <div id="mobileLinks">
+                          {alwaysOptionsMobile}
+                          {user ? authenticatedOptionsMobile : unauthenticatedOptionsMobile}
+                     </div>
                     
                   </List>
               </div>
