@@ -113,6 +113,7 @@ export const getUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id).populate("cart")
     res.json(user)
+
   } catch (error) {
     console.log(error)
     res.status(500).json({ error: error.message })
@@ -122,33 +123,41 @@ export const getUser = async (req, res) => {
 
 export const addToCart = async (req, res) => {
   try {
-    const { userId, cart, productId } = req.body;
-  // const user = await User.findOne({ email: email }).select(
-  //   "cart"
-  // );
+    console.log("req.body", typeof req.body)
+    console.log(req.body)
+    const { productId } = req.body;
+    const { id } = req.params;
+    const user = await User.findById(id).populate("cart")
 
-    if (await User.updateOne({ _id: userId }, { cart: [...cart, productId] })) {
-      const user = await User.findById(userId).populate("cart")
-      res.json(user)
-    };
+    await user.cart.push(productId)
+    await user.save()
 
-  } catch (error) {
+    const updatedUser = await User.findById(id).populate("cart")
+    res.json(updatedUser)
+
+    } catch (error) {
   console.log(error.message)
   res.status(500).json({ error: error.message });
   };
 };
 
-export const viewCart = async (req, res) => {
+export const removeFromCart = async (req, res) => {
   try {
-    const { userId } = req.body;
-    const user = await User.findById(userId).populate("cart")
+    console.log("req.body", typeof req.body)
+    console.log(req.body)
+    const { productId } = req.body;
+    const { id } = req.params;
+    const user = await User.findById(id).populate("cart");
+    const productIndex = user.cart.findIndex(_id => _id === productId)
+    
+    await user.cart.splice(productIndex)
+    await user.save();
 
-    if (user) {
-      res.json(user)
-    };
+    const updatedUser = await User.findById(id).populate("cart")
+    res.json(updatedUser)
 
   } catch (error) {
-    console.log(error)
-    res.status(500).json({ error: error.message })
+  console.log(error.message)
+  res.status(500).json({ error: error.message });
   };
-};
+}
