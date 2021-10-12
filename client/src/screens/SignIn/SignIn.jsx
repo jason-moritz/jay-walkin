@@ -72,6 +72,15 @@ export default function SignIn(props) {
                                 onSubmit={onSignIn}
                             >
                                 <TextField
+                                    sx ={{ 
+                                        width: {
+                                            xs: 1,
+                                            sm: 200,
+                                            md: 300,
+                                            lg: 400,
+                                            xl: 1/8
+                                        }
+                                    }}
                                     label="Email"
                                     value={email}
                                     name="email"
@@ -81,6 +90,7 @@ export default function SignIn(props) {
                                     onChange={handleChange}
                                 />
                                 <TextField
+                                    sx ={{ width: 1/2 }}
                                     label="Password"
                                     value={password}
                                     name="password"
