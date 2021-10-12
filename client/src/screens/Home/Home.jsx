@@ -5,6 +5,7 @@ import Carousel from "react-material-ui-carousel";
 import Slider from "../../components/Slider/Slider";
 import Banner from "../../assets/Banner.jpeg";
 import Banner2 from "../../assets/Banner2.png";
+import Banner3 from "../../assets/Banner3.jpeg";
 
 export default function Home(props) {
   let items = [
@@ -17,6 +18,11 @@ export default function Home(props) {
       name: "Random Name #2",
       description: "Hello World!",
       image: Banner2,
+    },
+    {
+      name: "Random Name #3",
+      description: "Hello World!",
+      image: Banner3,
     },
   ];
   return (
