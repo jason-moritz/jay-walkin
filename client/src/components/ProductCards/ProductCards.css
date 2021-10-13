@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 .latest {
   font-size: 40px;
-  font-family: "BioRhyme", serif;
   font-style: normal;
   font-weight: normal;
 }
@@ -31,16 +29,6 @@
       }
     }
   /* @media only screen and (max-width: 1280px) {
-=======
-  .latest{
-    font-size: 40px;
-    font-family: 'BioRhyme', serif;
-    font-style: normal;
-    font-weight: normal;
-  }
-
-  /* @media only screen and (min-width: 375px ) {
->>>>>>> 5e13052497934ee6084542e69fbf7a8bc3c5a461
     .card-container {
       width: 100%;
       display: flex;
@@ -49,12 +37,6 @@
     }
 
     .card {
-<<<<<<< HEAD
-        width: 75%;
-        margin: 10%;
-      }
-    } */
-=======
         width: 80%;
         margin: 5%;
       }
@@ -85,5 +67,3 @@
           margin: 10%;
         }
       } */
-
->>>>>>> 5e13052497934ee6084542e69fbf7a8bc3c5a461
