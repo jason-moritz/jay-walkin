@@ -143,7 +143,7 @@ export default function Nav({ user }) {
           </Typography>
           <div className="links">
             {user && (
-              <div className="link-welcome">Welcome, {user.username}</div>
+              `Welcome, ${user.username}`
             )}
             {alwaysOptions}
             {user ? authenticatedOptions : unauthenticatedOptions}
