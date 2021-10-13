@@ -1,48 +1,17 @@
+.latest {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: normal;
+}
 
-/* .product-cards{
-    border-radius: 4px;
-    overflow: hidden;
+@media only screen and (max-width: 1280px) {
+  .card-container {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    -moz-box-pack: justify;
-    justify-content: space-between;
-    min-width: 344px;
-    margin: 24px auto;
+    align-items: center;
   }
-
-  
-  
-  .cards {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    overflow: hidden;
-    -moz-box-pack: justify;
-    justify-content: space-between;
-    min-width: 344px;
-    height: max-content;
-    margin: 24px auto;
+  .card {
+    width: 75%;
+    margin: 5% 0;
   }
-   */
-
-  .latest{
-    font-size: 40px;
-    font-family: 'BioRhyme', serif;
-    font-style: normal;
-    font-weight: normal;
-  }
-
-  @media only screen and (max-width: 1280px) {
-    .card-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .card {
-      width: 75%;
-      margin: 5% 0;
-    }
-
-
-  }
+}
