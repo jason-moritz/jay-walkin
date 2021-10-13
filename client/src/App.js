@@ -12,7 +12,7 @@ import ProductDetail from "./screens/ProductDetail/ProductDetail";
 import ProductCreate from "./screens/ProductCreate/ProductCreate";
 import ProductEdit from "./screens/ProductEdit/ProductEdit";
 import { ToastContainer } from "react-toastify";
-import Test from "./screens/Test/Test"
+// import Test from "./screens/Test/Test"
 
 export default function App() {
     const [user, setUser] = useState(null)
@@ -55,10 +55,9 @@ export default function App() {
         <Route exact path="/products/:id/edit">
           {user ? <ProductEdit user={user} /> : <Redirect to="/sign-up" />}
         </Route>
-
-        <Route exact path="/test">
+        {/* <Route exact path="/test">
           <Test user={user} />
-        </Route>
+        </Route> */}
       </Switch>
       <ToastContainer />
 

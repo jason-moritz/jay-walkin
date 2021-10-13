@@ -57,6 +57,7 @@ export default function ProductDetail(props) {
                   sx={{ fontSize: 14 }}
                   color="text.secondary"
                   gutterBottom
+                  component="div"
                 >
                   <div className="name">{product.name}</div>
                   <div className="price">{`$${product.price}`}</div>
