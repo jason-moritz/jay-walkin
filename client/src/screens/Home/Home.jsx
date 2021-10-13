@@ -3,8 +3,8 @@ import ProductCards from "../../components/ProductCards/ProductCards";
 import "./Home.css";
 import Carousel from "react-material-ui-carousel";
 import Slider from "../../components/Slider/Slider";
-import Banner1 from "../../assets/Banner.jpeg";
-import Banner2 from "../../assets/Banner2.png";
+import Banner1 from "../../assets/Banner1.jpeg";
+import Banner from "../../assets/Banner.jpeg";
 import Banner3 from "../../assets/Banner3.jpeg";
 
 export default function Home(props) {
@@ -20,7 +20,7 @@ export default function Home(props) {
       name: "ALWAYS ON YOUR GAME",
       description:
         "Sign Up for JayWalkin to receive the latest updates on new shoe DROPS",
-      image: Banner2,
+      image: Banner,
       link: "/sign-up/",
       button: "Sign Up Today",
     },

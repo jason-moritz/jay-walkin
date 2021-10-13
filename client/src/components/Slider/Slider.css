@@ -25,7 +25,7 @@
 
 .imgContainer {
   width: 100vw;
-  height: 40vh;
+  height: 410px;
   overflow: hidden;
 }
 
@@ -55,6 +55,9 @@
     bottom: 35px;
     left: 30px;
     font-size: 7px;
+  }
+  .imgContainer {
+    height: 210px;
   }
 }
 
