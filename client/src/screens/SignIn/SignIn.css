@@ -3,32 +3,10 @@
     flex-direction: column;
     align-items: center;
 }
-
+ 
 .box-sign-in {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-}
-
-.card-sign-in {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-}
-
-.form-sign-in {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 75%;
-}
-
-
-
-
-.MuiOutlinedInput-notchedOutline {
-    width: 75%;
 }

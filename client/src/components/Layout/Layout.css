@@ -8,3 +8,9 @@
     flex: 2;
     padding: 100px;
 }
+
+@media only screen and (max-width: 768px) {
+    .layout-children {
+        padding: 0;
+    }
+}
