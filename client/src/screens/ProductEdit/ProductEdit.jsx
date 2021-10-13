@@ -4,18 +4,8 @@ import { getProduct, updateProduct } from "../../services/products";
 import { useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import InputAdornment from '@mui/material/InputAdornment';
-import Typography from '@mui/material/Typography';
+import { Box, Card, CardContent, CardActions, Button, TextField, Typography, Container, InputLabel, FormControl, Select, InputAdornment, FormLabel, RadioGroup, Radio, FormControlLabel } from "@mui/material";
+import MenuItem from "@material-ui/core/MenuItem";
 import "./ProductEdit.css";
 
 
@@ -62,21 +52,42 @@ export default function ProductEdit(props) {
     return (
       <Layout user={props.user}>
         <div className='container-edit-product'>
-          <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
-            <span>{`Update ${product.name}`}</span>
-          </Typography>
-          <Box 
-            className="box-edit-product"
-            sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}
-            noValidate
-            autoComplete="off"
-          >
-            <Card className="card-edit-product">
-              <CardContent 
-              className="card-content-edit-product">
-                <form
-                  className="form-edit-product" 
-                  onSubmit={handleSubmit}
+          <Container 
+              minWidth="xs"
+              maxWidth="sm" 
+              sx={{ 
+                  display: "flex", 
+                  flexDirection: "column", 
+                  alignItems: "center", 
+              }}
+            >
+              <Card 
+                  sx={{ 
+                      width: "100%",
+                      display: "flex", 
+                      flexDirection: "column", 
+                      alignItems: "center" 
+                  }}
+              >
+                <Typography 
+                    sx={{ 
+                        fontSize: 24, 
+                        textAlign: "center" 
+                    }} 
+                    color="text.secondary" 
+                    gutterBottom
+                >
+                    {`Edit ${product.name}`}
+                </Typography>   
+                <Box 
+                className="box-update-product"
+                sx={{ width: "100%",
+                    ".MuiTextField-root": { m: 1, width: ".75" }
+                }}
+                component="form"
+                noValidate
+                autoComplete="off"
+                onSubmit={handleSubmit}
                 >
                   <TextField
                     label="Product Name"
@@ -101,105 +112,122 @@ export default function ProductEdit(props) {
                     label="Image URL"
                     value={product.imgURL}
                     name="imgURL"
-                    required
-                    onChange={handleChange}
-                  />
-                  <FormControl 
-                    fullWidth 
-                    className="form-control-drop-down"
-                    sx={{ m: 1, width: "45ch" }}
-                  >
-                    <InputLabel>Category *</InputLabel>
-                    <Select
-                      label="Category"
-                      name="category"
-                      required
-                      onChange={handleChange}
-                    >
-                      <MenuItem 
-                        name="category" 
-                        value="street"
-                      >
-                        Street
-                      </MenuItem>
-                      <MenuItem 
-                        name="category" 
-                        value="athletic"
-                      >
-                        Athletic
-                      </MenuItem>
-                      <MenuItem 
-                        name="category" 
-                        value="collectable"
-                      >
-                        Collectable
-                      </MenuItem>
-                      <MenuItem 
-                        name="category" 
-                        value="casual"
-                      >
-                        Casual
-                      </MenuItem>
-                    </Select>
-                  </FormControl>
-                  <FormControl 
-                    fullWidth
-                    className="form-control-drop-down"
-                    sx={{ m: 1, width: "45ch" }}
-                  >
-                    <InputLabel>Gender *</InputLabel>
-                    <Select 
-                      label="Gender"
-                      name="gender" 
-                      required 
-                      onChange={handleChange}
-                    >
-                      <MenuItem 
-                        name="gender"
-                        value="unisex"
-                      >
-                        Unisex
-                      </MenuItem>
-                      <MenuItem 
-                        name="gender"
-                        value="male"
-                      >
-                        Male
-                      </MenuItem>
-                      <MenuItem 
-                        name="gender"
-                        value="female"
-                      >
-                        Female
-                      </MenuItem>
-                    </Select>
-                  </FormControl>
-                  <TextField
-                    className="input-brand"
-                    placeholder="Brand"
-                    value={product.brand}
-                    name="brand"
+                    type="url"
                     required
                     onChange={handleChange}
                   />
                   <TextField
-                    label="Description"
-                    rows={5}
-                    value={product.description}
-                    name="description"
-                    multiline
-                    required
+                  label="Brand"
+                  value={product.brand}
+                  name="brand"
+                  required
+                  onChange={handleChange}
+                />
+                <FormControl 
+                  fullWidth 
+                  className="form-control-drop-down"
+                  sx={{ 
+                    m: 1, 
+                    width: "75%",
+                    ".MuiSelect-select": {
+                      display: "flex",
+                      flexDirection: "column",
+                    }
+                  }}
+                >
+                  <InputLabel>Style *</InputLabel>
+                  <Select 
+                    label="Style" 
+                    name="category" 
+                    required 
                     onChange={handleChange}
-                  />
-                  <CardActions>
-                    <Button type="submit" className="submit-button">
-                      Update!
-                    </Button>
-                  </CardActions>
-                </form>
-              </CardContent>
+                  >
+                    <MenuItem 
+                      name="category" 
+                      value="street"
+                    >
+                      Street
+                    </MenuItem>
+                    <MenuItem 
+                      name="category" 
+                      value="athletic"
+                    >
+                      Athletic
+                    </MenuItem>
+                    <MenuItem 
+                      name="category" 
+                      value="collectable"
+                    >
+                      Collectable
+                    </MenuItem>
+                    <MenuItem 
+                      name="category" 
+                      value="casual"
+                    >
+                      Casual
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl
+                  className="radio-group-container"
+                  component="fieldset"
+                  sx={{
+                    ".MuiFormGroup-root": {
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "75%"
+                  }}}
+                >
+                  <RadioGroup
+                    className="radio-group"
+                    row
+                    aria-label="gender"
+                    defaultValue="unisex"
+                    name="radio-buttons-group"
+                  >
+                    <FormLabel 
+                      component="legend"
+                      sx={{ mr: "5%" }}
+                    >
+                      Gender
+                    </FormLabel>
+                    <FormControlLabel 
+                      value="unisex" 
+                      control={<Radio />} 
+                      label="Unisex" 
+                    />
+                    <FormControlLabel 
+                      value="male" 
+                      control={<Radio />} 
+                      label="Male" 
+                    />
+                    <FormControlLabel 
+                      value="female" 
+                      control={<Radio />} 
+                      label="Female" 
+                    />
+                  </RadioGroup>
+                </FormControl>
+                <TextField
+                  label="Description"
+                  rows={5}
+                  value={product.description}
+                  name="description"
+                  multiline
+                  required
+                  onChange={handleChange}
+                />
+                <Button type="submit">
+                  <Typography
+                      gutterBottom
+                      align="center"
+                  >
+                      Update Product!
+                  </Typography>
+                </Button>
+              </Box>
             </Card>
-          </Box>
+          </Container>
         </div>
       </Layout>
     )

@@ -4,18 +4,8 @@ import { createProduct } from "../../services/products";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import InputAdornment from '@mui/material/InputAdornment';
-import Typography from '@mui/material/Typography';
+import { Box, Card, CardContent, CardActions, Button, TextField, Typography, Container, InputLabel, FormControl, Select, InputAdornment, FormLabel, RadioGroup, Radio, FormControlLabel } from "@mui/material";
+import MenuItem from "@material-ui/core/MenuItem";
 import "./ProductCreate.css";
 
 
@@ -29,6 +19,7 @@ export default function ProductCreate(props) {
         brand: "",
         gender: "",
     });
+
     const history = useHistory();
 
     const handleChange = (e) => {
@@ -49,146 +40,185 @@ export default function ProductCreate(props) {
         history.push("/products");
     };
 
-
     return (
       <Layout user={props.user}>
         <div className='container-create-product'>
-          <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
-            <span>Add a New Product</span>
-          </Typography>          
-          <Box 
-            className="box-create-product"
-            sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}
-            noValidate
-            autoComplete="off"
+          <Container 
+            minWidth="xs"
+            maxWidth="sm" 
+            sx={{ 
+                display: "flex", 
+                flexDirection: "column", 
+                alignItems: "center", 
+            }}
           >
-            <Card className="card-create-product">
-              <CardContent className="card-content-create-product">
-                <form
-                  className="form-create-product"
-                  onSubmit={handleSubmit}
+            <Card 
+                sx={{ 
+                    width: "100%",
+                    display: "flex", 
+                    flexDirection: "column", 
+                    alignItems: "center" 
+                }}
+            >
+              <Typography 
+                  sx={{ 
+                      fontSize: 24, 
+                      textAlign: "center" 
+                  }} 
+                  color="text.secondary" 
+                  gutterBottom
+              >
+                  Add a New Product
+              </Typography>        
+              <Box 
+                className="box-create-product"
+                sx={{ width: "100%",
+                    ".MuiTextField-root": { m: 1, width: ".75" }
+                }}
+                component="form"
+                noValidate
+                autoComplete="off"
+                onSubmit={handleSubmit}
+              >
+                <TextField
+                  label="Product Name"
+                  value={newProduct.name}
+                  name="name"
+                  required
+                  autoFocus
+                  onChange={handleChange}
+                />
+                <TextField
+                  label="Price"
+                  value={newProduct.price}
+                  name="price"
+                  type="number"
+                  required
+                  onChange={handleChange}
+                  InputProps={{
+                    startAdornment: <InputAdornment position="start">$</InputAdornment>
+                  }}
+                />
+                <TextField
+                  label="Image URL"
+                  value={newProduct.imgURL}
+                  name="imgURL"
+                  type="url"
+                  required
+                  onChange={handleChange}
+                />
+                <TextField
+                  label="Brand"
+                  value={newProduct.brand}
+                  name="brand"
+                  required
+                  onChange={handleChange}
+                />
+                <FormControl 
+                  fullWidth 
+                  className="form-control-drop-down"
+                  sx={{ 
+                    m: 1, 
+                    width: "75%",
+                    ".MuiSelect-select": {
+                      display: "flex",
+                      flexDirection: "column",
+                    }
+                  }}
                 >
-                  <TextField
-                    label="Product Name"
-                    value={newProduct.name}
-                    name="name"
-                    required
-                    autoFocus
+                  <InputLabel>Style *</InputLabel>
+                  <Select 
+                    label="Style" 
+                    name="category" 
+                    required 
                     onChange={handleChange}
-                  />
-                  <TextField
-                    label="Price"
-                    value={newProduct.price}
-                    name="price"
-                    type="number"
-                    required
-                    onChange={handleChange}
-                    InputProps={{
-                      startAdornment: <InputAdornment position="start">$</InputAdornment>
-                    }}
-                  />
-                  <TextField
-                    label="Image URL"
-                    value={newProduct.imgURL}
-                    name="imgURL"
-                    required
-                    onChange={handleChange}
-                  />
-                  <TextField
-                    label="Brand"
-                    value={newProduct.brand}
-                    name="brand"
-                    required
-                    onChange={handleChange}
-                  />
-                  <FormControl 
-                    fullWidth 
-                    className="form-control-drop-down"
-                    sx={{ m: 1, width: "45ch" }}
                   >
-                    <InputLabel>Category *</InputLabel>
-                    <Select 
-                      label="Category" 
+                    <MenuItem 
                       name="category" 
-                      required 
-                      onChange={handleChange}
+                      value="street"
                     >
-                      <MenuItem 
-                        name="category" 
-                        value="street"
-                      >
-                        Street
-                      </MenuItem>
-                      <MenuItem 
-                        name="category" 
-                        value="athletic"
-                      >
-                        Athletic
-                      </MenuItem>
-                      <MenuItem 
-                        name="category" 
-                        value="collectable"
-                      >
-                        Collectable
-                      </MenuItem>
-                      <MenuItem 
-                        name="category" 
-                        value="casual"
-                      >
-                        Casual
-                      </MenuItem>
-                    </Select>
-                  </FormControl>
-                  <FormControl 
-                    fullWidth
-                    className="form-control-drop-down"
-                    sx={{ m: 1, width: "45ch" }}
+                      Street
+                    </MenuItem>
+                    <MenuItem 
+                      name="category" 
+                      value="athletic"
+                    >
+                      Athletic
+                    </MenuItem>
+                    <MenuItem 
+                      name="category" 
+                      value="collectable"
+                    >
+                      Collectable
+                    </MenuItem>
+                    <MenuItem 
+                      name="category" 
+                      value="casual"
+                    >
+                      Casual
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl
+                  className="radio-group-container"
+                  component="fieldset"
+                  sx={{
+                    ".MuiFormGroup-root": {
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "75%"
+                  }}}
+                >
+                  <RadioGroup
+                    className="radio-group"
+                    row
+                    aria-label="gender"
+                    defaultValue="unisex"
+                    name="radio-buttons-group"
                   >
-                    <InputLabel>Gender *</InputLabel>
-                    <Select 
-                      label="Gender"
-                      name="gender" 
-                      required 
-                      onChange={handleChange}
+                    <FormLabel 
+                      component="legend"
+                      sx={{ mr: "5%" }}
                     >
-                      <MenuItem 
-                        name="gender"
-                        value="unisex"
-                      >
-                        Unisex
-                      </MenuItem>
-                      <MenuItem 
-                        name="gender"
-                        value="male"
-                      >
-                        Male
-                      </MenuItem>
-                      <MenuItem 
-                        name="gender"
-                        value="female"
-                      >
-                        Female
-                      </MenuItem>
-                    </Select>
-                  </FormControl>
-                  <TextField
-                    label="Description"
-                    rows={5}
-                    value={newProduct.description}
-                    name="description"
-                    multiline
-                    required
-                    onChange={handleChange}
-                  />
-                  <CardActions>
-                    <Button type="submit" className="submit-button">
-                      Add Product
-                    </Button>
-                  </CardActions>
-                </form>
-              </CardContent>
+                      Gender
+                    </FormLabel>
+                    <FormControlLabel 
+                      value="unisex" 
+                      control={<Radio />} 
+                      label="Unisex" 
+                    />
+                    <FormControlLabel 
+                      value="male" 
+                      control={<Radio />} 
+                      label="Male" 
+                    />
+                    <FormControlLabel 
+                      value="female" 
+                      control={<Radio />} 
+                      label="Female" 
+                    />
+                  </RadioGroup>
+                </FormControl>
+                <TextField
+                  label="Description"
+                  rows={5}
+                  value={newProduct.description}
+                  name="description"
+                  multiline
+                  required
+                  onChange={handleChange}
+                />
+                <Button type="submit">
+                  <Typography
+                      gutterBottom
+                      align="center"
+                  >
+                      Add Product!
+                  </Typography>
+                </Button>
+              </Box>
             </Card>
-          </Box>
+          </Container>
         </div>
       </Layout>
     )

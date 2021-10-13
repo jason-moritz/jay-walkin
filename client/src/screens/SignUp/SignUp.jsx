@@ -106,7 +106,7 @@ export default function SignUp(props) {
                             color="text.secondary" 
                             gutterBottom
                         >
-                            Sign In
+                            Sign Up
                         </Typography>
                         <Box
                             className="box-sign-up"
@@ -114,12 +114,20 @@ export default function SignUp(props) {
                                 ".MuiTextField-root": { m: 1, width: ".75" }
                             }}
                             component="form"
-                            onSubmit={form.password === form.passwordConfirmation ? onSignUp : handleToggle}
+                            noValidate
+                            autoComplete="off"
+                            onSubmit={form.password === form.passwordConfirmation ?
+                                onSignUp 
+                                : 
+                                handleToggle
+                            }
                         >
                             <TextField
                                 label="Username"
                                 value={username}
+                                inputProps={{ minLength: 6 }}
                                 name="username"
+                                error={toggle2}
                                 required
                                 autoFocus
                                 onChange={handleChange}
@@ -129,6 +137,7 @@ export default function SignUp(props) {
                                 value={email}
                                 name="email"
                                 type="email"
+                                error={toggle3}
                                 required
                                 onChange={handleChange}
                             />
@@ -138,6 +147,7 @@ export default function SignUp(props) {
                                 inputProps={{ minLength: 8 }}
                                 name="password"
                                 type="password"
+                                error={toggle}
                                 required
                                 onChange={handleChange}
                             />
@@ -147,6 +157,7 @@ export default function SignUp(props) {
                                 inputProps={{ minLength: 8 }}
                                 name="passwordConfirmation"
                                 type="password"
+                                error={toggle}
                                 required
                                 onChange={handleChange}
                             />
@@ -185,7 +196,7 @@ export default function SignUp(props) {
                                     gutterBottom
                                     align="center"
                                 >
-                                    Sign In!
+                                    Sign Up!
                                 </Typography>
                             </Button>
                         </Box>

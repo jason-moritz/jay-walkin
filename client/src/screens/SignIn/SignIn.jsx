@@ -90,6 +90,7 @@ export default function SignIn(props) {
                                 value={email}
                                 name="email"
                                 type="email"
+                                error={toggle}
                                 required
                                 autoFocus
                                 onChange={handleChange}
@@ -99,6 +100,7 @@ export default function SignIn(props) {
                                 value={password}
                                 name="password"
                                 type="password"
+                                error={toggle}
                                 required
                                 onChange={handleChange}
                             />
