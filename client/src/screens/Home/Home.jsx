@@ -11,7 +11,7 @@ export default function Home(props) {
   let items = [
     {
       name: "FIND YOUR STYLE",
-      description: "Our collection is ",
+      description: "JayWalkin offers a wide collection of shoes",
       image: Banner1,
       link: "/products/",
       button: "Shop Now",
