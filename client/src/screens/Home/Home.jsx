@@ -13,16 +13,23 @@ export default function Home(props) {
       name: "FIND YOUR STYLE",
       description: "Our collection is ",
       image: Banner,
+      link: "/products/",
+      button: "Shop Now",
     },
     {
       name: "ALWAYS ON YOUR GAME",
-      description: "Try out our new collection",
+      description:
+        "Sign Up for JayWalkin to receive the latest updates on new shoe DROPS",
       image: Banner2,
+      link: "/sign-up/",
+      button: "Sign Up Today",
     },
     {
       name: "REALIZE YOUR IDENTITY",
       description: "Pick out a shoe that defines who you are",
       image: Banner3,
+      link: "/products/",
+      button: "Shop Now",
     },
   ];
   return (

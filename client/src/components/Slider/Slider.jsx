@@ -12,8 +12,8 @@ export default function Item(props) {
           <img className="sliderImg" src={props.item.image} alt="banner" />
         </div>
         <Button className="sliderButton">
-          <Link className="shopNowLink" to={`/products/`}>
-            Shop Now
+          <Link className="shopNowLink" to={props.item.link}>
+            {props.item.button}
           </Link>
         </Button>
       </Link>
