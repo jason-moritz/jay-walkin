@@ -1,31 +1,3 @@
-
-/* .product-cards{
-    border-radius: 4px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    -moz-box-pack: justify;
-    justify-content: space-between;
-    min-width: 344px;
-    margin: 24px auto;
-  }
-
-  
-  
-  .cards {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    overflow: hidden;
-    -moz-box-pack: justify;
-    justify-content: space-between;
-    min-width: 344px;
-    height: max-content;
-    margin: 24px auto;
-  }
-   */
-
   .latest{
     font-size: 40px;
     font-family: 'BioRhyme', serif;
@@ -33,16 +5,43 @@
     font-weight: normal;
   }
 
-  @media only screen and (max-width: 1280px) {
+  /* @media only screen and (min-width: 375px ) {
     .card-container {
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+
     .card {
-      width: 75%;
-      margin: 5% 0;
+        width: 80%;
+        margin: 5%;
+      }
     }
 
+    @media only screen and (min-width: 1280px ) {
+      .card-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+  
+      .card {
+          width: 30%;
+          margin: 2%;
+        }
+      }
 
-  }
+    /* @media only screen and (max-width: 1280px) {
+      .card-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+          width: 75%;
+          margin: 10%;
+        }
+      } */
+
