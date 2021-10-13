@@ -166,7 +166,9 @@ export default function ProductCreate(props) {
                     ".MuiFormGroup-root": {
                     display: "flex",
                     justifyContent: "space-between",
-                    width: "75%"
+                    width: "75%",
+                    m: "0 auto",
+                    
                   }}}
                 >
                   <RadioGroup
@@ -178,7 +180,6 @@ export default function ProductCreate(props) {
                   >
                     <FormLabel 
                       component="legend"
-                      sx={{ mr: "5%" }}
                     >
                       Gender
                     </FormLabel>

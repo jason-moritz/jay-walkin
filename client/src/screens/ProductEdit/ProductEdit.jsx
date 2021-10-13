@@ -51,7 +51,7 @@ export default function ProductEdit(props) {
 
     return (
       <Layout user={props.user}>
-        <div className='container-edit-product'>
+        <div className="container-edit-product">
           <Container 
               minWidth="xs"
               maxWidth="sm" 
@@ -60,7 +60,7 @@ export default function ProductEdit(props) {
                   flexDirection: "column", 
                   alignItems: "center", 
               }}
-            >
+          >
               <Card 
                   sx={{ 
                       width: "100%",
@@ -80,7 +80,7 @@ export default function ProductEdit(props) {
                     {`Edit ${product.name}`}
                 </Typography>   
                 <Box 
-                className="box-update-product"
+                className="box-edit-product"
                 sx={{ width: "100%",
                     ".MuiTextField-root": { m: 1, width: ".75" }
                 }}
@@ -175,7 +175,8 @@ export default function ProductEdit(props) {
                     ".MuiFormGroup-root": {
                     display: "flex",
                     justifyContent: "space-between",
-                    width: "75%"
+                    width: "75%",
+                    m: "0 auto"
                   }}}
                 >
                   <RadioGroup
@@ -187,7 +188,6 @@ export default function ProductEdit(props) {
                   >
                     <FormLabel 
                       component="legend"
-                      sx={{ mr: "5%" }}
                     >
                       Gender
                     </FormLabel>
