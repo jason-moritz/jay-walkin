@@ -1,13 +1,4 @@
-.hotness {
-    border-radius: 4px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    -moz-box-pack: justify;
-    justify-content: space-between;
-  }
-  
+
   .hotness:hover {
     box-shadow: 0 12px 12px 1px rgb(87, 69, 247), 0 10px 10px rgba(208, 209, 200, 0.993);
   }

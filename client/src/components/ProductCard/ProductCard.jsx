@@ -20,7 +20,7 @@ export default function ProductCard(props) {
 
   return (
 
-    <CardContent
+    <CardContent className="hotness"
         sx={{
                 width: "75%",
                 height: "90%",
