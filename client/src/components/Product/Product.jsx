@@ -14,7 +14,7 @@ export default function Product(props) {
     return (
         <>
             <img className="product-img" src={imgURL} alt={name} />
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom component="div">
                 <div className="product-name">{name}</div>
                 <div className="product-price">{`$${price}`}</div>
             </Typography>

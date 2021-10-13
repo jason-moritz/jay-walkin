@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { getProducts } from "../../services/products";
-import { Box, Card, CardContent, Typography } from '@mui/material/';
+import { Box, Card, Typography } from '@mui/material/';
 import "./Products.css";
 
 
@@ -21,6 +21,7 @@ export default function Products(props) {
         products.map(product => (
             <Card
                 className="card"
+                key={product._id}
                 sx={{
                     width: "25%",
                     flexShrink: 0,
@@ -45,12 +46,30 @@ export default function Products(props) {
             <div className="product-cards">
                 <Box
                     className="box-product-cards"
-                    sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                    <Typography gutterBottom sx={{ fontSize: 48 }}>View All Shoes</Typography>
+                    sx={{ 
+                        display: "flex", 
+                        flexDirection: "column", 
+                        justifyContent: "center", 
+                        alignItems: "center" 
+                    }}
+                >
+                    <Typography 
+                        gutterBottom 
+                        sx={{ fontSize: 48 }}
+                    >
+                        View All Shoes
+                    </Typography>
                     <Card 
                         className="card-container"
                         variant="outlined"
-                        sx={{ width: "90%", display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "center" }}
+                        sx={{ 
+                            width: "90%", 
+                            display: "flex", 
+                            flexDirection: "row", 
+                            flexWrap: "wrap", 
+                            alignItems: "center", 
+                            justifyContent: "center" 
+                        }}
                     >
                         {CARDS}
                     </Card>

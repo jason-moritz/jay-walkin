@@ -4,7 +4,7 @@ import Layout from "../../components/Layout/Layout";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Box, Card, CardContent, CardActions, Button, TextField, Typography, Container } from "@mui/material";
+import { Box, Card, Button, TextField, Typography, Container } from "@mui/material";
 import "./SignUp.css";
 
 
@@ -111,7 +111,10 @@ export default function SignUp(props) {
                         <Box
                             className="box-sign-up"
                             sx={{ width: "100%",
-                                ".MuiTextField-root": { m: 1, width: ".75" }
+                                ".MuiTextField-root": { 
+                                    m: 1, 
+                                    width: ".75" 
+                                }
                             }}
                             component="form"
                             noValidate

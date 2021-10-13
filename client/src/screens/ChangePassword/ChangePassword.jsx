@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Box, Card, CardContent, CardActions, Button, TextField, Typography, Container } from "@mui/material";
+import { Box, Card, Button, TextField, Typography, Container } from "@mui/material";
 import "./ChangePassword.css";
 
 
@@ -114,7 +114,10 @@ export default function ChangePassword(props) {
                         <Box
                             className="box-change-password"
                             sx={{ width: "100%",
-                                ".MuiTextField-root": { m: 1, width: ".75" }
+                                ".MuiTextField-root": { 
+                                    m: 1, 
+                                    width: ".75" 
+                                }
                             }}
                             component="form"
                             noValidate

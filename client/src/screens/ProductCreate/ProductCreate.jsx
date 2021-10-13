@@ -4,7 +4,7 @@ import { createProduct } from "../../services/products";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Box, Card, CardContent, CardActions, Button, TextField, Typography, Container, InputLabel, FormControl, Select, InputAdornment, FormLabel, RadioGroup, Radio, FormControlLabel } from "@mui/material";
+import { Box, Card, Button, TextField, Typography, Container, InputLabel, FormControl, Select, InputAdornment, FormLabel, RadioGroup, Radio, FormControlLabel } from "@mui/material";
 import MenuItem from "@material-ui/core/MenuItem";
 import "./ProductCreate.css";
 
@@ -73,7 +73,10 @@ export default function ProductCreate(props) {
               <Box 
                 className="box-create-product"
                 sx={{ width: "100%",
-                    ".MuiTextField-root": { m: 1, width: ".75" }
+                    ".MuiTextField-root": { 
+                      m: 1, 
+                      width: ".75" 
+                    }
                 }}
                 component="form"
                 noValidate
@@ -96,7 +99,10 @@ export default function ProductCreate(props) {
                   required
                   onChange={handleChange}
                   InputProps={{
-                    startAdornment: <InputAdornment position="start">$</InputAdornment>
+                    startAdornment: 
+                      <InputAdornment position="start">
+                        $
+                      </InputAdornment>
                   }}
                 />
                 <TextField
@@ -164,10 +170,10 @@ export default function ProductCreate(props) {
                   component="fieldset"
                   sx={{
                     ".MuiFormGroup-root": {
-                    display: "flex",
-                    justifyContent: "space-between",
-                    width: "75%",
-                    m: "0 auto",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      width: "75%",
+                      m: "0 auto",
                     
                   }}}
                 >
