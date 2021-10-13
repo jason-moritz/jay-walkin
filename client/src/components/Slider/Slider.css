@@ -34,6 +34,10 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
 }
 
 .sliderButton {
