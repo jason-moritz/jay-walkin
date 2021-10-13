@@ -40,8 +40,16 @@ export default function ProductDetail(props) {
   };
 
   return (
+    
     <Layout user={props.user}>
+
       <Box className="box-product">
+
+        <div className="backDiv">
+        <Link to="/products" className="back">&#x2190; Go Back</Link>
+        </div>
+        
+        
         <Card variant="outlined" className="card-container">
           <CardContent className="card-content-container">
             <div className="product-detail">
@@ -58,9 +66,9 @@ export default function ProductDetail(props) {
                   color="text.secondary"
                   gutterBottom
                 >
-                  <div className="name">{product.name}</div>
-                  <div className="price">{`$${product.price}`}</div>
-                  <div className="description">{product.description}</div>
+                  <div className="name"><h2>{product.name}</h2></div>
+                  <div className="price"><h3>{`$${product.price}`}</h3></div>
+                  <div className="description"><p>{product.description}</p></div>
                 </Typography>
                 <div className="button-container">
                   <CardActions>
@@ -83,5 +91,6 @@ export default function ProductDetail(props) {
         </Card>
       </Box>
     </Layout>
+   
   );
 }
