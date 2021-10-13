@@ -1,57 +1,59 @@
 .nav {
-    padding: 20px;
+  padding: 20px;
 }
 
 .nav-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
 
 .mobileLinks {
-    text-align: left;
+  text-align: left;
 }
 
 a {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
-.logo, .link {
-    text-decoration: none;
+.logo,
+.link {
+  text-decoration: none;
 }
 
-.logo:visited, .link:visited {
-    text-decoration: none;
-    color: darkslategray;
+.logo:visited,
+.link:visited {
+  text-decoration: none;
+  color: darkslategray;
 }
 
 .link {
-    margin: 10px;
+  margin: 10px;
 }
 
-@media screen and ( max-width: 900px){
-    .link {
-        display: none;
-    }
-    img{
+@media screen and (max-width: 900px) {
+  .link {
+    display: none;
+  }
+  .logoImg {
     padding-top: 10px;
     max-width: 225px;
-}
+  }
 }
 
-@media screen and ( min-width: 900px){
-    .mobileNav {
-        display: none;
-    }
-    img{
+@media screen and (min-width: 900px) {
+  .mobileNav {
+    display: none;
+  }
+  .logoImg {
     padding-top: 10px;
     max-width: 250px;
-}
+  }
 }
 
 .drawer {
-    width: 250px;
+  width: 250px;
 }
