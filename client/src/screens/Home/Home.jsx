@@ -3,7 +3,7 @@ import ProductCards from "../../components/ProductCards/ProductCards";
 import "./Home.css";
 import Carousel from "react-material-ui-carousel";
 import Slider from "../../components/Slider/Slider";
-import Banner from "../../assets/Banner.jpeg";
+import Banner1 from "../../assets/Banner.jpeg";
 import Banner2 from "../../assets/Banner2.png";
 import Banner3 from "../../assets/Banner3.jpeg";
 
@@ -12,7 +12,7 @@ export default function Home(props) {
     {
       name: "FIND YOUR STYLE",
       description: "Our collection is ",
-      image: Banner,
+      image: Banner1,
       link: "/products/",
       button: "Shop Now",
     },
@@ -26,7 +26,7 @@ export default function Home(props) {
     },
     {
       name: "REALIZE YOUR IDENTITY",
-      description: "Pick out a shoe that defines who you are",
+      description: "Pick out a shoe that defines YOU",
       image: Banner3,
       link: "/products/",
       button: "Shop Now",
