@@ -4,7 +4,7 @@
   font-weight: normal;
 }
 
-/* @media only screen and (min-width: 375px ) {
+@media only screen and (min-width: 375px) {
   .card-container {
     width: 100%;
     display: flex;
@@ -12,58 +12,58 @@
     align-items: center;
   }
   .card {
-      width: 80%;
-      margin: 5%;
-    }
+    width: 80%;
+    margin: 5%;
   }
-  @media only screen and (min-width: 1280px ) {
-    .card-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
+}
+@media only screen and (min-width: 1280px) {
+  .card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 
-    .card {
-        width: 30%;
-        margin: 2%;
-      }
-    }
-  /* @media only screen and (max-width: 1280px) {
-    .card-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .card {
+    width: 30%;
+    margin: 2%;
+  }
+}
+@media only screen and (max-width: 1280px) {
+  .card-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .card {
-        width: 80%;
-        margin: 5%;
-      }
-    }
+  .card {
+    width: 80%;
+    margin: 5%;
+  }
+}
 
-    @media only screen and (min-width: 1280px ) {
-      .card-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-      }
-  
-      .card {
-          width: 30%;
-          margin: 2%;
-        }
-      }
+@media only screen and (min-width: 1280px) {
+  .card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 
-    /* @media only screen and (max-width: 1280px) {
-      .card-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+  .card {
+    width: 30%;
+    margin: 2%;
+  }
+}
 
-      .card {
-          width: 75%;
-          margin: 10%;
-        }
-      } */
+@media only screen and (max-width: 1280px) {
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 75%;
+    margin: 10%;
+  }
+}
