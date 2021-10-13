@@ -4,13 +4,7 @@ import { signIn } from "../../services/users";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+import { Box, Card, CardContent, CardActions, Button, TextField, Typography, Container } from "@mui/material";
 import "./SignIn.css";
 
 
@@ -55,55 +49,83 @@ export default function SignIn(props) {
     return (
         <Layout user={props.user}>
             <div className="container-sign-in">
-                <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
-                    Sign In
-                </Typography>
-                <Box 
-                    className="box-sign-in"
-                    sx={{"& .MuiTextField-root": { m: 1, width: "45ch" }}}
-                    noValidate
-                    autoComplete="off"
+                <Container 
+                    maxWidth="sm" 
+                    minWidth="xs"
+                    sx={{ 
+                        display: "flex", 
+                        flexDirection: "column", 
+                        alignItems: "center", 
+                        textAlign: "center"
+                    }}
                 >
-                    <Card className="card-sign-in">
-                        <CardContent 
-                            className="card-content-sign-in">
-                            <form 
-                                className="form-sign-in" 
-                                onSubmit={onSignIn}
-                            >
-                                <TextField
-                                    label="Email"
-                                    value={email}
-                                    name="email"
-                                    type="email"
-                                    required
-                                    autoFocus
-                                    onChange={handleChange}
-                                />
-                                <TextField
-                                    label="Password"
-                                    value={password}
-                                    name="password"
-                                    type="password"
-                                    required
-                                    onChange={handleChange}
-                                />
-                                {toggle ? 
-                                    <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
-                                        Error: Invalid credentials
-                                    </Typography>
-                                    : 
-                                    null
-                                }
-                                <CardActions>
-                                    <Button type="submit" className="submit-button">
-                                        Sign In!
-                                    </Button>
-                                </CardActions>
-                            </form>
-                        </CardContent>
+                    <Card 
+                        sx={{ 
+                            width: "100%",
+                            display: "flex", 
+                            flexDirection: "column", 
+                            alignItems: "center" 
+                        }}
+                    >
+                        <Typography 
+                            sx={{ 
+                                fontSize: 24, 
+                                textAlign: "center" 
+                            }} 
+                            color="text.secondary" 
+                            gutterBottom
+                        >
+                            Sign In
+                        </Typography>
+                        <Box
+                            className="box-sign-in"
+                            sx={{ width: "100%",
+                                ".MuiTextField-root": { m: 1, width: ".75" }
+                            }}
+                            component="form"
+                            onSubmit={onSignIn}
+                        >
+                            <TextField
+                                label="Email"
+                                value={email}
+                                name="email"
+                                type="email"
+                                error={toggle}
+                                required
+                                autoFocus
+                                onChange={handleChange}
+                            />
+                            <TextField
+                                label="Password"
+                                value={password}
+                                name="password"
+                                type="password"
+                                error={toggle}
+                                required
+                                onChange={handleChange}
+                            />
+                            {toggle ? 
+                                <Typography 
+                                    sx={{ fontSize: 18 }} 
+                                    color="text-secondary" 
+                                    gutterBottom
+                                >
+                                    Error: Invalid credentials
+                                </Typography>
+                                : 
+                                null
+                            }
+                            <Button type="submit">
+                                <Typography
+                                    gutterBottom
+                                    align="center"
+                                >
+                                    Sign In!
+                                </Typography>
+                            </Button>
+                        </Box>
                     </Card>
-                </Box>
+                </Container>
             </div>
         </Layout>
     )
