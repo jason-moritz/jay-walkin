@@ -39,3 +39,23 @@
 .sliderButton {
   width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+  .sliderH2 {
+    bottom: 55px;
+    left: 30px;
+    font-size: 20px;
+  }
+
+  .sliderP {
+    bottom: 35px;
+    left: 30px;
+    font-size: 7px;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  .imgContainer {
+    width: 1600px;
+  }
+}
