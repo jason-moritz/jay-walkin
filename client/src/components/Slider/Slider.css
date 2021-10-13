@@ -61,8 +61,8 @@
   }
 }
 
-@media screen and (min-width: 2500px) {
+@media screen and (min-width: 2000px) {
   .imgContainer {
-    width: 1600px;
+    height: 500px;
   }
 }
