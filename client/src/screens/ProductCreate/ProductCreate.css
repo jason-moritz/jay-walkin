@@ -1,0 +1,26 @@
+.container-create-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ 
+.box-create-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .radio-group-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+} */
+
+@media only screen and (max-width: 460px) {
+    div .MuiFormGroup-root {
+        display: flex;
+        flex-direction: column;
+    }
+}

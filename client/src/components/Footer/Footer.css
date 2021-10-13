@@ -1,0 +1,23 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* .link-github {
+    color: rgba(47, 79, 79, 0.842);
+} */
+
+.link-github:hover {
+    cursor: pointer;
+}
+
+/* .link-github:visited {
+    text-decoration: none;
+    color: darkslategray;
+} */
+
+

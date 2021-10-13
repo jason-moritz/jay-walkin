@@ -4,24 +4,31 @@ import { useHistory } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Box, Card, Button, TextField, Typography, Container } from "@mui/material";
+import "./ChangePassword.css";
+
 
 export default function ChangePassword(props) {
     const [form, setForm] = useState({
         email: "",
         password: "",
         newPassword: "",
-        newPasswordConfirmation: "",
-        isError: "",
-        errorMsg: ""
+        newPasswordConfirmation: ""
     })
 
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(false);
+    const [toggle2, setToggle2] = useState(false);
+    const [toggle3, setToggle3] = useState(false);
     const { email, password, newPassword, newPasswordConfirmation } = form;
     const { setUser } = props;
     const history = useHistory();
 
     const handleChange = (e) => {
         e.preventDefault();
+
+        setToggle(false);
+        setToggle2(false);
+        setToggle3(false);
 
         setForm({
             ...form,
@@ -35,92 +42,174 @@ export default function ChangePassword(props) {
         try {
             const user = await changePassword(form);
             setUser(user);
-            toast("You have successfully changed your password!")
+            toast("You have successfully changed your password!");
             history.push("/");
+
         } catch (error) {
-            console.error(error)
+            console.error(error);
+
+            if (error.response.data.error.includes("password_digest")) {
+                setToggle3(true);
+            };
+
             setForm({
-                isError: true,
-                errorMsg: "Invalid Credentials",
                 email: "",
                 password: "",
                 newPassword: "",
                 newPasswordConfirmation: ""
-            })
-        }
-    }
-
-    const renderError = () => {
-        const toggleForm = form.isError ? "danger" : ""
-        if (form.isError) {
-            return (
-                <button type="submit" className={toggleForm}>
-                    {form.errorMsg}
-                </button>
-            )
-        } else {
-            return <button type="submit">Update Password</button>
+            });
         }
     }
 
     const handleToggle = (e) => {
         e.preventDefault();
 
-        setToggle((prevToggle) => !prevToggle);
+        if (newPassword !== newPasswordConfirmation) {
+            setToggle((prevToggle) => !prevToggle);
+        };
+
+        if (password === newPassword) {
+            setToggle2((prevToggle) => !prevToggle);
+        };
+
         setForm({
-            username: "",
             email: "",
             password: "",
-            newPasswordConfirmation: "",
-            isError: true,
-            errorMsg: "Sign Up Details Invalid"
-        })
+            newPassword: "",
+            newPasswordConfirmation: ""
+        });
     }; 
 
     return (
         <Layout user={props.user}>
-            <div className='form-container'>
-                <h3>Update Password</h3>
-                <form onSubmit={newPassword === newPasswordConfirmation ? onPasswordChange : handleToggle}>
-                    <label>Email</label>
-                    <input
-                      required
-                      type='text'
-                      name='email'
-                      value={email}
-                      placeholder='Enter Email'
-                      onChange={handleChange}
-                    />
-                    <label>Old Password</label>
-                    <input
-                      required
-                      name='password'
-                      value={password}
-                      type='password'
-                      placeholder='Password'
-                      onChange={handleChange}
-                    />
-                    <label>New Password</label>
-                    <input
-                      required
-                      name='newPassword'
-                      value={newPassword}
-                      type='password'
-                      placeholder='New Password'
-                      onChange={handleChange}
-                    />
-                    <label>Confirm Password</label>
-                    <input
-                      required
-                      name='newPasswordConfirmation'
-                      value={newPasswordConfirmation}
-                      type='password'
-                      placeholder='Confirm Password'
-                      onChange={handleChange}
-                    />
-                    {toggle === true ? <h3>Error: Passwords Must Match</h3> : null}
-                    {renderError()}
-                </form>
+            <div className='container-change-password'>
+                <Container 
+                    maxWidth="sm" 
+                    minWidth="xs"
+                    sx={{ 
+                        display: "flex", 
+                        flexDirection: "column", 
+                        alignItems: "center", 
+                        textAlign: "center"
+                    }}
+                >
+                    <Card 
+                        sx={{ 
+                            width: "100%",
+                            display: "flex", 
+                            flexDirection: "column", 
+                            alignItems: "center" 
+                        }}
+                    >
+                        <Typography 
+                            sx={{ 
+                                fontSize: 24, 
+                                textAlign: "center" 
+                            }} 
+                            color="text.secondary" 
+                            gutterBottom
+                        >
+                            Update Password
+                        </Typography>
+                        <Box
+                            className="box-change-password"
+                            sx={{ width: "100%",
+                                ".MuiTextField-root": { 
+                                    m: 1, 
+                                    width: ".75" 
+                                }
+                            }}
+                            component="form"
+                            noValidate
+                            autoComplete="off"
+                            onSubmit={newPassword === newPasswordConfirmation && password !== newPassword ?
+                                onPasswordChange 
+                                : 
+                                handleToggle
+                            }
+                        >
+                            <TextField
+                                label="Email"
+                                value={email}
+                                name="email"
+                                type="email"
+                                error={toggle3}
+                                required
+                                autoFocus
+                                onChange={handleChange}
+                            />
+                            <TextField
+                                label="Old Password"
+                                value={password}
+                                name="password"
+                                type="password"
+                                error={toggle2}
+                                required
+                                onChange={handleChange}
+                            />
+                            <TextField
+                                label="New Password"
+                                value={newPassword}
+                                inputProps={{ minLength: 8 }}
+                                name="newPassword"
+                                type="password"
+                                minlength="8"
+                                error={toggle || toggle2}
+                                required
+                                onChange={handleChange}
+                            />
+                            <TextField
+                                label="Confirm Password"
+                                value={newPasswordConfirmation}
+                                inputProps={{ minLength: 8 }}
+                                name="newPasswordConfirmation"
+                                type="password"
+                                error={toggle}
+                                minlength="8"
+                                required
+                                onChange={handleChange}
+                            />
+                            {toggle === true ? 
+                                <Typography 
+                                    sx={{ fontSize: 18 }} 
+                                    color="text-secondary" 
+                                    gutterBottom
+                                >
+                                    Error: Passwords Must Match 
+                                </Typography>
+                                : null
+                            }
+                            {toggle2 === true ? 
+                                <Typography 
+                                    sx={{ fontSize: 18 }} 
+                                    color="text-secondary" 
+                                    gutterBottom
+                                >
+                                    Error: New password must not match current password 
+                                </Typography>
+                                : null
+                            }
+                            {toggle3 === true ? 
+                                <Typography 
+                                    sx={{ fontSize: 18 }} 
+                                    color="text-secondary" 
+                                    gutterBottom
+                                >
+                                    Error: Email is not valid 
+                                </Typography>
+                                : null
+                            }
+                            <Button type="submit">
+                                <Typography
+                                    gutterBottom
+                                    align="center"
+                                >
+                                    Change Password!
+                                </Typography>
+                            </Button>
+                        </Box>
+                    </Card>
+                </Container>
             </div>
         </Layout>
     )

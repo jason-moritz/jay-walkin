@@ -4,14 +4,16 @@ import { signIn } from "../../services/users";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Box, Card, Button, TextField, Typography, Container } from "@mui/material";
+import "./SignIn.css";
+
 
 export default function SignIn(props) {
     const [form, setForm] = useState({
         email: "",
-        password: "",
-        isError: "",
-        errorMsg: ""
-    })
+        password: ""
+    });
+    const [toggle, setToggle] = useState(false)
 
     const { email, password } = form;
     const { setUser } = props;
@@ -20,11 +22,12 @@ export default function SignIn(props) {
     const handleChange = (e) => {
         e.preventDefault();
 
+        setToggle(false);
         setForm({
             ...form,
             [e.target.name]: e.target.value
-        })
-    }
+        });
+    };
 
     const onSignIn = async (e) => {
         e.preventDefault();
@@ -34,53 +37,98 @@ export default function SignIn(props) {
             toast(`Welcome ${user.username}`)
             history.push("/");
         } catch (error) {
-            console.error(error)
+            console.error(error);
+            setToggle((prevToggle) => !prevToggle);
             setForm({
-                isError: true,
-                errorMsg: "Invalid Credentials",
                 email: "",
                 password: "",
-            })
-        }
-    }
+            });
+        };
+    };
 
-    const renderError = () => {
-        const toggleForm = form.isError ? "danger" : ""
-        if (form.isError) {
-            return (
-                <button type="submit" className={toggleForm}>
-                    {form.errorMsg}
-                </button>
-            )
-        } else {
-            return <button type="submit">Sign In</button>
-        }
-    }
     return (
         <Layout user={props.user}>
-            <div className='form-container'>
-                <h3>Sign In</h3>
-                <form onSubmit={onSignIn}>
-                    <label>Email</label>
-                    <input
-                      required
-                      type='text'
-                      name='email'
-                      value={email}
-                      placeholder='Enter Email'
-                      onChange={handleChange}
-                    />
-                    <label>Password</label>
-                    <input
-                      required
-                      name='password'
-                      value={password}
-                      type='password'
-                      placeholder='Password'
-                      onChange={handleChange}
-                    />
-                    {renderError()}
-                </form>
+            <div className="container-sign-in">
+                <Container 
+                    maxWidth="sm" 
+                    minWidth="xs"
+                    sx={{ 
+                        display: "flex", 
+                        flexDirection: "column", 
+                        alignItems: "center", 
+                        textAlign: "center"
+                    }}
+                >
+                    <Card 
+                        sx={{ 
+                            width: "100%",
+                            display: "flex", 
+                            flexDirection: "column", 
+                            alignItems: "center" 
+                        }}
+                    >
+                        <Typography 
+                            sx={{ 
+                                fontSize: 24, 
+                                textAlign: "center" 
+                            }} 
+                            color="text.secondary" 
+                            gutterBottom
+                        >
+                            Sign In
+                        </Typography>
+                        <Box
+                            className="box-sign-in"
+                            sx={{ width: "100%",
+                                ".MuiTextField-root": { 
+                                    m: 1, 
+                                    width: ".75" 
+                                }
+                            }}
+                            component="form"
+                            onSubmit={onSignIn}
+                        >
+                            <TextField
+                                label="Email"
+                                value={email}
+                                name="email"
+                                type="email"
+                                error={toggle}
+                                required
+                                autoFocus
+                                onChange={handleChange}
+                            />
+                            <TextField
+                                label="Password"
+                                value={password}
+                                name="password"
+                                type="password"
+                                error={toggle}
+                                required
+                                onChange={handleChange}
+                            />
+                            {toggle ? 
+                                <Typography 
+                                    sx={{ fontSize: 18 }} 
+                                    color="text-secondary" 
+                                    gutterBottom
+                                >
+                                    Error: Invalid credentials
+                                </Typography>
+                                : 
+                                null
+                            }
+                            <Button type="submit">
+                                <Typography
+                                    gutterBottom
+                                    align="center"
+                                >
+                                    Sign In!
+                                </Typography>
+                            </Button>
+                        </Box>
+                    </Card>
+                </Container>
             </div>
         </Layout>
     )
