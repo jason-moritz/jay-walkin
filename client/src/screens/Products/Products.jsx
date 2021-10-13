@@ -22,13 +22,7 @@ export default function Products(props) {
             <Card
                 className="card"
                 key={product._id}
-                sx={{
-                    width: "25%",
-                    flexShrink: 0,
-                    m: 5,
-
-                }}>
-                
+            >
                     <ProductCard
                         _id={product._id}
                         name={product.name}
