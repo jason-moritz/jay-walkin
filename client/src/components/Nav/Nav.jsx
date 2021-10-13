@@ -2,16 +2,15 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import "./Nav.css";
 
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Logo from "../../assets/JayWalkin-Logo.png";
 
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Logo from '../../assets/JayWalkin-Logo.png';
-
-import { Drawer, List, ListItem, ListItemText, Divider } from '@mui/material';
+import { Drawer, List, ListItem, ListItemText, Divider } from "@mui/material";
 
 const authenticatedOptions = (
   <>
@@ -39,58 +38,58 @@ const unauthenticatedOptions = (
 );
 
 const alwaysOptions = (
-    <>
-        <NavLink className="link" to="/products">Products</NavLink>
-    </>
-)
+  <>
+    <NavLink className="link" to="/products">
+      Products
+    </NavLink>
+  </>
+);
 
 const alwaysOptionsMobile = (
-    <>
+  <>
     <ListItem button onClick={() => {}}>
-        <NavLink to='/products'>
-            <ListItemText primary={"Products"} />
-        </NavLink>
+      <NavLink to="/products">
+        <ListItemText primary={"Products"} />
+      </NavLink>
     </ListItem>
-    </>
-)
+  </>
+);
 
 const authenticatedOptionsMobile = (
-    <>
+  <>
     <ListItem button onClick={() => {}}>
-        <NavLink to="/add-product">
-            <ListItemText primary={"Add Product"} />
-        </NavLink>
-        </ListItem>
-    <ListItem button onClick={() => {}}>
-        <NavLink to="/change-password">
-            <ListItemText primary={"Change Password"} />
-        </NavLink>
-        </ListItem>
-    <ListItem button onClick={() => {}}>
-        <NavLink to="/sign-out">
-            <ListItemText primary={"Sign Out"} />
-        </NavLink>
+      <NavLink to="/add-product">
+        <ListItemText primary={"Add Product"} />
+      </NavLink>
     </ListItem>
-    
-    </>
-)
+    <ListItem button onClick={() => {}}>
+      <NavLink to="/change-password">
+        <ListItemText primary={"Change Password"} />
+      </NavLink>
+    </ListItem>
+    <ListItem button onClick={() => {}}>
+      <NavLink to="/sign-out">
+        <ListItemText primary={"Sign Out"} />
+      </NavLink>
+    </ListItem>
+  </>
+);
 
 const unauthenticatedOptionsMobile = (
-    <>
+  <>
     <ListItem button onClick={() => {}}>
-
-        <NavLink to="/sign-up">
-            <ListItemText primary={"Sign Up"} />
-        </NavLink>
-        </ListItem>
+      <NavLink to="/sign-up">
+        <ListItemText primary={"Sign Up"} />
+      </NavLink>
+    </ListItem>
 
     <ListItem button onClick={() => {}}>
-        <NavLink to="/sign-in">
-            <ListItemText primary={"Sign In"} />
-        </NavLink>
-        </ListItem>
-    </>
-    )
+      <NavLink to="/sign-in">
+        <ListItemText primary={"Sign In"} />
+      </NavLink>
+    </ListItem>
+  </>
+);
 
 export default function Nav({ user }) {
   const [open, setOpen] = useState(false);
@@ -118,26 +117,29 @@ export default function Nav({ user }) {
             onClose={() => setOpen(false)}
             onOpen={() => {}}
           >
-
-              <div className="drawer">
-                  <Box textAlign="left" p={2}
-                  onClick={() => setOpen(false)}
-                  className="x"
-                  >X</Box>
-                  <Divider />
-                  <List>
-                      
-                      
-                          {alwaysOptionsMobile}
-                          {user ? authenticatedOptionsMobile : unauthenticatedOptionsMobile}
-                     
-                    
-                  </List>
-              </div>
+            <div className="drawer">
+              <Box
+                textAlign="left"
+                p={2}
+                onClick={() => setOpen(false)}
+                className="x"
+              >
+                X
+              </Box>
+              <Divider />
+              <List>
+                {alwaysOptionsMobile}
+                {user
+                  ? authenticatedOptionsMobile
+                  : unauthenticatedOptionsMobile}
+              </List>
+            </div>
           </Drawer>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <NavLink className="logo" to="/"><img src={Logo} alt="logo"/></NavLink>
+            <NavLink className="logo" to="/">
+              <img className="logoImg" src={Logo} alt="logo" />
+            </NavLink>
           </Typography>
           <div className="links">
             {user && (
@@ -214,7 +216,7 @@ export default function Nav({ user }) {
 //             <ListItemText primary={"Sign Out"} />
 //         </NavLink>
 //     </ListItem>
-    
+
 //     </>
 // )
 
@@ -253,7 +255,7 @@ export default function Nav({ user }) {
 //           >
 //             <MenuIcon />
 //           </IconButton>
-//           </div> 
+//           </div>
 
 //           <Drawer
 //           anchor="left"
@@ -268,12 +270,10 @@ export default function Nav({ user }) {
 //                   >X</Box>
 //                   <Divider />
 //                   <List>
-                      
-                      
+
 //                           {alwaysOptionsMobile}
 //                           {user ? authenticatedOptionsMobile : unauthenticatedOptionsMobile}
-                     
-                    
+
 //                   </List>
 //               </div>
 //           </Drawer>
