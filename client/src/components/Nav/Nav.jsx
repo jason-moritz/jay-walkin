@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import "./Nav.css";
 
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,19 +14,29 @@ import Logo from '../../assets/JayWalkin-Logo.png';
 import { Drawer, List, ListItem, ListItemText, Divider } from '@mui/material';
 
 const authenticatedOptions = (
-    <>
-        <NavLink className="link" to="/add-product">Add Product</NavLink>
-        <NavLink className="link" to="/change-password">Change Password</NavLink>
-        <NavLink className="link" to="/sign-out">Sign Out</NavLink>
-    </>
-)
+  <>
+    <NavLink className="link" to="/add-product">
+      Add Product
+    </NavLink>
+    <NavLink className="link" to="/change-password">
+      Change Password
+    </NavLink>
+    <NavLink className="link" to="/sign-out">
+      Sign Out
+    </NavLink>
+  </>
+);
 
 const unauthenticatedOptions = (
-    <>
-        <NavLink className="link" to="/sign-up">Sign Up</NavLink>
-        <NavLink className="link" to="/sign-in">Sign In</NavLink>
-    </>
-    )
+  <>
+    <NavLink className="link" to="/sign-up">
+      Sign Up
+    </NavLink>
+    <NavLink className="link" to="/sign-in">
+      Sign In
+    </NavLink>
+  </>
+);
 
 const alwaysOptions = (
     <>
@@ -82,31 +93,32 @@ const unauthenticatedOptionsMobile = (
     )
 
 export default function Nav({ user }) {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    return (
-        <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" color="inherit">
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" color="inherit">
         <Toolbar>
-            <div className="mobileNav">
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={() => setOpen(true)}
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          </div> 
+          <div className="mobileNav">
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={() => setOpen(true)}
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </div>
 
           <Drawer
-          anchor="left"
-          open={open}
-          onClose={() => setOpen(false)}
-          onOpen={() => {}}
+            anchor="left"
+            open={open}
+            onClose={() => setOpen(false)}
+            onOpen={() => {}}
           >
+
               <div className="drawer">
                   <Box textAlign="left" p={2}
                   onClick={() => setOpen(false)}
@@ -128,14 +140,16 @@ export default function Nav({ user }) {
             <NavLink className="logo" to="/"><img src={Logo} alt="logo"/></NavLink>
           </Typography>
           <div className="links">
-                    {user && <div className="link-welcome">Welcome, {user.username}</div>}
-                    {alwaysOptions}
-                    {user ? authenticatedOptions : unauthenticatedOptions}
-                </div>
+            {user && (
+              <div className="link-welcome">Welcome, {user.username}</div>
+            )}
+            {alwaysOptions}
+            {user ? authenticatedOptions : unauthenticatedOptions}
+          </div>
         </Toolbar>
-        </AppBar>
-        </Box>
-    )
+      </AppBar>
+    </Box>
+  );
 }
 
 // import { NavLink } from "react-router-dom";
