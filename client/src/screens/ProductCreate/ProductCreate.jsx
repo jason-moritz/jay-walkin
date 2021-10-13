@@ -17,7 +17,7 @@ export default function ProductCreate(props) {
         imgURL: "",
         category: "",
         brand: "",
-        gender: "",
+        gender: "unisex",
     });
 
     const history = useHistory();
@@ -79,7 +79,6 @@ export default function ProductCreate(props) {
                     }
                 }}
                 component="form"
-                noValidate
                 autoComplete="off"
                 onSubmit={handleSubmit}
               >
@@ -182,7 +181,8 @@ export default function ProductCreate(props) {
                     row
                     aria-label="gender"
                     defaultValue="unisex"
-                    name="radio-buttons-group"
+                    name="gender"
+                    onChange={handleChange}
                   >
                     <FormLabel 
                       component="legend"
@@ -190,19 +190,19 @@ export default function ProductCreate(props) {
                       Gender
                     </FormLabel>
                     <FormControlLabel 
-                      value="unisex" 
                       control={<Radio />} 
                       label="Unisex" 
+                      value="unisex" 
                     />
                     <FormControlLabel 
-                      value="male" 
                       control={<Radio />} 
                       label="Male" 
+                      value="male" 
                     />
                     <FormControlLabel 
-                      value="female" 
                       control={<Radio />} 
-                      label="Female" 
+                      label="Female"
+                      value="female" 
                     />
                   </RadioGroup>
                 </FormControl>
@@ -215,14 +215,15 @@ export default function ProductCreate(props) {
                   required
                   onChange={handleChange}
                 />
-                <Button type="submit">
                   <Typography
                       gutterBottom
                       align="center"
+                      component="div"
                   >
+                    <Button type="submit">
                       Add Product!
+                    </Button>
                   </Typography>
-                </Button>
               </Box>
             </Card>
           </Container>
