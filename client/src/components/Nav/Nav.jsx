@@ -8,6 +8,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import Logo from '../../assets/JayWalkin-Logo.png';
 
 import { Drawer, List, ListItem, ListItemText, Divider } from '@mui/material';
 
@@ -114,17 +115,17 @@ export default function Nav({ user }) {
                   <Divider />
                   <List>
                       
-                      <div id="mobileLinks">
+                      
                           {alwaysOptionsMobile}
                           {user ? authenticatedOptionsMobile : unauthenticatedOptionsMobile}
-                     </div>
+                     
                     
                   </List>
               </div>
           </Drawer>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <NavLink className="logo" to="/">JayWalkin</NavLink>
+            <NavLink className="logo" to="/"><img src={Logo} alt="logo"/></NavLink>
           </Typography>
           <div className="links">
                     {user && <div className="link-welcome">Welcome, {user.username}</div>}

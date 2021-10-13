@@ -10,9 +10,8 @@
     text-align: center;
 }
 
-#mobileLinks {
+.mobileLinks {
     text-align: left;
-
 }
 
 a {
@@ -22,6 +21,11 @@ a {
 
 .logo, .link {
     text-decoration: none;
+}
+
+img{
+    padding-top: 10px;
+    max-width: 200px;
 }
 
 .logo:visited, .link:visited {
@@ -43,6 +47,10 @@ a {
     .mobileNav {
         display: none;
     }
+    img{
+    padding-top: 10px;
+    max-width: 250px;
+}
 }
 
 .test {
