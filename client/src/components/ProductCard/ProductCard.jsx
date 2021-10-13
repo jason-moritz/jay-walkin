@@ -12,7 +12,6 @@ export default function ProductCard(props) {
   } = props;
 
   return (
-  
     <CardContent
       sx={{
               width: "75%",
