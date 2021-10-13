@@ -10,18 +10,18 @@ import Banner3 from "../../assets/Banner3.jpeg";
 export default function Home(props) {
   let items = [
     {
-      name: "Random Name #1",
-      description: "This is the description for Name #1",
+      name: "FIND YOUR STYLE",
+      description: "Our collection is ",
       image: Banner,
     },
     {
-      name: "Random Name #2",
-      description: "Hello World!",
+      name: "ALWAYS ON YOUR GAME",
+      description: "Try out our new collection",
       image: Banner2,
     },
     {
-      name: "Random Name #3",
-      description: "Hello World!",
+      name: "REALIZE YOUR IDENTITY",
+      description: "Pick out a shoe that defines who you are",
       image: Banner3,
     },
   ];
