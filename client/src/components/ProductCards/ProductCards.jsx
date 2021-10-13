@@ -23,9 +23,10 @@ export default function ProductCards() {
                 key={product._id}
                 className="card"
                 sx={{
-                    width: "30%",
-                    m: 2
+                    width: "25%",
+                    m: 4
                 }}>
+            
                     <ProductCard
                         _id={product._id}
                         name={product.name}
@@ -55,9 +56,9 @@ export default function ProductCards() {
                     className="card-container"
                     variant="outlined"
                     sx={{ 
-                        width: "90%", 
+                        width: "100%", 
                         display: "flex", 
-                        justifyContent: "center" 
+                        justifyContent: "center",
                     }}
                 >
                     {CARDS}
