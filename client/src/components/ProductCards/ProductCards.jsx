@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import { getProducts } from "../../services/products";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
+import { Box, Card } from "@mui/material";
 import "./ProductCards.css";
 
 export default function ProductCards() {
@@ -22,10 +21,11 @@ export default function ProductCards() {
 
   const CARDS = latestProducts.map((product) => (
     <Card
+      key={product._id}
       className="card"
       sx={{
-        width: "30%",
-        m: 2,
+        width: "25%",
+        m: 4,
       }}
     >
       <ProductCard
@@ -44,13 +44,21 @@ export default function ProductCards() {
     <div className="product-cards">
       <Box
         className="box-product-cards"
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
       >
         <div className="latest">Latest Hotness</div>
         <Card
           className="card-container"
           variant="outlined"
-          sx={{ width: "90%", display: "flex", justifyContent: "center" }}
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+          }}
         >
           {CARDS}
         </Card>

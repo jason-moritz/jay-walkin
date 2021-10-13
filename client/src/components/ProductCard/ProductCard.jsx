@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import Typography from "@mui/material/Typography";
-import CardContent from "@mui/material/CardContent";
-import { CardMedia } from "@mui/material";
+import { CardMedia, CardContent, Typography } from "@mui/material";
 import "./ProductCard.css";
 
 export default function ProductCard(props) {
@@ -18,7 +16,6 @@ export default function ProductCard(props) {
       <Link to={`/products/${_id}`}>
         <CardMedia
           component="img"
-          alt="sneakers"
           src={imgURL}
           alt={name}
           sx={{
