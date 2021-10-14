@@ -4,18 +4,19 @@ import TwitterIcon from '@mui/icons-material/Twitter'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import "./Footer.css";
 
+
 export default function Footer() {
     return (
         <div className="footer">
             <a
-                className="link-github"
+                className="link-footer"
                 href="https://github.com/lukewarmsoup1486/jay-walkin"
                 alt="link-github"
             >
                 <GitHubIcon className="icon-github"/>
             </a>
             <a
-                className="link-facebook"
+                className="link-footer"
                 href="https://www.facebook.com/"
                 alt="link-facebook"
             >
@@ -23,14 +24,14 @@ export default function Footer() {
         </a>
       
             <a
-                className="link-twitter"
+                className="link-footer"
                 href="https://twitter.com/?lang=en/"
                 alt="link-twitter"
             >
                 <TwitterIcon className="icon-twitter"/>
             </a>
             <a
-                className="link-instagram"
+                className="link-footer"
                 href="https://www.instagram.com/"
                 alt="link-instagram"
             >

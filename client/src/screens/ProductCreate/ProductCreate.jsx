@@ -219,6 +219,7 @@ export default function ProductCreate(props) {
                   type="submit"
                   variant="contained"
                   size="medium"
+                  classes="contained"
                   sx={{
                       mt: 1,
                       mb: 2

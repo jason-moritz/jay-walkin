@@ -2,24 +2,23 @@ import { Link } from "react-router-dom";
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import "./ProductCard.css";
 
+
 export default function ProductCard(props) {
   const { _id, name, price, imgURL } = props;
 
   return (
     <Link 
       to={`/products/${_id}`}
-      className="link-card"
+      className="link-product-card"
     >
       <Card
+        className="card-product-card"
         sx={{
           width: "100%",
           height: "100%",
         }}
-        className="card-product-card"
-
       >
         <CardMedia
-          className="card-media-img"
           component="img"
           src={imgURL}
           alt={name}

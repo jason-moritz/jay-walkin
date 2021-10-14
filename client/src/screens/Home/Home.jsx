@@ -40,7 +40,7 @@ export default function Home(props) {
             <Slider key={i} item={item} />
           ))}
         </Carousel>
-        <div className="latest-container">
+        <div className="latest-hotness-container">
           <ProductCards />
         </div>
       </div>
