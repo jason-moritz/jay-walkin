@@ -33,8 +33,8 @@ export default function Home(props) {
     },
   ];
   if (props.user) {
-    items[1].name = "NEW ARRIVAL";
-    items[1].description = "Start JayWalkin Now";
+    items[1].name = "NEW DROP";
+    items[1].description = "Make every day your masterpiece";
     items[1].image = Banner3;
     items[1].link = "/products/";
     items[1].button = "Shop Latest Shoe";
