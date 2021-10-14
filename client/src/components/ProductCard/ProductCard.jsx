@@ -15,7 +15,7 @@ export default function ProductCard(props) {
           width: "100%",
           height: "100%",
         }}
-        className="card"
+        className="card-product-card"
 
       >
         <CardMedia
@@ -32,23 +32,21 @@ export default function ProductCard(props) {
       <CardContent
         sx={{
           position: "absolute",
-          bottom: "2%",
+          bottom: 0,
+          width: "90%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          overflow: "hidden",
-          whiteSpace: "nowrap",
-          textOverflow: "ellipsis",
           p: "2",
         }}
       >
         <Typography 
           gutterBottom
+          noWrap="true"
+          align="center"
           sx={{
-            overflow: "hidden",
-            whiteSpace: "nowrap",
-            textOverflow: "ellipsis"
+            width: "90%"
           }}
         >
           {name}
