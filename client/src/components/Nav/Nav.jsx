@@ -95,61 +95,58 @@ export default function Nav({ user }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="inherit">
-        <Toolbar>
-          <div className="mobileNav">
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={() => setOpen(true)}
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-          </div>
-
-          <Drawer
-            anchor="left"
-            open={open}
-            onClose={() => setOpen(false)}
-            onOpen={() => {}}
+    <AppBar position="static" color="inherit">
+      <Toolbar>
+        <div className="mobileNav">
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={() => setOpen(true)}
+            sx={{ mr: 2 }}
           >
-            <div className="drawer">
-              <Box
-                textAlign="left"
-                p={2}
-                onClick={() => setOpen(false)}
-                className="x"
-              >
-                X
-              </Box>
-              <Divider />
-              <List>
-                {alwaysOptionsMobile}
-                {user
-                  ? authenticatedOptionsMobile
-                  : unauthenticatedOptionsMobile}
-              </List>
-            </div>
-          </Drawer>
-
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <NavLink className="logo" to="/">
-              <img className="logoImg" src={Logo} alt="logo" />
-            </NavLink>
-          </Typography>
-          <div className="links">
-            {user && (
-              `Welcome, ${user.username}`
-            )}
-            {alwaysOptions}
-            {user ? authenticatedOptions : unauthenticatedOptions}
+            <MenuIcon />
+          </IconButton>
+        </div>
+        <Drawer
+          anchor="left"
+          open={open}
+          onClose={() => setOpen(false)}
+          onOpen={() => {}}
+        >
+          <div className="drawer">
+            <Box
+              textAlign    // </Box>
+="left"
+              p={2}
+              onClick={() => setOpen(false)}
+              className="x"
+            >
+              X
+            </Box>
+            <Divider />
+            <List>
+              {alwaysOptionsMobile}
+              {user
+                ? authenticatedOptionsMobile
+                : unauthenticatedOptionsMobile}
+            </List>
           </div>
-        </Toolbar>
-      </AppBar>
-    </Box>
+        </Drawer>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <NavLink className="logo" to="/">
+            <img className="logoImg" src={Logo} alt="logo" />
+          </NavLink>
+        </Typography>
+        <div className="links">
+          {user && (
+            `Welcome, ${user.username}`
+          )}
+          {alwaysOptions}
+          {user ? authenticatedOptions : unauthenticatedOptions}
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }

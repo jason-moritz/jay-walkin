@@ -215,15 +215,17 @@ export default function ProductCreate(props) {
                   required
                   onChange={handleChange}
                 />
-                  <Typography
-                      gutterBottom
-                      align="center"
-                      component="div"
-                  >
-                    <Button type="submit">
-                      Add Product!
-                    </Button>
-                  </Typography>
+                <Button 
+                  type="submit"
+                  variant="contained"
+                  size="medium"
+                  sx={{
+                      mt: 1,
+                      mb: 2
+                  }}
+                >
+                  Add Product!
+                </Button>
               </Box>
             </Card>
           </Container>

@@ -224,13 +224,16 @@ export default function ProductEdit(props) {
                   required
                   onChange={handleChange}
                 />
-                <Button type="submit">
-                  <Typography
-                      gutterBottom
-                      align="center"
-                  >
-                      Update Product!
-                  </Typography>
+                <Button 
+                  type="submit"
+                  variant="contained"
+                  size="medium"
+                  sx={{
+                      mt: 1,
+                      mb: 2
+                  }}
+                >
+                  Update Product!
                 </Button>
               </Box>
             </Card>

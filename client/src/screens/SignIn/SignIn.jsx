@@ -118,13 +118,16 @@ export default function SignIn(props) {
                                 : 
                                 null
                             }
-                            <Button type="submit">
-                                <Typography
-                                    gutterBottom
-                                    align="center"
-                                >
-                                    Sign In!
-                                </Typography>
+                            <Button 
+                                type="submit"
+                                variant="contained"
+                                size="medium"
+                                sx={{
+                                    mt: 1,
+                                    mb: 2
+                                }}
+                            >
+                                Sign In!
                             </Button>
                         </Box>
                     </Card>
