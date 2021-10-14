@@ -61,7 +61,7 @@ export default function ProductCard(props) {
           gutterBottom 
           color="text.secondary"
         >
-          Learn More
+         
         </Typography>
       </CardContent>
       </Card>
