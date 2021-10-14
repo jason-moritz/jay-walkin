@@ -57,6 +57,9 @@ export default function Products(props) {
                 <Card 
                     className="products-cards-container"
                     variant="outlined"
+                    sx={{
+                        overflowY: "scroll"
+                    }}
                 >
                     {CARDS}
                 </Card>
