@@ -106,7 +106,7 @@ export default function SignUp(props) {
                             color="text.secondary" 
                             gutterBottom
                         >
-                            Sign Up
+                            Start JayWalkin Now!
                         </Typography>
                         <Box
                             className="box-sign-up"
@@ -193,13 +193,16 @@ export default function SignUp(props) {
                                 </Typography>
                                 : null
                             }
-                            <Button type="submit">
-                                <Typography
-                                    gutterBottom
-                                    align="center"
-                                >
-                                    Sign Up!
-                                </Typography>
+                            <Button 
+                                type="submit"
+                                variant="contained"
+                                size="medium"
+                                sx={{
+                                    mt: 1,
+                                    mb: 2
+                                }}
+                            >
+                                Sign Up!
                             </Button>
                         </Box>
                     </Card>

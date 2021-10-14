@@ -152,7 +152,6 @@ export default function ChangePassword(props) {
                                 inputProps={{ minLength: 8 }}
                                 name="newPassword"
                                 type="password"
-                                minlength="8"
                                 error={toggle || toggle2}
                                 required
                                 onChange={handleChange}
@@ -164,7 +163,6 @@ export default function ChangePassword(props) {
                                 name="newPasswordConfirmation"
                                 type="password"
                                 error={toggle}
-                                minlength="8"
                                 required
                                 onChange={handleChange}
                             />
@@ -198,13 +196,16 @@ export default function ChangePassword(props) {
                                 </Typography>
                                 : null
                             }
-                            <Button type="submit">
-                                <Typography
-                                    gutterBottom
-                                    align="center"
-                                >
-                                    Change Password!
-                                </Typography>
+                            <Button 
+                                type="submit"
+                                variant="contained"
+                                size="medium"
+                                sx={{
+                                    mt: 1,
+                                    mb: 2
+                                }}
+                            >
+                                    Submit Changes
                             </Button>
                         </Box>
                     </Card>
