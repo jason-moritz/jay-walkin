@@ -5,7 +5,7 @@ import "./Slider.css";
 export default function Item(props) {
   return (
     <Paper className="banner" variant="outlined">
-      <Link className="productCardLink" to={`/products/`}>
+      <Link className="productCardLink" to={props.item.link}>
         <h2 className="sliderH2">{props.item.name}</h2>
         <p className="sliderP">{props.item.description}</p>
         <div className="imgContainer">
