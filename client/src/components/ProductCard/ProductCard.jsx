@@ -57,12 +57,6 @@ export default function ProductCard(props) {
         >
           ${price}
         </Typography>
-        <Typography 
-          gutterBottom 
-          color="text.secondary"
-        >
-         
-        </Typography>
       </CardContent>
       </Card>
     </Link>
