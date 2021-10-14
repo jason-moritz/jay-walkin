@@ -9,6 +9,8 @@ import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./ProductDetail.css";
 
 export default function ProductDetail(props) {
@@ -30,6 +32,7 @@ export default function ProductDetail(props) {
     e.preventDefault();
 
     await deleteProduct(id);
+    toast(`Ref Code 187 - ${product.name} has been destroyed`)
     history.push("/products");
   };
 

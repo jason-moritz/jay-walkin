@@ -34,7 +34,7 @@ export default function SignIn(props) {
         try {
             const user = await signIn(form);
             setUser(user);
-            toast(`Welcome ${user.username}`)
+            toast(`Welcome back ${user.username}!`)
             history.push("/");
         } catch (error) {
             console.error(error);
