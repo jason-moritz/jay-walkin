@@ -1,11 +1,12 @@
 .footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-bottom: 1%;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 1%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
 }
 
 .link-github {
@@ -13,9 +14,8 @@
 } 
 
 .link-github:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-
 
 .link-facebook {
     margin: 0 10px 0 0;
