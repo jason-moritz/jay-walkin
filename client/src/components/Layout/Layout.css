@@ -1,16 +1,16 @@
 .layout {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .layout-children {
-    flex: 2;
-    padding: 20px 100px 20px 100px;
+  flex: 2;
+  padding: 20px 100px 20px 100px;
 }
 
 @media only screen and (max-width: 768px) {
-    .layout-children {
-        padding: 20px 0 20px 0;
-    }
+  .layout-children {
+    padding: 20px 0 20px 0;
+  }
 }
