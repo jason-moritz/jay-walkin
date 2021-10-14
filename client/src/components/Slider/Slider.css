@@ -2,11 +2,16 @@
   position: relative;
 }
 
+.productCardLink {
+  text-decoration: none;
+}
+
 .sliderH2 {
   position: absolute;
   bottom: 55px;
   left: 50px;
   font-size: 50px;
+  color: #000000;
   background: rgba(245, 245, 245, 0.9);
   padding: 10px;
   border-radius: 15px;
@@ -17,7 +22,7 @@
   bottom: 35px;
   left: 50px;
   font-size: 15px;
-  color: black;
+  color: #000000;
   background: rgba(245, 245, 245, 0.9);
   padding: 10px;
   border-radius: 15px;
