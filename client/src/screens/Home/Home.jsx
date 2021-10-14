@@ -19,7 +19,7 @@ export default function Home(props) {
     },
     {
       name: "VIP MEMBER",
-      description: "Sign Up to become a member of the JayWalking Family",
+      description: "Sign Up to become a member of the JayWalkin Family",
       image: Banner2,
       link: "/sign-up/",
       button: "Sign Up Today",
