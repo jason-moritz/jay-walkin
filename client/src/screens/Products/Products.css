@@ -14,9 +14,14 @@
     width: 100%;
     height: 30%;
     margin: 2rem 0;
+    transition: 300ms;
+  }
+  
+  .products-card-container:hover {
+    transform: scale(1.05)
   }
 }
-
+  
 @media only screen and (min-width: 768px) {
   .products-cards-container {
     width: 100%;
