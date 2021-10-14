@@ -5,6 +5,7 @@ import Carousel from "react-material-ui-carousel";
 import Slider from "../../components/Slider/Slider";
 import Banner1 from "../../assets/Banner1.jpeg";
 import Banner2 from "../../assets/Banner2.jpg";
+import Banner3 from "../../assets/Banner3.jpg";
 import Banner6 from "../../assets/Banner6.jpg";
 
 export default function Home(props) {
@@ -17,20 +18,27 @@ export default function Home(props) {
       button: "Shop Now",
     },
     {
+      name: "VIP MEMBER",
+      description: "Sign Up to become a member of the JayWalkin Family",
+      image: Banner2,
+      link: "/sign-up/",
+      button: "Sign Up Today",
+    },
+    {
       name: "FIND YOUR STYLE",
       description: "JayWalkin offers a wide collection of shoes",
       image: Banner1,
       link: "/products/",
       button: "View All",
     },
-    {
-      name: "JayWalkin Member",
-      description: "Start JayWalkin Now",
-      image: Banner2,
-      link: "/sign-up/",
-      button: "Sign Up Today",
-    },
   ];
+  if (props.user) {
+    items[1].name = "NEW DROP";
+    items[1].description = "Make every day your masterpiece";
+    items[1].image = Banner3;
+    items[1].link = "/products/";
+    items[1].button = "Shop Latest Shoe";
+  }
   return (
     <Layout user={props.user}>
       <div className="home-container">
