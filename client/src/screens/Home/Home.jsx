@@ -16,20 +16,20 @@ export default function Home(props) {
       link: "/products/",
       button: "Shop Now",
     },
-    {
-      name: "VIP MEMBER",
-      description:
-        "Sign Up for JayWalkin to receive the latest updates on new shoe DROPS",
-      image: Banner2,
-      link: "/sign-up/",
-      button: "Sign Up Today",
-    },
+
     {
       name: "FIND YOUR STYLE",
       description: "JayWalkin offers a wide collection of shoes",
       image: Banner1,
       link: "/products/",
-      button: "Shop Now",
+      button: "View All",
+    },
+    {
+      name: "NEW ARRIVAL",
+      description: "Start JayWalkin Now",
+      image: Banner2,
+      link: "/products/616850296d03be26618efd08",
+      button: "Shop Latest Shoe",
     },
   ];
   return (

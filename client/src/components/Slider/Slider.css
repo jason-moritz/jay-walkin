@@ -54,7 +54,8 @@
   .sliderP {
     bottom: 35px;
     left: 30px;
-    font-size: 7px;
+    font-size: 10px;
+    padding: 5px;
   }
   .imgContainer {
     height: 210px;
