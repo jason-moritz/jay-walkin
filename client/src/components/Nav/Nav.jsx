@@ -1,26 +1,20 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import "./Nav.css";
-
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
+import { AppBar, Box, Toolbar, Typography, IconButton, Drawer, List, ListItem, ListItemText, Divider } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "../../assets/JayWalkin-Logo.png";
+import "./Nav.css";
 
-import { Drawer, List, ListItem, ListItemText, Divider } from "@mui/material";
 
 const authenticatedOptions = (
   <>
-    <NavLink className="link" to="/add-product">
+    <NavLink className="nav-link" to="/add-product">
       Add Product
     </NavLink>
-    <NavLink className="link" to="/change-password">
+    <NavLink className="nav-link" to="/change-password">
       Change Password
     </NavLink>
-    <NavLink className="link" to="/sign-out">
+    <NavLink className="nav-link" to="/sign-out">
       Sign Out
     </NavLink>
   </>
@@ -28,10 +22,10 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
   <>
-    <NavLink className="link" to="/sign-up">
+    <NavLink className="nav-link" to="/sign-up">
       Sign Up
     </NavLink>
-    <NavLink className="link" to="/sign-in">
+    <NavLink className="nav-link" to="/sign-in">
       Sign In
     </NavLink>
   </>
@@ -39,7 +33,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <>
-    <NavLink className="link" to="/products">
+    <NavLink className="nav-link" to="/products">
       Products
     </NavLink>
   </>
@@ -48,7 +42,7 @@ const alwaysOptions = (
 const alwaysOptionsMobile = (
   <>
     <ListItem button onClick={() => {}}>
-      <NavLink to="/products">
+      <NavLink className="nav-mobile-link" to="/products">
         <ListItemText primary={"Products"} />
       </NavLink>
     </ListItem>
@@ -58,17 +52,17 @@ const alwaysOptionsMobile = (
 const authenticatedOptionsMobile = (
   <>
     <ListItem button onClick={() => {}}>
-      <NavLink to="/add-product">
+      <NavLink className="nav-mobile-link" to="/add-product">
         <ListItemText primary={"Add Product"} />
       </NavLink>
     </ListItem>
     <ListItem button onClick={() => {}}>
-      <NavLink to="/change-password">
+      <NavLink className="nav-mobile-link" to="/change-password">
         <ListItemText primary={"Change Password"} />
       </NavLink>
     </ListItem>
     <ListItem button onClick={() => {}}>
-      <NavLink to="/sign-out">
+      <NavLink className="nav-mobile-link" to="/sign-out">
         <ListItemText primary={"Sign Out"} />
       </NavLink>
     </ListItem>
@@ -78,13 +72,13 @@ const authenticatedOptionsMobile = (
 const unauthenticatedOptionsMobile = (
   <>
     <ListItem button onClick={() => {}}>
-      <NavLink to="/sign-up">
+      <NavLink className="nav-mobile-link" to="/sign-up">
         <ListItemText primary={"Sign Up"} />
       </NavLink>
     </ListItem>
 
     <ListItem button onClick={() => {}}>
-      <NavLink to="/sign-in">
+      <NavLink className="nav-mobile-link" to="/sign-in">
         <ListItemText primary={"Sign In"} />
       </NavLink>
     </ListItem>
@@ -117,8 +111,6 @@ export default function Nav({ user }) {
         >
           <div className="drawer">
             <Box
-              textAlign    // </Box>
-="left"
               p={2}
               onClick={() => setOpen(false)}
               className="x"
@@ -134,15 +126,28 @@ export default function Nav({ user }) {
             </List>
           </div>
         </Drawer>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <NavLink className="logo" to="/">
-            <img className="logoImg" src={Logo} alt="logo" />
+        <Typography 
+          variant="h6" 
+          component="div" 
+          sx={{ flexGrow: 1 }}
+        >
+          <NavLink 
+            className="nav-logo-link" 
+            to="/"
+          >
+            <img 
+              className="nav-logo-img" 
+              src={Logo} 
+              alt="logo" 
+            />
           </NavLink>
         </Typography>
-        <div className="links">
+        <Typography>
           {user && (
-            `Welcome, ${user.username}`
+          `Welcome, ${user.username}`
           )}
+        </Typography>
+        <div className="nav-link">
           {alwaysOptions}
           {user ? authenticatedOptions : unauthenticatedOptions}
         </div>

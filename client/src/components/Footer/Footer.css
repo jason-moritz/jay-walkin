@@ -6,22 +6,10 @@
   bottom: 0;
   left: 0;
   right: 0;
-
 }
 
-.link-github {
+.link-footer {
     margin: 0 10px 0 0;
-} 
-
-.link-github:hover {
-  cursor: pointer;
-}
-
-.link-facebook {
-    margin: 0 10px 0 0;
-} 
-
-.link-twitter {
-    margin: 0 10px 0 0;
+    color: black;
 } 
 
