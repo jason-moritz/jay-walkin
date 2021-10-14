@@ -3,9 +3,27 @@
     0 10px 10px rgba(208, 209, 200, 0.993);
 }
 
-@media only screen and (max-width: 900px) and (min-width: 375px) {
-  .hotness {
-    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-    border: 2px solid black;
+@media only screen and (min-width: 350px) {
+  .link-card {
+    width: 90%;
+    height: 90%;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card-product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .link-card {
+    margin: 0 2rem;
+  }
+}
+

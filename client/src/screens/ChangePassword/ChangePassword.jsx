@@ -120,7 +120,6 @@ export default function ChangePassword(props) {
                                 }
                             }}
                             component="form"
-                            noValidate
                             autoComplete="off"
                             onSubmit={newPassword === newPasswordConfirmation && password !== newPassword ?
                                 onPasswordChange 
