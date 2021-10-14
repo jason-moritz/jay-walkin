@@ -117,7 +117,6 @@ export default function SignUp(props) {
                                 }
                             }}
                             component="form"
-                            noValidate
                             autoComplete="off"
                             onSubmit={form.password === form.passwordConfirmation ?
                                 onSignUp 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import { getProducts } from "../../services/products";
-import { Box, Card } from "@mui/material";
+import { Box, Card, Typography } from "@mui/material";
 import "./ProductCards.css";
 
 export default function ProductCards() {
@@ -19,15 +19,8 @@ export default function ProductCards() {
     fetchProducts();
   }, []);
 
-  const CARDS = latestProducts.map((product) => (
-    <Card
-      key={product._id}
-      className="card"
-      sx={{
-        width: "25%",
-        m: 4,
-      }}
-    >
+  const CARDS = latestProducts.map((product, i) => (
+    <div className="latest-products-card-container">
       <ProductCard
         _id={product._id}
         name={product.name}
@@ -35,34 +28,35 @@ export default function ProductCards() {
         imgURL={product.imgURL}
         key={product._id}
       />
-    </Card>
+    </div>
   ));
 
   if (!latestProducts) return <h1>Loading</h1>;
 
   return (
-    <div className="product-cards">
-      <Box
-        className="box-product-cards"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center", 
+        textAlign: "center",
+        width: "100%",
+        height: "100%"
+      }}
+    >
+    <Typography 
+      gutterBottom 
+      color="text.secondary"
+      sx={{ fontSize: 42 }}
+    >
+      Latest Hotness
+    </Typography>
+      <Card
+        className="latest-products-cards-container"
+        variant="outlined"
       >
-        <div className="latest">Latest Hotness</div>
-        <Card
-          className="card-container"
-          variant="outlined"
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          {CARDS}
-        </Card>
-      </Box>
-    </div>
+        {CARDS}
+      </Card>
+    </Box>
   );
 }

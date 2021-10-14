@@ -5,12 +5,6 @@
   text-align: center;
 }
 
-/* .latest-container {
-  margin-top: 10px;
-  margin-bottom: 300px;
-  width: 100%;
-} */
-
 .latest-container {
   width: 100%;
   display: flex;
