@@ -88,7 +88,6 @@ export default function ProductEdit(props) {
                     }
                 }}
                 component="form"
-                noValidate
                 autoComplete="off"
                 onSubmit={handleSubmit}
                 >
@@ -145,7 +144,8 @@ export default function ProductEdit(props) {
                   <Select 
                     label="Style" 
                     name="category" 
-                    required 
+                    required
+                    value={product.category}
                     onChange={handleChange}
                   >
                     <MenuItem 
@@ -189,8 +189,9 @@ export default function ProductEdit(props) {
                     className="radio-group"
                     row
                     aria-label="gender"
-                    defaultValue="unisex"
-                    name="radio-buttons-group"
+                    name="gender"
+                    value={product.gender}
+                    onChange={handleChange}
                   >
                     <FormLabel 
                       component="legend"
@@ -198,19 +199,19 @@ export default function ProductEdit(props) {
                       Gender
                     </FormLabel>
                     <FormControlLabel 
-                      value="unisex" 
                       control={<Radio />} 
                       label="Unisex" 
+                      value="unisex"
                     />
                     <FormControlLabel 
-                      value="male" 
                       control={<Radio />} 
                       label="Male" 
+                      value="male" 
                     />
                     <FormControlLabel 
-                      value="female" 
                       control={<Radio />} 
                       label="Female" 
+                      value="female" 
                     />
                   </RadioGroup>
                 </FormControl>
