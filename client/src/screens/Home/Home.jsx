@@ -16,7 +16,6 @@ export default function Home(props) {
       link: "/products/",
       button: "Shop Now",
     },
-
     {
       name: "FIND YOUR STYLE",
       description: "JayWalkin offers a wide collection of shoes",
@@ -25,11 +24,11 @@ export default function Home(props) {
       button: "View All",
     },
     {
-      name: "NEW ARRIVAL",
+      name: "JayWalkin Member",
       description: "Start JayWalkin Now",
       image: Banner2,
-      link: "/products/616850296d03be26618efd08",
-      button: "Shop Latest Shoe",
+      link: "/sign-up/",
+      button: "Sign Up Today",
     },
   ];
   return (
