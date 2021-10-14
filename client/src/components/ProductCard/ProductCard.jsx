@@ -1,35 +1,72 @@
 import { Link } from "react-router-dom";
-import { CardMedia, CardContent, Typography } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import "./ProductCard.css";
 
 export default function ProductCard(props) {
   const { _id, name, price, imgURL } = props;
 
   return (
-    <CardContent
-      sx={{
-        width: "75%",
-        height: "90%",
-        m: "0 auto",
-      }}
+    <Link 
+      to={`/products/${_id}`}
+      className="link-card"
     >
-      <Link to={`/products/${_id}`}>
+      <Card
+        sx={{
+          width: "100%",
+          height: "100%",
+        }}
+        className="card"
+
+      >
         <CardMedia
+          className="card-media-img"
           component="img"
           src={imgURL}
           alt={name}
           sx={{
             height: "60%",
+            p: 4,
+            objectFit: "contain"
           }}
         />
-        <Typography gutterBottom>{name}</Typography>
-        <Typography gutterBottom color="text.secondary">
+      <CardContent
+        sx={{
+          position: "absolute",
+          bottom: "2%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden",
+          whiteSpace: "nowrap",
+          textOverflow: "ellipsis",
+          p: "2",
+        }}
+      >
+        <Typography 
+          gutterBottom
+          sx={{
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+            textOverflow: "ellipsis"
+          }}
+        >
+          {name}
+        </Typography>
+        <Typography 
+          gutterBottom 
+          color="text.secondary"
+        >
           ${price}
         </Typography>
-        <Typography gutterBottom color="text.secondary">
+        <Typography 
+          gutterBottom 
+          color="text.secondary"
+        >
           Learn More
         </Typography>
-      </Link>
-    </CardContent>
+      </CardContent>
+      </Card>
+    </Link>
   );
 }
