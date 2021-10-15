@@ -1,14 +1,14 @@
-# Jay-Walkin
+# JayWalkin Shoe Store
 
 ![JayWalkin Logo](./client/src/assets/JayWalkin-Logo.png)
 
-### Wireframe
+### JayWalkin Website Link
 
 [Deployed Site](https://jaywalkin.netlify.app/ "JayWalkin")
 
 ### Overview
 
-- Jay-Walkin(v1) is an app that has a collection of mid-to-high range sneakers.
+- JayWalkin(v1) is an app that has a collection of mid-to-high range sneakers.
 - Users can create a new account or login to an existing account.
 - Once logged in, users(admin) can add, edit, view, and delete sneakers in the database.
 - Users(admin) can view individual sneaker details and price.
