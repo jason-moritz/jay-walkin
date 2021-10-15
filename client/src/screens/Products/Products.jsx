@@ -50,15 +50,15 @@ export default function Products(props) {
     setApplySort(false);
   }
 
-  const handleSearch = (event) => {
+  const handleSearch = e => {
     const results = products.filter((product) =>
-      product.name.toLowerCase().includes(event.target.value.toLowerCase())
+      product.name.toLowerCase().includes(e.target.value.toLowerCase())
     );
     setSearchResult(results);
     setApplySort(true);
   };
 
-  const handleSubmit = (event) => event.preventDefault();
+  const handleSubmit = e => e.preventDefault();
 
   const CARDS = products.map((product, i) => (
     <div key={i} className="products-card-container">

@@ -14,6 +14,17 @@
 - Users(admin) can view individual sneaker details and price.
 - This app is built for desktop, and also responsive for mobile viewing.
 
+### Developement Team
+
+- Jason Moritz:
+  [LinkedIn](https://www.linkedin.com/in/jason-moritz/ "LinkedIn") / [Personal GitHub](https://github.com/lukewarmsoup1486 "GitHub")
+- Nathan Lyle:
+  [LinkedIn](https://www.linkedin.com/in/thenathanlyle/ "LinkedIn") / [Personal GitHub](https://github.com/thenathanlyle "GitHub")
+- Monsoud Zanaty:
+  [LinkedIn](https://www.linkedin.com/in/monsoud-zanaty-93559b212/ "LinkedIn") / [Personal GitHub](https://github.com/Arsenalfutbol14 "GitHub")
+- Diego Gallardo:
+  [LinkedIn](https://www.linkedin.com/in/digallardox/ "LinkedIn") / [Personal GitHub](https://github.com/digallardox "GitHub")
+
 ![JayWalkin](./READMEassets/JayWalkin-Final.png)
 
 ### Schema
