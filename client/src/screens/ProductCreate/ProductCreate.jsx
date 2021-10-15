@@ -219,10 +219,15 @@ export default function ProductCreate(props) {
                   type="submit"
                   variant="contained"
                   size="medium"
-                  classes="contained"
                   sx={{
+                    "&.MuiButton-containedPrimary": {
+                      backgroundColor: "#1976d2",
                       mt: 1,
                       mb: 2
+                    },
+                    "&.MuiButton-containedPrimary:hover": {
+                      backgroundColor: "#1565c0"
+                    }
                   }}
                 >
                   Add Product!
