@@ -34,7 +34,7 @@ export default function SignIn(props) {
         try {
             const user = await signIn(form);
             setUser(user);
-            toast(`Welcome ${user.username}`)
+            toast(`Welcome back ${user.username}!`)
             history.push("/");
         } catch (error) {
             console.error(error);
@@ -123,8 +123,14 @@ export default function SignIn(props) {
                                 variant="contained"
                                 size="medium"
                                 sx={{
-                                    mt: 1,
-                                    mb: 2
+                                    "&.MuiButton-containedPrimary": {
+                                        backgroundColor: "#1976d2",
+                                        mt: 1,
+                                        mb: 2
+                                    },
+                                    "&.MuiButton-containedPrimary:hover": {
+                                        backgroundColor: "#1565c0"
+                                    }
                                 }}
                             >
                                 Sign In!

@@ -11,11 +11,7 @@ export default function Item(props) {
         <div className="imgContainer">
           <img className="sliderImg" src={props.item.image} alt="banner" />
         </div>
-        <Button className="sliderButton">
-          <Link className="shopNowLink" to={props.item.link}>
-            {props.item.button}
-          </Link>
-        </Button>
+        <Button className="sliderButton">{props.item.button}</Button>
       </Link>
     </Paper>
   );

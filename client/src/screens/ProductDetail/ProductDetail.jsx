@@ -9,6 +9,8 @@ import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./ProductDetail.css";
 
 export default function ProductDetail(props) {
@@ -30,6 +32,7 @@ export default function ProductDetail(props) {
     e.preventDefault();
 
     await deleteProduct(id);
+    toast(`Ref Code 187 - ${product.name} has been destroyed`)
     history.push("/products");
   };
 
@@ -43,35 +46,35 @@ export default function ProductDetail(props) {
     
     <Layout user={props.user}>
 
-      <Box className="box-product">
+      <Box className="box-product-detail">
 
         <div className="backDiv">
         <Link to="/products" className="back">&#x2190; Go Back</Link>
         </div>
         
         
-        <Card variant="outlined" className="card-container">
+        <Card variant="outlined" className="card-container-product-detail">
           <CardContent className="card-content-container">
             <div className="product-detail">
-              <div className="image-container">
+              <div className="product-detail-image-container">
                 <img
                   className="product-detail-image"
                   src={product.imgURL}
                   alt={product.name}
                 />
               </div>
-              <div className="detail">
+              <div className="product-detail-info">
                 <Typography
                   sx={{ fontSize: 14 }}
                   color="text.secondary"
                   gutterBottom
                   component="div"
                 >
-                  <div className="name"><h2>{product.name}</h2></div>
-                  <div className="price"><h3>{`$${product.price}`}</h3></div>
-                  <div className="description"><p>{product.description}</p></div>
+                  <div><h2>{product.name}</h2></div>
+                  <div><h3>{`$${product.price}`}</h3></div>
+                  <div className="product-detail-description"><p>{product.description}</p></div>
                 </Typography>
-                <div className="button-container">
+                <div className="product-detail-button-container">
                   <CardActions>
                     <Button>
                       <Link className="edit-button" to={`/products/${id}/edit`}>

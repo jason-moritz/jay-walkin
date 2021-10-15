@@ -2,51 +2,53 @@ import { Link } from "react-router-dom";
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import "./ProductCard.css";
 
+
 export default function ProductCard(props) {
   const { _id, name, price, imgURL } = props;
 
   return (
     <Link 
       to={`/products/${_id}`}
-      className="link-card"
+      className="link-product-card"
     >
       <Card
+        className="card-product-card"
         sx={{
           width: "100%",
           height: "100%",
         }}
-        className="card-product-card"
-
       >
         <CardMedia
-          className="card-media-img"
           component="img"
           src={imgURL}
           alt={name}
           sx={{
-            height: "60%",
-            p: 4,
+            height: "100%",
+            top: 0,
+            left: 0,
+            right: 0,
+            overflow: "hidden",
             objectFit: "contain"
           }}
         />
       <CardContent
         sx={{
-          position: "absolute",
-          bottom: 0,
-          width: "90%",
+          height: "40%",
+          width: "100%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          p: "2",
+          textDecoration: "none"
         }}
       >
         <Typography 
           gutterBottom
-          noWrap="true"
+          noWrap
           align="center"
           sx={{
-            width: "90%"
+            width: "90%",
+            fontSize: 22
           }}
         >
           {name}
@@ -54,6 +56,9 @@ export default function ProductCard(props) {
         <Typography 
           gutterBottom 
           color="text.secondary"
+          sx={{
+            fontSize: 18
+          }}
         >
           ${price}
         </Typography>

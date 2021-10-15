@@ -11,7 +11,7 @@ const insertData = async () => {
     username: "nathan",
     email: "nathan@test.com",
     password_digest: await bcrypt.hash("test", 11),
-    cart: []
+    cart: [],
   });
   await user1.save();
 
@@ -19,7 +19,7 @@ const insertData = async () => {
     username: "jason",
     email: "test@test.com",
     password_digest: await bcrypt.hash("test", 11),
-    cart: []
+    cart: [],
   });
   await user2.save();
 
@@ -27,7 +27,7 @@ const insertData = async () => {
     username: "diego",
     email: "diego@test.com",
     password_digest: await bcrypt.hash("test", 11),
-    cart: []
+    cart: [],
   });
   await user3.save();
 
@@ -35,7 +35,7 @@ const insertData = async () => {
     username: "chace",
     email: "chace@test.com",
     password_digest: await bcrypt.hash("test", 11),
-    cart: []
+    cart: [],
   });
   await user4.save();
 
@@ -50,8 +50,8 @@ const insertData = async () => {
       price: "170",
       category: "Street",
       brand: "Nike",
-      gender: "Male",
-      userId: null
+      gender: "male",
+      userId: null,
     },
     {
       name: "Nike Air Max CB '94 Low",
@@ -62,8 +62,8 @@ const insertData = async () => {
       price: "160",
       category: "Street",
       brand: "Nike",
-      gender: "Male",
-      userId: null
+      gender: "male",
+      userId: null,
     },
     {
       name: "adidas ZX Fury",
@@ -74,8 +74,8 @@ const insertData = async () => {
       price: "200",
       category: "Street",
       brand: "Adidas",
-      gender: "Male",
-      userId: null
+      gender: "male",
+      userId: null,
     },
     {
       name: "adidas 4D Fusio",
@@ -86,8 +86,8 @@ const insertData = async () => {
       price: "149.99",
       category: "Street",
       brand: "Adidas",
-      gender: "Male",
-      userId: null
+      gender: "male",
+      userId: null,
     },
     {
       name: "Jordan 6 Rings",
@@ -98,8 +98,8 @@ const insertData = async () => {
       price: "170",
       category: "Street",
       brand: "Jordan",
-      gender: "Male",
-      userId: null
+      gender: "male",
+      userId: null,
     },
     {
       name: "Nike Adapt Auto Max",
@@ -110,8 +110,8 @@ const insertData = async () => {
       price: "400",
       category: "Street",
       brand: "Nike",
-      gender: "Male",
-      userId: null
+      gender: "male",
+      userId: null,
     },
     {
       name: "PUMA x Alexander John G-Tag",
@@ -122,8 +122,8 @@ const insertData = async () => {
       price: "250",
       category: "Street",
       brand: "Puma",
-      gender: "Male",
-      userId: null
+      gender: "male",
+      userId: null,
     },
     {
       name: "Air Yeezy 2 Red October",
@@ -134,8 +134,8 @@ const insertData = async () => {
       price: "980.00",
       category: "Casual",
       brand: "VALENTINO GARAVANI",
-      gender: "Male",
-      userId: null
+      gender: "male",
+      userId: null,
     },
     {
       name: "Jordan x Dior Air Jordan High sneakers",
@@ -143,11 +143,11 @@ const insertData = async () => {
         "https://styleguide-farfetch.blackandwhite-ff.com/BWStaticContent/10000/5898d60d-fe91-4203-ad45-79d25f9c0a11_01-ajdior.jpg",
       description:
         "Supplied by a premier sneaker marketplace dealing with unworn, already sold out, in demand rarities. Each product is rigorously inspected by experienced experts guaranteeing authenticity. These red Air Yeezy sneakers are crafted from leather and feature a round toe, a touch strap fastening, a lace-up front fastening, a logo patch at the tongue, a signature Nike swoosh, a flat rubber sole and a touch strap fastening.",
-      price: "21,630",
+      price: "21630",
       category: "Casual",
       brand: "Nike",
-      gender: "Male",
-      userId: null
+      gender: "female",
+      userId: null,
     },
   ];
 

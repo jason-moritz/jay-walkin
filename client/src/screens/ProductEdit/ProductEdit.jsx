@@ -101,7 +101,7 @@ export default function ProductEdit(props) {
                   />
                   <TextField
                     label="Price"
-                    value={product.price}
+                    value={parseInt(product.price)}
                     name="price"
                     type="number"
                     required
@@ -130,7 +130,6 @@ export default function ProductEdit(props) {
                 />
                 <FormControl 
                   fullWidth 
-                  className="form-control-drop-down"
                   sx={{ 
                     m: 1, 
                     width: "75%",
@@ -175,7 +174,7 @@ export default function ProductEdit(props) {
                   </Select>
                 </FormControl>
                 <FormControl
-                  className="radio-group-container"
+                  className="radio-group-container-product-edit"
                   component="fieldset"
                   sx={{
                     ".MuiFormGroup-root": {
@@ -186,7 +185,7 @@ export default function ProductEdit(props) {
                   }}}
                 >
                   <RadioGroup
-                    className="radio-group"
+                    className="radio-group-product-edit"
                     row
                     aria-label="gender"
                     name="gender"
@@ -229,8 +228,14 @@ export default function ProductEdit(props) {
                   variant="contained"
                   size="medium"
                   sx={{
+                    "&.MuiButton-containedPrimary": {
+                      backgroundColor: "#1976d2",
                       mt: 1,
                       mb: 2
+                    },
+                    "&.MuiButton-containedPrimary:hover": {
+                      backgroundColor: "#1565c0"
+                    }
                   }}
                 >
                   Update Product!

@@ -1,10 +1,21 @@
-.hotness:hover {
+.link-product-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-product-card:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-product-card:hover {
   box-shadow: 0 12px 12px 1px rgb(87, 69, 247),
     0 10px 10px rgba(208, 209, 200, 0.993);
 }
 
+
 @media only screen and (min-width: 350px) {
-  .link-card {
+  .link-product-card {
     width: 90%;
     height: 90%;
     margin: 1rem;
@@ -22,7 +33,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .link-card {
+  .link-product-card {
     margin: 0 2rem;
   }
 }
