@@ -6,7 +6,6 @@ import "./Category.css";
 export default function Category(props) {
   const [select, setSelect] = useState("all")
     const {
-        handleSubmit,
         setCategory,
     } = props;
 
