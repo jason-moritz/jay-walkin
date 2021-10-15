@@ -1,3 +1,5 @@
+import { Box, FormControl, InputLabel, Select } from "@mui/material";
+import MenuItem from "@material-ui/core/MenuItem";
 import "./Sort.css";
 
 
@@ -12,26 +14,54 @@ const Sort = (props) => {
   };
 
   return (
-    <form className="sort-container" onSubmit={handleSubmit}>
-      <label htmlFor="sort">SORT BY:</label>
-      <select className="sort" onChange={changeSort}>
-        <option className="option" value="name-ascending">
-          &nbsp; Alphabetically, A-Z &nbsp;
-        </option>
-        <option value="name-descending">
-          &nbsp; Alphabetically, Z-A &nbsp;
-        </option>
-        <option value="price-ascending">
-          &nbsp; Price, low to high &nbsp;
-        </option>
-        <option value="price-descending">
-          &nbsp; Price, high to low &nbsp;
-        </option>
-        <option value="brand">
-          &nbsp; Brand &nbsp;
-        </option>
-      </select>
-    </form>
+    <Box 
+      className="box-sort-container" 
+      component="form"
+      onSubmit={handleSubmit}
+    >
+      <FormControl
+        fullWidth
+        className="form-control-sort"
+      >
+        <InputLabel>
+          Sort By
+        </InputLabel>
+        <Select
+          label="Sort"
+          name="sort"
+          onChange={changeSort}
+          sx={{
+            width: "10%"
+          }}
+        >
+          <MenuItem
+            value="name-ascending"
+          >
+            Alphabetically, A-Z
+          </MenuItem>
+          <MenuItem 
+            value="name-descending"
+          >
+            Alphabetically, Z-A
+          </MenuItem>
+          <MenuItem 
+            value="price-ascending"
+          >
+            Price, low to high
+          </MenuItem>
+          <MenuItem 
+            value="price-descending"
+          >
+            Price, high to low
+          </MenuItem>
+          <MenuItem 
+            value="brand"
+          >
+            Brand
+          </MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
   )
 }
 export default Sort;
