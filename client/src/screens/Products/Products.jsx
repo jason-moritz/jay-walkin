@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Search from "../../components/Search/Search";
+import Category from "../../components/Category/Category";
 import Sort from "../../components/Sort/Sort";
-import { AZ, ZA, lowestFirst, highestFirst, sortByBrand, sortByGender } from "../../utils/sort";
+import { AZ, ZA, lowestFirst, highestFirst, sortByBrand } from "../../utils/sort";
 import { getProducts } from "../../services/products";
 import { Box, Card, Typography } from "@mui/material/";
 import "./Products.css";
@@ -14,16 +15,29 @@ export default function Products(props) {
   const [searchResult, setSearchResult] = useState([]);
   const [search, setSearch] = useState("");
   const [applySort, setApplySort] = useState(false);
+  const [category, setCategory] = useState("all");
   const [sortType, setSortType] = useState("name-ascending");
   
   useEffect(() => {
     const fetchProducts = async () => {
       const allProducts = await getProducts();
       setProducts(allProducts);
-      setSearchResult(allProducts);
-    };
+
+      if (category === "all") {
+        setSearchResult(allProducts)
+        
+      }else if (category === "unisex") {
+        setSearchResult(allProducts.filter((product) => product.gender.toLowerCase() === "unisex"))
+        
+      } else if (category === "male") {
+        setSearchResult(allProducts.filter((product) => product.gender.toLowerCase() === "male"))
+        
+      } else if (category === "female") {
+        setSearchResult(allProducts.filter((product) => product.gender.toLowerCase() === "female"))
+      };
+    }
     fetchProducts();
-  }, []);
+  }, [category]);
 
   const handleSort = (type) => {
     if (type !== "" && type !== undefined) {
@@ -61,13 +75,20 @@ export default function Products(props) {
     setApplySort(false);
   }
 
-  const handleSearch = (e) => {  
-    e.preventDefault();
+  const handleSearch = (e) => {      
     setSearch(e.target.value);
-    const results = products.filter((product) =>
-      product.name.toLowerCase().includes(e.target.value.toLowerCase())
-    );
-    setSearchResult(results);
+
+    if (category === "all") {
+      const results = products.filter((product) =>
+        product.name.toLowerCase().includes(e.target.value.toLowerCase()))
+        setSearchResult(results);
+
+    } else {
+      const results = products.filter((product) =>
+        product.name.toLowerCase().includes(e.target.value.toLowerCase()))
+      setSearchResult(results);
+    }
+
     setApplySort(true);
   };
 
@@ -98,8 +119,12 @@ export default function Products(props) {
         handleSubmit={handleSubmit} 
         handleSearch={handleSearch} 
       />
+      <Category
+        handleSubmit={handleSubmit}
+        setCategory={setCategory}
+      />
       <Sort 
-        onSubmit={handleSubmit} 
+        handleSubmit={handleSubmit} 
         handleSort={handleSort} 
       />
       <Box

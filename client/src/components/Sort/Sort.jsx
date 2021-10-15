@@ -34,5 +34,4 @@ const Sort = (props) => {
     </form>
   )
 }
-
 export default Sort;

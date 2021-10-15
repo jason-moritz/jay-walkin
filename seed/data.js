@@ -50,7 +50,7 @@ const insertData = async () => {
       price: "170",
       category: "Street",
       brand: "Nike",
-      gender: "Male",
+      gender: "male",
       userId: null,
     },
     {
@@ -62,7 +62,7 @@ const insertData = async () => {
       price: "160",
       category: "Street",
       brand: "Nike",
-      gender: "Male",
+      gender: "male",
       userId: null,
     },
     {
@@ -74,7 +74,7 @@ const insertData = async () => {
       price: "200",
       category: "Street",
       brand: "Adidas",
-      gender: "Male",
+      gender: "male",
       userId: null,
     },
     {
@@ -86,7 +86,7 @@ const insertData = async () => {
       price: "149.99",
       category: "Street",
       brand: "Adidas",
-      gender: "Male",
+      gender: "male",
       userId: null,
     },
     {
@@ -98,7 +98,7 @@ const insertData = async () => {
       price: "170",
       category: "Street",
       brand: "Jordan",
-      gender: "Male",
+      gender: "male",
       userId: null,
     },
     {
@@ -110,7 +110,7 @@ const insertData = async () => {
       price: "400",
       category: "Street",
       brand: "Nike",
-      gender: "Male",
+      gender: "male",
       userId: null,
     },
     {
@@ -122,7 +122,7 @@ const insertData = async () => {
       price: "250",
       category: "Street",
       brand: "Puma",
-      gender: "Male",
+      gender: "male",
       userId: null,
     },
     {
@@ -134,7 +134,7 @@ const insertData = async () => {
       price: "980.00",
       category: "Casual",
       brand: "VALENTINO GARAVANI",
-      gender: "Male",
+      gender: "male",
       userId: null,
     },
     {
@@ -143,10 +143,10 @@ const insertData = async () => {
         "https://styleguide-farfetch.blackandwhite-ff.com/BWStaticContent/10000/5898d60d-fe91-4203-ad45-79d25f9c0a11_01-ajdior.jpg",
       description:
         "Supplied by a premier sneaker marketplace dealing with unworn, already sold out, in demand rarities. Each product is rigorously inspected by experienced experts guaranteeing authenticity. These red Air Yeezy sneakers are crafted from leather and feature a round toe, a touch strap fastening, a lace-up front fastening, a logo patch at the tongue, a signature Nike swoosh, a flat rubber sole and a touch strap fastening.",
-      price: "21,630",
+      price: "21630",
       category: "Casual",
       brand: "Nike",
-      gender: "Male",
+      gender: "female",
       userId: null,
     },
   ];
