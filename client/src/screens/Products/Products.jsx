@@ -3,10 +3,11 @@ import Layout from "../../components/Layout/Layout";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Search from "../../components/Search/Search";
 import Sort from "../../components/Sort/Sort";
-import { AZ, ZA, lowestFirst, highestFirst } from "../../utils/sort";
+import { AZ, ZA, lowestFirst, highestFirst, sortByBrand, sortByGender } from "../../utils/sort";
 import { getProducts } from "../../services/products";
 import { Box, Card, Typography } from "@mui/material/";
 import "./Products.css";
+
 
 export default function Products(props) {
   const [products, setProducts] = useState([]);
@@ -14,7 +15,7 @@ export default function Products(props) {
   const [search, setSearch] = useState("");
   const [applySort, setApplySort] = useState(false);
   const [sortType, setSortType] = useState("name-ascending");
-
+  
   useEffect(() => {
     const fetchProducts = async () => {
       const allProducts = await getProducts();
@@ -31,21 +32,29 @@ export default function Products(props) {
 
     switch (type) {
       case "name-ascending":
-        setSearchResult(AZ(searchResult));
+        setSearchResult(AZ(searchResult))
         break;
+
       case "name-descending":
         setSearchResult(ZA(searchResult));
         break;
+
       case "price-ascending":
         setSearchResult(lowestFirst(searchResult));
         break;
+
       case "price-descending":
         setSearchResult(highestFirst(searchResult));
         break;
+
+      case "brand":
+        setSearchResult(sortByBrand(searchResult));
+        break;
+
       default:
         break;
     }
-  };
+  }
 
   if (applySort) {
     handleSort(sortType);
@@ -65,7 +74,10 @@ export default function Products(props) {
   const handleSubmit = (e) => e.preventDefault();
 
   const CARDS = searchResult.map((product, i) => (
-    <div key={i} className="products-card-container">
+    <div 
+      key={i} 
+      className="products-card-container"
+    >
       <ProductCard
         _id={product._id}
         name={product.name}
@@ -80,8 +92,16 @@ export default function Products(props) {
 
   return (
     <Layout user={props.user}>
-      <Search search={search} searchResult={searchResult} handleSubmit={handleSubmit} handleSearch={handleSearch} />
-      <Sort onSubmit={handleSubmit} handleSort={handleSort} />
+      <Search 
+        search={search} 
+        searchResult={searchResult} 
+        handleSubmit={handleSubmit} 
+        handleSearch={handleSearch} 
+      />
+      <Sort 
+        onSubmit={handleSubmit} 
+        handleSort={handleSort} 
+      />
       <Box
         sx={{
           display: "flex",
@@ -92,7 +112,13 @@ export default function Products(props) {
           height: "100%",
         }}
       >
-        <Typography gutterBottom color="text.secondary" sx={{ fontSize: 42 }}>
+        <Typography 
+          gutterBottom 
+          color="text.secondary" 
+          sx={{ 
+            fontSize: 42 
+          }}
+        >
           All Shoes
         </Typography>
         <Card

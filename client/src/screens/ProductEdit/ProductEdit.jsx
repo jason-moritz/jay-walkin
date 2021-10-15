@@ -101,7 +101,7 @@ export default function ProductEdit(props) {
                   />
                   <TextField
                     label="Price"
-                    value={product.price}
+                    value={parseInt(product.price)}
                     name="price"
                     type="number"
                     required
