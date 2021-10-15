@@ -119,14 +119,14 @@ export default function Products(props) {
         handleSubmit={handleSubmit} 
         handleSearch={handleSearch} 
       />
-      <Category
-        handleSubmit={handleSubmit}
-        setCategory={setCategory}
-      />
-      <Sort 
-        handleSubmit={handleSubmit} 
-        handleSort={handleSort} 
-      />
+        <Category
+          handleSubmit={handleSubmit}
+          setCategory={setCategory}
+        />
+        <Sort 
+          handleSubmit={handleSubmit} 
+          handleSort={handleSort} 
+        />
       <Box
         sx={{
           display: "flex",

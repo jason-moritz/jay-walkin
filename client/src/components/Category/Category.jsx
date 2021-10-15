@@ -1,26 +1,45 @@
+import { useState } from "react";
+import { Box, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import "./Category.css";
+
+
 export default function Category(props) {
+  const [select, setSelect] = useState("all")
     const {
         handleSubmit,
         setCategory,
     } = props;
 
+    const selectCategory = (e) => {
+      setSelect(e.target.value);
+      setCategory(e.target.value);
+    }
+
     return (
-        <form className="sort-container" onSubmit={e => handleSubmit(e)}>
-            <label htmlFor="sort">GENDER:</label>
-            <select className="sort" onChange={e => setCategory(e.target.value)}>
-                <option className="option" value="all">
-                  &nbsp; All &nbsp;
-                </option>
-                <option value="unisex">
-                  &nbsp; Unisex &nbsp;
-                </option>
-                <option value="male">
-                  &nbsp; Male &nbsp;
-                </option>
-                <option value="female">
-                  &nbsp; Female &nbsp;
-                </option>
-            </select>
-        </form>
+      <Box className="box-category">
+        <ToggleButtonGroup
+          color="primary"
+          size="medium"
+          classes="disabled"
+          selected={select}
+          value={select}
+          defaultValue="all"
+          exclusive
+          onChange={e => selectCategory(e)}
+        >
+          <ToggleButton value="all">
+            All
+          </ToggleButton>
+          <ToggleButton value="unisex">
+            Unisex
+          </ToggleButton>
+          <ToggleButton value="female">
+            Female
+          </ToggleButton>
+          <ToggleButton value="male">
+            Male
+          </ToggleButton>  
+        </ToggleButtonGroup>
+      </Box>
     )
 }
