@@ -11,7 +11,7 @@ const insertData = async () => {
     username: "nathan",
     email: "nathan@test.com",
     password_digest: await bcrypt.hash("test", 11),
-    cart: []
+    cart: [],
   });
   await user1.save();
 
@@ -19,7 +19,7 @@ const insertData = async () => {
     username: "jason",
     email: "test@test.com",
     password_digest: await bcrypt.hash("test", 11),
-    cart: []
+    cart: [],
   });
   await user2.save();
 
@@ -27,7 +27,7 @@ const insertData = async () => {
     username: "diego",
     email: "diego@test.com",
     password_digest: await bcrypt.hash("test", 11),
-    cart: []
+    cart: [],
   });
   await user3.save();
 
@@ -35,7 +35,7 @@ const insertData = async () => {
     username: "chace",
     email: "chace@test.com",
     password_digest: await bcrypt.hash("test", 11),
-    cart: []
+    cart: [],
   });
   await user4.save();
 
@@ -51,7 +51,7 @@ const insertData = async () => {
       category: "Street",
       brand: "Nike",
       gender: "Male",
-      userId: null
+      userId: null,
     },
     {
       name: "Nike Air Max CB '94 Low",
@@ -63,7 +63,7 @@ const insertData = async () => {
       category: "Street",
       brand: "Nike",
       gender: "Male",
-      userId: null
+      userId: null,
     },
     {
       name: "adidas ZX Fury",
@@ -75,7 +75,7 @@ const insertData = async () => {
       category: "Street",
       brand: "Adidas",
       gender: "Male",
-      userId: null
+      userId: null,
     },
     {
       name: "adidas 4D Fusio",
@@ -87,7 +87,7 @@ const insertData = async () => {
       category: "Street",
       brand: "Adidas",
       gender: "Male",
-      userId: null
+      userId: null,
     },
     {
       name: "Jordan 6 Rings",
@@ -99,7 +99,7 @@ const insertData = async () => {
       category: "Street",
       brand: "Jordan",
       gender: "Male",
-      userId: null
+      userId: null,
     },
     {
       name: "Nike Adapt Auto Max",
@@ -111,7 +111,7 @@ const insertData = async () => {
       category: "Street",
       brand: "Nike",
       gender: "Male",
-      userId: null
+      userId: null,
     },
     {
       name: "PUMA x Alexander John G-Tag",
@@ -123,7 +123,7 @@ const insertData = async () => {
       category: "Street",
       brand: "Puma",
       gender: "Male",
-      userId: null
+      userId: null,
     },
     {
       name: "Air Yeezy 2 Red October",
@@ -135,7 +135,7 @@ const insertData = async () => {
       category: "Casual",
       brand: "VALENTINO GARAVANI",
       gender: "Male",
-      userId: null
+      userId: null,
     },
     {
       name: "Jordan x Dior Air Jordan High sneakers",
@@ -147,7 +147,7 @@ const insertData = async () => {
       category: "Casual",
       brand: "Nike",
       gender: "Male",
-      userId: null
+      userId: null,
     },
   ];
 
