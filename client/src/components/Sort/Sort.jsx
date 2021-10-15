@@ -4,7 +4,7 @@ import "./Sort.css";
 const Sort = (props) => {
   const { 
     handleSort, 
-    handleSubmit 
+    handleSubmit,
   } = props;
 
   const changeSort = e => {
@@ -27,9 +27,12 @@ const Sort = (props) => {
         <option value="price-descending">
           &nbsp; Price, high to low &nbsp;
         </option>
+        <option value="brand">
+          &nbsp; Brand &nbsp;
+        </option>
       </select>
     </form>
-  );
-};
+  )
+}
 
 export default Sort;
