@@ -23,29 +23,32 @@ export default function ProductCard(props) {
           src={imgURL}
           alt={name}
           sx={{
-            height: "60%",
-            p: 4,
+            height: "100%",
+            top: 0,
+            left: 0,
+            right: 0,
+            overflow: "hidden",
             objectFit: "contain"
           }}
         />
       <CardContent
         sx={{
-          position: "absolute",
-          bottom: 0,
-          width: "90%",
+          height: "40%",
+          width: "100%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          p: "2",
+          textDecoration: "none"
         }}
       >
         <Typography 
           gutterBottom
-          noWrap="true"
+          noWrap
           align="center"
           sx={{
-            width: "90%"
+            width: "90%",
+            fontSize: 22
           }}
         >
           {name}
@@ -53,6 +56,9 @@ export default function ProductCard(props) {
         <Typography 
           gutterBottom 
           color="text.secondary"
+          sx={{
+            fontSize: 18
+          }}
         >
           ${price}
         </Typography>

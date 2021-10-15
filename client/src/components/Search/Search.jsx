@@ -1,15 +1,24 @@
 import "./Search.css";
 
 const Search = (props) => {
+  const {
+    handleSubmit,
+    handleSearch,
+    search
+  } = props;
+  
   return (
-    <form className="search-form" onSubmit={(e) => props.onSubmit(e)}>
+    <form 
+      className="search-form" 
+      onSubmit={e => handleSubmit(e)}
+    >
       <input
         className="search-input"
-        value={props.value}
-        onChange={(e) => props.handleSearch(e)}
+        value={search}
+        onChange={e => handleSearch(e)}
         name="Search"
         placeholder="Search"
-        type="text"
+        type="search"
         autoFocus
       />
     </form>

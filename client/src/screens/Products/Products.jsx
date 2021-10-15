@@ -11,6 +11,7 @@ import "./Products.css";
 export default function Products(props) {
   const [products, setProducts] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
+  const [search, setSearch] = useState("");
   const [applySort, setApplySort] = useState(false);
   const [sortType, setSortType] = useState("name-ascending");
 
@@ -18,6 +19,7 @@ export default function Products(props) {
     const fetchProducts = async () => {
       const allProducts = await getProducts();
       setProducts(allProducts);
+      setSearchResult(allProducts);
     };
     fetchProducts();
   }, []);
@@ -50,7 +52,9 @@ export default function Products(props) {
     setApplySort(false);
   }
 
-  const handleSearch = e => {
+  const handleSearch = (e) => {  
+    e.preventDefault();
+    setSearch(e.target.value);
     const results = products.filter((product) =>
       product.name.toLowerCase().includes(e.target.value.toLowerCase())
     );
@@ -58,9 +62,9 @@ export default function Products(props) {
     setApplySort(true);
   };
 
-  const handleSubmit = e => e.preventDefault();
+  const handleSubmit = (e) => e.preventDefault();
 
-  const CARDS = products.map((product, i) => (
+  const CARDS = searchResult.map((product, i) => (
     <div key={i} className="products-card-container">
       <ProductCard
         _id={product._id}
@@ -76,7 +80,7 @@ export default function Products(props) {
 
   return (
     <Layout user={props.user}>
-      <Search onSubmit={handleSubmit} handleSearch={handleSearch} />
+      <Search search={search} searchResult={searchResult} handleSubmit={handleSubmit} handleSearch={handleSearch} />
       <Sort onSubmit={handleSubmit} handleSort={handleSort} />
       <Box
         sx={{
@@ -95,7 +99,7 @@ export default function Products(props) {
           className="products-cards-container"
           variant="outlined"
           sx={{
-            overflowY: "scroll",
+            height: "100%"
           }}
         >
           {CARDS}
