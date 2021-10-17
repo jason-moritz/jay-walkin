@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { getProduct, deleteProduct } from "../../services/products";
+import BackButton from "../../components/BackButton/BackButton";
 import Layout from "../../components/Layout/Layout";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -46,13 +47,8 @@ export default function ProductDetail(props) {
     
     <Layout user={props.user}>
 
+      <BackButton className="product-detail-back-button" />        
       <Box className="box-product-detail">
-
-        <div className="backDiv">
-        <Link to="/products" className="back">&#x2190; Go Back</Link>
-        </div>
-        
-        
         <Card variant="outlined" className="card-container-product-detail">
           <CardContent className="card-content-container">
             <div className="product-detail">

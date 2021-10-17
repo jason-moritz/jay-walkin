@@ -4,6 +4,15 @@
     align-items: center;
 }
 
+.edit-button {
+    text-decoration: none;
+    color: inherit;
+}
+
+.edit-button:visited {
+    text-decoration: none;
+    color: inherit;
+}
 .card-container-product-detail {
     width: 90%;
 }
