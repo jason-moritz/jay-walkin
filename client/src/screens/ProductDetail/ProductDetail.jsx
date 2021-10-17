@@ -44,9 +44,7 @@ export default function ProductDetail(props) {
   };
 
   return (
-    
     <Layout user={props.user}>
-
       <BackButton className="product-detail-back-button" />        
       <Box className="box-product-detail">
         <Card variant="outlined" className="card-container-product-detail">
@@ -91,6 +89,5 @@ export default function ProductDetail(props) {
         </Card>
       </Box>
     </Layout>
-   
   );
 }

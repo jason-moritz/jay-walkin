@@ -24,11 +24,6 @@
     overflow: hidden;
 }
 
-.back {
-    padding: 10px 0;
-    float: left;
-}
-
 .product-detail-image {
     transition: transform .2s;
 }

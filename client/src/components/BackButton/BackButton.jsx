@@ -14,7 +14,8 @@ export default function BackButton() {
             sx={{
                 display: "flex",
                 justifyContent: "flex-start",
-                pl: "20%"
+                width: {xs: "90%", sm: "80%", md: "75%", lg: "70%"},
+                margin: "0 auto"
             }}>
             <Button
                 variant="text"
