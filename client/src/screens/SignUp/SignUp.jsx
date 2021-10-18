@@ -70,8 +70,7 @@ export default function SignUp(props) {
         setToggle((prevToggle) => !prevToggle);
 
         setForm({
-            username: "",
-            email: "",
+            ...form,
             password: "",
             passwordConfirmation: ""
         });
