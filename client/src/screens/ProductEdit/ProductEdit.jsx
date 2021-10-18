@@ -95,7 +95,7 @@ export default function ProductEdit(props) {
                     label="Product Name"
                     value={product.name}
                     name="name"
-                    inputProps={{ maxLength: 24 }}
+                    inputProps={{ maxLength: 30 }}
                     required
                     autoFocus
                     onChange={handleChange}
@@ -127,7 +127,7 @@ export default function ProductEdit(props) {
                   label="Brand"
                   value={product.brand}
                   name="brand"
-                  inputProps={{ maxLength: 12 }}
+                  inputProps={{ maxLength: 24 }}
                   required
                   onChange={handleChange}
                 />
