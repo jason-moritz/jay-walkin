@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import Footer from "../Footer/Footer";
 import {
   AppBar,
   Box,
@@ -8,7 +9,6 @@ import {
   IconButton,
   Drawer,
   List,
-  ListItem,
   ListItemText,
   Divider,
 } from "@mui/material";
@@ -51,47 +51,35 @@ const alwaysOptions = (
 
 const alwaysOptionsMobile = (
   <>
-    <ListItem button onClick={() => {}}>
       <NavLink className="nav-mobile-link" to="/products">
         <ListItemText primary={"Products"} />
       </NavLink>
-    </ListItem>
   </>
 );
 
 const authenticatedOptionsMobile = (
   <>
-    <ListItem button onClick={() => {}}>
       <NavLink className="nav-mobile-link" to="/add-product">
         <ListItemText primary={"Add Product"} />
       </NavLink>
-    </ListItem>
-    <ListItem button onClick={() => {}}>
       <NavLink className="nav-mobile-link" to="/change-password">
         <ListItemText primary={"Change Password"} />
       </NavLink>
-    </ListItem>
-    <ListItem button onClick={() => {}}>
       <NavLink className="nav-mobile-link" to="/sign-out">
         <ListItemText primary={"Sign Out"} />
       </NavLink>
-    </ListItem>
   </>
 );
 
 const unauthenticatedOptionsMobile = (
   <>
-    <ListItem button onClick={() => {}}>
       <NavLink className="nav-mobile-link" to="/sign-up">
         <ListItemText primary={"Sign Up"} />
       </NavLink>
-    </ListItem>
 
-    <ListItem button onClick={() => {}}>
       <NavLink className="nav-mobile-link" to="/sign-in">
         <ListItemText primary={"Sign In"} />
       </NavLink>
-    </ListItem>
   </>
 );
 
@@ -124,10 +112,18 @@ export default function Nav({ user }) {
               X
             </Box>
             <Divider />
+            <Typography noWrap sx={{p: 2, fontWeight: "bolder"}}>
+              {user && `Welcome, ${user.username}`}
+            </Typography>
+            <Box sx={{ px: 2 }}>
             <List>
               {alwaysOptionsMobile}
               {user ? authenticatedOptionsMobile : unauthenticatedOptionsMobile}
             </List>
+            </Box>
+            <Box sx={{ width: "250px", position: "fixed", bottom: 0}}>
+              <Footer />
+            </Box>
           </div>
         </Drawer>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -135,9 +131,11 @@ export default function Nav({ user }) {
             <img className="nav-logo-img" src={Logo} alt="logo" />
           </NavLink>
         </Typography>
-        <Typography noWrap>
-          {user && `Welcome, ${user.username}`}
-        </Typography>
+        <div className="welcome-user-full-screen">
+          <Typography noWrap>
+            {user && `Welcome, ${user.username}`}
+          </Typography>
+        </div>
         <div className="nav-link">
         <Typography>
           {alwaysOptions}
