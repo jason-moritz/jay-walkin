@@ -7,11 +7,11 @@
 .nav-logo-link:visited,
 .nav-link:visited {
   text-decoration: none;
-  color: darkslategray;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .nav-link {
-  color: black;
+  color: rgba(0, 0, 0, 0.87);
   text-decoration: none;
   margin: 10px;
 }
@@ -29,13 +29,13 @@
   }
 
   .nav-mobile-link {
-    color: black;
+    color: rgba(0, 0, 0, 0.87);
     text-decoration: none;
     text-align: left;
   }
 
   .nav-mobile-link:visited {
-    color: black;
+    color: rgba(0, 0, 0, 0.87);
   }
 
   .nav-logo-link {
