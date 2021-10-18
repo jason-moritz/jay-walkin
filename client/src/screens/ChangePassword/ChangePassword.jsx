@@ -73,7 +73,7 @@ export default function ChangePassword(props) {
         };
 
         setForm({
-            email: "",
+            ...form,
             password: "",
             newPassword: "",
             newPasswordConfirmation: ""
