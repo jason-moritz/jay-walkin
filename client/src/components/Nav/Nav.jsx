@@ -52,47 +52,35 @@ const alwaysOptions = (
 
 const alwaysOptionsMobile = (
   <>
-    {/* <ListItem button onClick={() => {}}> */}
       <NavLink className="nav-mobile-link" to="/products">
         <ListItemText primary={"Products"} />
       </NavLink>
-    {/* </ListItem> */}
   </>
 );
 
 const authenticatedOptionsMobile = (
   <>
-    {/* <ListItem button onClick={() => {}}> */}
       <NavLink className="nav-mobile-link" to="/add-product">
         <ListItemText primary={"Add Product"} />
       </NavLink>
-    {/* </ListItem> */}
-    {/* <ListItem button onClick={() => {}}> */}
       <NavLink className="nav-mobile-link" to="/change-password">
         <ListItemText primary={"Change Password"} />
       </NavLink>
-    {/* </ListItem> */}
-    {/* <ListItem button onClick={() => {}}> */}
       <NavLink className="nav-mobile-link" to="/sign-out">
         <ListItemText primary={"Sign Out"} />
       </NavLink>
-    {/* </ListItem> */}
   </>
 );
 
 const unauthenticatedOptionsMobile = (
   <>
-    {/* <ListItem button onClick={() => {}}> */}
       <NavLink className="nav-mobile-link" to="/sign-up">
         <ListItemText primary={"Sign Up"} />
       </NavLink>
-    {/* </ListItem> */}
 
-    {/* <ListItem button onClick={() => {}}> */}
       <NavLink className="nav-mobile-link" to="/sign-in">
         <ListItemText primary={"Sign In"} />
       </NavLink>
-    {/* </ListItem> */}
   </>
 );
 
