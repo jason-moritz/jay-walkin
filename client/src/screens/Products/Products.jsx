@@ -122,6 +122,7 @@ export default function Products(props) {
         }}
       >  
         <Search 
+          category={category}
           search={search} 
           searchResult={searchResult} 
           handleSearch={handleSearch} 

@@ -5,7 +5,8 @@ const Search = (props) => {
   const {
     handleSubmit,
     handleSearch,
-    search
+    search,
+    category
   } = props;
   
   return (
@@ -22,9 +23,10 @@ const Search = (props) => {
       }}
     >
       <TextField
-        label="Search"
+        label={category === "all" ? "Search" : "Please change category to 'All' to enable."}
         value={search}
         onChange={e => handleSearch(e)}
+        disabled={category !== "all"}
         name="Search"
         placeholder="Search"
         type="search"
