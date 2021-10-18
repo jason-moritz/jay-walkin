@@ -13,6 +13,7 @@ export default function SignIn(props) {
         email: "",
         password: ""
     });
+    
     const [toggle, setToggle] = useState(false)
 
     const { email, password } = form;
@@ -31,11 +32,13 @@ export default function SignIn(props) {
 
     const onSignIn = async (e) => {
         e.preventDefault();
+
         try {
             const user = await signIn(form);
             setUser(user);
             toast(`Welcome back ${user.username}!`)
             history.push("/");
+
         } catch (error) {
             console.error(error);
             setToggle((prevToggle) => !prevToggle);

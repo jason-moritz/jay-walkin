@@ -139,6 +139,7 @@ export default function Products(props) {
           <Category
           handleSubmit={handleSubmit}
           setCategory={setCategory}
+          setSearch={setSearch}
         />
       </Box>
       <Box

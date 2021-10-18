@@ -7,11 +7,13 @@ export default function Category(props) {
   const [select, setSelect] = useState("all")
     const {
         setCategory,
+        setSearch
     } = props;
 
     const selectCategory = (e) => {
       setSelect(e.target.value);
       setCategory(e.target.value);
+      setSearch("");
     }
 
     return (
