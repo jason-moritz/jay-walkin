@@ -139,8 +139,10 @@ export default function Nav({ user }) {
           {user && `Welcome, ${user.username}`}
         </Typography>
         <div className="nav-link">
+        <Typography>
           {alwaysOptions}
           {user ? authenticatedOptions : unauthenticatedOptions}
+        </Typography>
         </div>
       </Toolbar>
     </AppBar>
