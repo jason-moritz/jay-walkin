@@ -124,6 +124,9 @@ export default function Nav({ user }) {
               X
             </Box>
             <Divider />
+            <Typography noWrap sx={{p: 2, fontWeight: "bolder"}}>
+              {user && `Welcome, ${user.username}`}
+            </Typography>
             <List>
               {alwaysOptionsMobile}
               {user ? authenticatedOptionsMobile : unauthenticatedOptionsMobile}
@@ -135,9 +138,11 @@ export default function Nav({ user }) {
             <img className="nav-logo-img" src={Logo} alt="logo" />
           </NavLink>
         </Typography>
-        <Typography noWrap>
-          {user && `Welcome, ${user.username}`}
-        </Typography>
+        <div className="welcome-user-full-screen">
+          <Typography noWrap>
+            {user && `Welcome, ${user.username}`}
+          </Typography>
+        </div>
         <div className="nav-link">
         <Typography>
           {alwaysOptions}
