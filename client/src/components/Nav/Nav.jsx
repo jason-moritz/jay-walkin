@@ -1,10 +1,20 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { AppBar, Box, Toolbar, Typography, IconButton, Drawer, List, ListItem, ListItemText, Divider } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "../../assets/JayWalkin-Logo.png";
 import "./Nav.css";
-
 
 const authenticatedOptions = (
   <>
@@ -110,42 +120,23 @@ export default function Nav({ user }) {
           onOpen={() => {}}
         >
           <div className="drawer">
-            <Box
-              p={2}
-              onClick={() => setOpen(false)}
-              className="x"
-            >
+            <Box p={2} onClick={() => setOpen(false)} className="x">
               X
             </Box>
             <Divider />
             <List>
               {alwaysOptionsMobile}
-              {user
-                ? authenticatedOptionsMobile
-                : unauthenticatedOptionsMobile}
+              {user ? authenticatedOptionsMobile : unauthenticatedOptionsMobile}
             </List>
           </div>
         </Drawer>
-        <Typography 
-          variant="h6" 
-          component="div" 
-          sx={{ flexGrow: 1 }}
-        >
-          <NavLink 
-            className="nav-logo-link" 
-            to="/"
-          >
-            <img 
-              className="nav-logo-img" 
-              src={Logo} 
-              alt="logo" 
-            />
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <NavLink className="nav-logo-link" to="/">
+            <img className="nav-logo-img" src={Logo} alt="logo" />
           </NavLink>
         </Typography>
         <Typography>
-          {user && (
-          `Welcome, ${user.username}`
-          )}
+          {user && `Welcome, ${user.username.substring(0, 9)}`}
         </Typography>
         <div className="nav-link">
           {alwaysOptions}
