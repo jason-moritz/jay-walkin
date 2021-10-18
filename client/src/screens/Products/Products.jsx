@@ -113,20 +113,35 @@ export default function Products(props) {
 
   return (
     <Layout user={props.user}>
-      <Search 
-        search={search} 
-        searchResult={searchResult} 
-        handleSubmit={handleSubmit} 
-        handleSearch={handleSearch} 
-      />
-        <Category
-          handleSubmit={handleSubmit}
-          setCategory={setCategory}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
+          my: 2
+        }}
+      >  
+        <Search 
+          search={search} 
+          searchResult={searchResult} 
+          handleSearch={handleSearch} 
+          handleSubmit={handleSubmit} 
         />
         <Sort 
           handleSubmit={handleSubmit} 
           handleSort={handleSort} 
         />
+      </Box>
+      <Box
+        sx={{
+          width: "100%"
+        }}>
+          <Category
+          handleSubmit={handleSubmit}
+          setCategory={setCategory}
+          setSearch={setSearch}
+        />
+      </Box>
       <Box
         sx={{
           display: "flex",

@@ -20,7 +20,10 @@ export default function ProductCards() {
   }, []);
 
   const CARDS = latestProducts.map((product, i) => (
-    <div className="latest-products-card-container">
+    <div 
+      className="latest-products-card-container"
+      key={i}
+    >
       <ProductCard
         _id={product._id}
         name={product.name}
