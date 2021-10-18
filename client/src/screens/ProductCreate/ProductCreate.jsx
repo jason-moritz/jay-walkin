@@ -86,6 +86,7 @@ export default function ProductCreate(props) {
                   label="Product Name"
                   value={newProduct.name}
                   name="name"
+                  inputProps={{ maxLength: 24 }}
                   required
                   autoFocus
                   onChange={handleChange}
@@ -95,6 +96,7 @@ export default function ProductCreate(props) {
                   value={newProduct.price}
                   name="price"
                   type="number"
+                  inputProps={{ max: 99999 }}
                   required
                   onChange={handleChange}
                   InputProps={{
@@ -116,6 +118,7 @@ export default function ProductCreate(props) {
                   label="Brand"
                   value={newProduct.brand}
                   name="brand"
+                  inputProps={{ maxLength: 12 }}
                   required
                   onChange={handleChange}
                 />
@@ -211,6 +214,7 @@ export default function ProductCreate(props) {
                   rows={5}
                   value={newProduct.description}
                   name="description"
+                  inputProps={{ maxLength: 240 }}
                   multiline
                   required
                   onChange={handleChange}

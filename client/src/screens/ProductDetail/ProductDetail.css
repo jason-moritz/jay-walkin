@@ -4,6 +4,15 @@
     align-items: center;
 }
 
+.edit-button {
+    text-decoration: none;
+    color: inherit;
+}
+
+.edit-button:visited {
+    text-decoration: none;
+    color: inherit;
+}
 .card-container-product-detail {
     width: 90%;
 }
@@ -13,11 +22,6 @@
     justify-content: center;
     width: 100%;
     overflow: hidden;
-}
-
-.back {
-    padding: 10px 0;
-    float: left;
 }
 
 .product-detail-image {

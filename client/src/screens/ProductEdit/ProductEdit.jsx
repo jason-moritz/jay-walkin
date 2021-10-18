@@ -77,7 +77,7 @@ export default function ProductEdit(props) {
                     color="text.secondary" 
                     gutterBottom
                 >
-                    {`Edit ${product.name}`}
+                    Update Product Info Below!
                 </Typography>   
                 <Box 
                 className="box-edit-product"
@@ -95,6 +95,7 @@ export default function ProductEdit(props) {
                     label="Product Name"
                     value={product.name}
                     name="name"
+                    inputProps={{ maxLength: 24 }}
                     required
                     autoFocus
                     onChange={handleChange}
@@ -104,6 +105,7 @@ export default function ProductEdit(props) {
                     value={parseInt(product.price)}
                     name="price"
                     type="number"
+                    inputProps={{ max: 99999 }}
                     required
                     onChange={handleChange}
                     InputProps={{
@@ -125,6 +127,7 @@ export default function ProductEdit(props) {
                   label="Brand"
                   value={product.brand}
                   name="brand"
+                  inputProps={{ maxLength: 12 }}
                   required
                   onChange={handleChange}
                 />
@@ -219,6 +222,7 @@ export default function ProductEdit(props) {
                   rows={5}
                   value={product.description}
                   name="description"
+                  inputProps={{ maxLength: 240 }}
                   multiline
                   required
                   onChange={handleChange}

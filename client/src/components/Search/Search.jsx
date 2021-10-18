@@ -14,6 +14,12 @@ const Search = (props) => {
       component="form"
       autoComplete="on"
       onSubmit={e => handleSubmit(e)}
+      sx={{
+        width: "50%",
+        mx: {xs: 1, md: 2},
+        display: "flex",
+        justifyContent: "center"
+      }}
     >
       <TextField
         label="Search"
@@ -24,7 +30,7 @@ const Search = (props) => {
         type="search"
         autoFocus
         sx={{
-          width: "50%"
+          width: "100%"
         }}
       />
     </Box>

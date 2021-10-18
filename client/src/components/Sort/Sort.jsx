@@ -15,44 +15,49 @@ const Sort = (props) => {
 
   return (
     <Box 
-      className="box-sort-container" 
       component="form"
       onSubmit={handleSubmit}
+      sx={{
+        mx: 2,
+        width: {xs: "30%", sm: "20%"},
+        maxWidth: "130px",
+      }}
+      
     >
       <FormControl
-        fullWidth
-        className="form-control-sort"
-      >
+        sx={{
+          width: "100%"
+        }}>
         <InputLabel>
-          Sort By
+          Sort
         </InputLabel>
         <Select
+          className="form-control-select-sort"
           label="Sort"
           name="sort"
           onChange={changeSort}
           sx={{
-            width: "10%"
           }}
         >
           <MenuItem
             value="name-ascending"
           >
-            Alphabetically, A-Z
+            A-Z
           </MenuItem>
           <MenuItem 
             value="name-descending"
           >
-            Alphabetically, Z-A
+            Z-A
           </MenuItem>
           <MenuItem 
             value="price-ascending"
           >
-            Price, low to high
+            $-$$$
           </MenuItem>
           <MenuItem 
             value="price-descending"
           >
-            Price, high to low
+            $$$-$
           </MenuItem>
           <MenuItem 
             value="brand"
