@@ -135,8 +135,8 @@ export default function Nav({ user }) {
             <img className="nav-logo-img" src={Logo} alt="logo" />
           </NavLink>
         </Typography>
-        <Typography>
-          {user && `Welcome, ${user.username.substring(0, 9)}`}
+        <Typography noWrap>
+          {user && `Welcome, ${user.username}`}
         </Typography>
         <div className="nav-link">
           {alwaysOptions}
