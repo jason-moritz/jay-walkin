@@ -132,7 +132,7 @@ export default function Nav({ user }) {
           </NavLink>
         </Typography>
         <div className="welcome-user-full-screen">
-          <Typography noWrap>
+          <Typography noWrap sx={{ fontWeight: "bolder" }}>
             {user && `Welcome, ${user.username}`}
           </Typography>
         </div>
