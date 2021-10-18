@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import BackButton from "../../components/BackButton/BackButton";
 import Search from "../../components/Search/Search";
 import Category from "../../components/Category/Category";
 import Sort from "../../components/Sort/Sort";
@@ -114,7 +113,6 @@ export default function Products(props) {
 
   return (
     <Layout user={props.user}>
-      <BackButton />
       <Box
         sx={{
           display: "flex",
@@ -141,6 +139,7 @@ export default function Products(props) {
           <Category
           handleSubmit={handleSubmit}
           setCategory={setCategory}
+          setSearch={setSearch}
         />
       </Box>
       <Box
