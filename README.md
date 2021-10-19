@@ -17,7 +17,7 @@
 ### Developement Team
 
 - Jason Moritz:
-  [LinkedIn](https://www.linkedin.com/in/jason-moritz/ "LinkedIn") / [Personal GitHub](https://github.com/lukewarmsoup1486 "GitHub")
+  [LinkedIn](https://www.linkedin.com/in/jason-moritz/ "LinkedIn") / [Personal GitHub](https://github.com/jason-moritz "GitHub")
 - Nathan Lyle:
   [LinkedIn](https://www.linkedin.com/in/thenathanlyle/ "LinkedIn") / [Personal GitHub](https://github.com/thenathanlyle "GitHub")
 - Monsoud Zanaty:
